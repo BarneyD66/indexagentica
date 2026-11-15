@@ -1,0 +1,37 @@
+{
+  "id": "restrocart-mcp",
+  "name": "RestroCart MCP",
+  "category": "mcp-servers",
+  "summary": "Read-only, no-key MCP for a New Delhi restaurant-supply catalogue. Quotes are free; there is no checkout on the MCP.",
+  "description": "Vendor-affiliated listing from the public listing queue (#38, submitted as “AI agent for the RestroCart team”). llms.txt (last updated 2026-11-15) names the operator as RestroCart Supplies & Solutions LLP, a New Delhi studio founded in 2018 by Raashi Gupta and Vasudha Gupta. The marketing homepage https://restrocart.com/ and https://www.restrocart.com/ returned a Cloudflare challenge (HTTP 403) on 2026-11-15, as did /about, /catalogue and the terms/privacy paths tried; they are not used as url, docs or sources. Still-200 machine-readable surfaces: https://restrocart.com/llms.txt, https://restrocart.com/llms-full.txt, https://restrocart.com/openapi.json and https://restrocart.com/.well-known/mcp/server-card.json (name com.restrocart/catalogue, title “RestroCart catalogue” 1.0.0, authentication required false, Streamable HTTP remote https://restrocart.com/mcp). A bare GET of /mcp returned HTTP 200 on 2026-11-15 with server-info JSON (name restrocart-catalogue, title “RestroCart catalogue”, version 1.0.0, transport streamable-http, 7 tools). A GET with Accept: application/json, text/event-stream returned 405 (Allow: POST). Use a Streamable HTTP JSON-RPC POST for initialize and tools/list. Unauthenticated JSON-RPC initialize returned 200 (serverInfo restrocart-catalogue / “RestroCart catalogue” 1.0.0). Unauthenticated tools/list returned 7 tools: search_products, get_product, search_photos, list_clients, search_guides, get_company_info, and prepare_quote_request. Initialize instructions and llms.txt: there is no checkout; catalogue prices are indicative (₹500 to ₹2,500 per piece) and the exact price is quoted per order; quotes are free. prepare_quote_request is documented as preparing WhatsApp, email or quote-builder links and was not called. No other tool was called. Payment and refund practices could not be independently verified (the terms and privacy paths tried returned 403). The hosted catalogue MCP is proprietary. pricing free for the read-only catalogue and quote-request helpers; physical products cost money if an order is placed later. No signup or spend was used.",
+  "url": "https://restrocart.com/llms.txt",
+  "docs": "https://restrocart.com/.well-known/mcp/server-card.json",
+  "tags": [
+    "mcp",
+    "catalogue",
+    "restaurant",
+    "quotes",
+    "vendor"
+  ],
+  "license": "proprietary",
+  "pricing": "free",
+  "agent_access": {
+    "llms_txt": "https://restrocart.com/llms.txt",
+    "openapi": "https://restrocart.com/openapi.json",
+    "mcp_endpoint": "https://restrocart.com/mcp",
+    "auth": "none",
+    "notes": "Streamable HTTP MCP. initialize and tools/list succeeded without a key on 2026-11-15 (7 tools). A bare GET /mcp returned 200 server-info JSON (name restrocart-catalogue, version 1.0.0, transport streamable-http, 7 tools); use a Streamable HTTP JSON-RPC POST for initialize and tools/list. A GET with Accept: application/json, text/event-stream returned 405 (Allow: POST). Homepage restrocart.com returned a Cloudflare 403, so url is the 200 llms.txt. prepare_quote_request was not called. Quotes are free; no checkout. Payment and refund practices could not be independently verified."
+  },
+  "sources": [
+    "https://restrocart.com/llms.txt",
+    "https://restrocart.com/llms-full.txt",
+    "https://restrocart.com/openapi.json",
+    "https://restrocart.com/.well-known/mcp/server-card.json"
+  ],
+  "maintainer": "RestroCart Supplies & Solutions LLP",
+  "added": "2026-11-15",
+  "updated": "2026-11-15",
+  "last_verified": "2026-11-15",
+  "submitted_by": "agentica-curator",
+  "status": "active"
+}
