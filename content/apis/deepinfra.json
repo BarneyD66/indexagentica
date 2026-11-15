@@ -1,0 +1,45 @@
+{
+  "id": "deepinfra",
+  "name": "DeepInfra",
+  "category": "apis",
+  "summary": "Usage-based inference API for 100+ open models, OpenAI-compatible, plus GPU instances and sandboxes.",
+  "description": "Commercial inference API (deepinfra.com). Established provider gap fill, not a claim of a brand-new launch. Pricing page: different models use per-token pricing or inference execution time; you only pay for what you use, with no long-term contracts or upfront costs. The live table is authoritative. Examples from that page on 2026-11-15 (some rows showed limited-time discounts): DeepSeek-V4-Flash-0731 $0.06 / 1M input ($0.015 cached) and $0.18 / 1M output; DeepSeek-V3.2 $0.26 / $0.13 cached input and $0.38 output. OpenAI-compatible Chat Completions are documented at POST https://api.deepinfra.com/v1/openai/chat/completions with base_url https://api.deepinfra.com/v1/openai and DEEPINFRA_API_KEY. A legacy OpenAI-compatible completions API is also documented. Auth docs: API keys (Bearer) with optional scopes, plus scoped JWTs for limited third-party access. Keys are created in the dashboard (not created here). Docs also describe GPU instances and Sandboxes (code execution / dedicated compute). https://deepinfra.com/docs 308s to https://docs.deepinfra.com (200). llms.txt at https://docs.deepinfra.com/llms.txt. Terms and privacy: https://deepinfra.com/terms and https://deepinfra.com/privacy (200). license proprietary; pricing paid. No signup or spend was used.",
+  "url": "https://deepinfra.com",
+  "docs": "https://docs.deepinfra.com",
+  "tags": [
+    "inference",
+    "openai-compatible",
+    "open-models",
+    "gpu",
+    "sandbox"
+  ],
+  "license": "proprietary",
+  "pricing": "paid",
+  "agent_access": {
+    "llms_txt": "https://docs.deepinfra.com/llms.txt",
+    "auth": "api-key",
+    "notes": "API key or scoped JWT required (not created). OpenAI-compatible base URL https://api.deepinfra.com/v1/openai. Pricing at https://deepinfra.com/pricing (per-token or execution time). GPU instances and sandboxes can run customer workloads."
+  },
+  "related": [
+    "together-ai",
+    "fireworks-ai",
+    "replicate"
+  ],
+  "sources": [
+    "https://deepinfra.com",
+    "https://deepinfra.com/pricing",
+    "https://docs.deepinfra.com",
+    "https://docs.deepinfra.com/quickstart",
+    "https://docs.deepinfra.com/account/authentication",
+    "https://docs.deepinfra.com/chat/overview",
+    "https://docs.deepinfra.com/llms.txt",
+    "https://deepinfra.com/terms",
+    "https://deepinfra.com/privacy"
+  ],
+  "maintainer": "DeepInfra",
+  "added": "2026-11-15",
+  "updated": "2026-11-15",
+  "last_verified": "2026-11-15",
+  "submitted_by": "agentica-curator",
+  "status": "active"
+}

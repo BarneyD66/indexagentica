@@ -1,0 +1,45 @@
+{
+  "id": "agentseo-mcp",
+  "name": "AgentSEO MCP",
+  "category": "mcp-servers",
+  "summary": "Vendor-hosted SEO MCP and API for agents. Freemium credits; MIT client/MCP packages; hosted API and billing are proprietary.",
+  "description": "Vendor-affiliated listing (GitHub issue #49, submitted by Codex for Joy Technologies LLC / AgentSEO-dev). Site footer and terms: “AgentSEO is part of Joy Technologies LLC Inc.” (wording as published), Sheridan, Wyoming. Repo AgentSEO-dev/agentseo-clients is MIT (Copyright (c) 2026 AgentSEO), not archived, and holds only the integration layer (packages/js-sdk, packages/python-sdk, packages/mcp-server). The hosted API, workers, provider orchestration, billing and transformation logic are not in that repo. Installable clients verified 2026-11-15: npm @agentseo/mcp-server 0.1.5 (MIT, uploaded 2026-11-05T03:50:27Z = 2026-11-05 04:50:27 Europe/Stockholm) and npm @agentseo/sdk 0.1.1 (MIT). Documented install is `npx -y @agentseo/mcp-server` with AGENTSEO_API_KEY (not executed). The README also says `pip install agentseo-sdk`; the in-repo pyproject name is agentseo-sdk 0.1.0, but the PyPI JSON APIs for agentseo-sdk, agentseo, agentseo_sdk and agent-seo all returned 404 on 2026-11-15, so that pip command was not verified as a published package. https://www.agentseo.dev/ (200). https://agentseo.dev 307s to the www host and is not used as a URL or source. Docs https://www.agentseo.dev/seo-mcp-server, https://www.agentseo.dev/llms.txt, https://www.agentseo.dev/.well-known/mcp/server-card.json, pricing, terms and privacy were HTTP 200. A bare GET of https://www.agentseo.dev/mcp returned 401. An unauthenticated Streamable HTTP JSON-RPC initialize returned 200 (serverInfo “AgentSEO Hosted MCP” 0.1.0, protocol 2025-06-18). Unauthenticated tools/list returned 45 tools; many tool annotations include destructiveHint: true. Tool execution is documented to use the x-api-key header and to consume credits. No tool was called and no key was created. Pricing page (USD, 2026-11-15): Hobby $0 with 100 one-time live credits and no card; Starter $9/month for 2,000 credits; Pro $49/month for 10,000; Agency $149/month for 35,000. No seat fees and no automatic overage (a credit-limit error is returned instead). Paid plans auto-renew until canceled from billing; cancellation takes effect at the end of the term; fees are non-refundable unless law requires otherwise. Example credit costs on the pricing page include search at 1 credit per 10 results, content gap 10, SERP outline 4, and agent QA 2. Privacy policy last updated March 1, 2026 names Clerk, Supabase, Stripe, PostHog, Sentry, Vercel and Resend, plus cookies/analytics; the site CSP also lists Google Analytics. license MIT for the open-source clients; the hosted service is proprietary. pricing freemium. No signup or spend was used.",
+  "url": "https://www.agentseo.dev/",
+  "repo": "https://github.com/AgentSEO-dev/agentseo-clients",
+  "docs": "https://www.agentseo.dev/seo-mcp-server",
+  "tags": [
+    "mcp",
+    "seo",
+    "freemium",
+    "vendor",
+    "credits"
+  ],
+  "license": "MIT",
+  "pricing": "freemium",
+  "agent_access": {
+    "llms_txt": "https://www.agentseo.dev/llms.txt",
+    "mcp_endpoint": "https://www.agentseo.dev/mcp",
+    "auth": "api-key",
+    "notes": "Hosted Streamable HTTP MCP. initialize and tools/list returned 200 without a key on 2026-11-15 (45 tools). Bare GET /mcp returned 401. Tool calls need x-api-key and credits and were not made. Many tools are annotated destructiveHint: true. Paid plans auto-renew; fees non-refundable unless law requires otherwise."
+  },
+  "related": [
+    "akii-seo-ai-search-optimizer"
+  ],
+  "sources": [
+    "https://www.agentseo.dev/",
+    "https://www.agentseo.dev/seo-mcp-server",
+    "https://www.agentseo.dev/pricing",
+    "https://www.agentseo.dev/terms",
+    "https://www.agentseo.dev/privacy",
+    "https://www.agentseo.dev/llms.txt",
+    "https://www.agentseo.dev/.well-known/mcp/server-card.json",
+    "https://github.com/AgentSEO-dev/agentseo-clients",
+    "https://github.com/AgentSEO-dev/agentseo-clients/blob/main/README.md"
+  ],
+  "maintainer": "Joy Technologies LLC",
+  "added": "2026-11-15",
+  "updated": "2026-11-15",
+  "last_verified": "2026-11-15",
+  "submitted_by": "agentica-curator",
+  "status": "active"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "baseten",
+  "name": "Baseten",
+  "category": "apis",
+  "summary": "Inference, training and execution platform with usage-based Model APIs, dedicated GPUs and sandboxes for agents.",
+  "description": "Commercial inference/training platform (baseten.co). Established provider gap fill, not a claim of a brand-new launch. Pricing page: pay as you go with no contracts, or talk to sales for reserved capacity. Model APIs are billed per 1M tokens (input, cached input and output). Examples from that table on 2026-11-15 (live page is authoritative): GPT OSS 120B $0.10 input / $0.50 output; GLM-5.3-Flash $0.15 / $0.03 cached / $0.50 output; DeepSeek V4.1 Flash $0.30 / $0.007 cached / $1.20 output. Dedicated Inference is billed per GPU-minute (a T4 16 GiB example on the page is $0.01052/min, about $0.6312/hour). Training and Sandboxes are also on the pay-as-you-go menu. Sandboxes are described as a secure place for agents to run code (code execution). Official examples describe calling deployments through an OpenAI-compatible endpoint; a standalone “OpenAI API” docs path was not found. Docs and llms.txt are at docs.baseten.co (use https://docs.baseten.co/overview; a trailing slash 308s). Legal URLs that 200 are https://www.baseten.co/terms-and-conditions/ and https://www.baseten.co/privacy-policy/ (bare /terms and /privacy 308/404 and are not used). API access is via a Baseten account (not created). license proprietary; pricing paid. No signup or spend was used.",
+  "url": "https://www.baseten.co",
+  "docs": "https://docs.baseten.co/overview",
+  "tags": [
+    "inference",
+    "training",
+    "sandbox",
+    "gpu",
+    "llm-api"
+  ],
+  "license": "proprietary",
+  "pricing": "paid",
+  "agent_access": {
+    "llms_txt": "https://docs.baseten.co/llms.txt",
+    "auth": "api-key",
+    "notes": "Account/API key required (not created). Usage-based Model APIs and dedicated GPUs; live pricing page is authoritative. Examples in the docs use an OpenAI-compatible endpoint. Sandboxes can execute agent code. Pricing at https://www.baseten.co/pricing/."
+  },
+  "related": [
+    "together-ai",
+    "fireworks-ai",
+    "modal"
+  ],
+  "sources": [
+    "https://www.baseten.co",
+    "https://www.baseten.co/pricing/",
+    "https://docs.baseten.co/overview",
+    "https://docs.baseten.co/llms.txt",
+    "https://www.baseten.co/terms-and-conditions/",
+    "https://www.baseten.co/privacy-policy/"
+  ],
+  "maintainer": "Baseten",
+  "added": "2026-11-15",
+  "updated": "2026-11-15",
+  "last_verified": "2026-11-15",
+  "submitted_by": "agentica-curator",
+  "status": "active"
+}

@@ -1,0 +1,47 @@
+{
+  "id": "runpod",
+  "name": "Runpod",
+  "category": "infrastructure",
+  "summary": "GPU cloud for Pods, Serverless inference and clusters, with a vLLM OpenAI-compatible API, prepaid credits and official MCP servers.",
+  "description": "Commercial GPU cloud (runpod.io). Established provider gap fill, not a claim of a brand-new launch. https://runpod.io 301s to https://www.runpod.io (200); use the www host. Pricing page (updated November 12, 2026) covers Pods (Community Cloud and Secure Cloud), Serverless inference workers, and Clusters. Billing is prepaid credits, deducted per second, with no data-transfer fees (docs last modified October 23, 2026). Credits are non-refundable and cannot be withdrawn once deposited; docs say new users can start with as little as $10. Examples from the public Pods table (Secure Cloud, per hour, live page is authoritative): H100 PCIe $2.89/hr (Community from $1.99/hr), H100 SXM $4.39/hr (Community from $2.69/hr), H200 $5.29/hr (Community from $3.59/hr), A100 PCIe $2.09/hr (Community from $1.19/hr). Serverless worker examples on the same page include H200 $6.99/hr and B200 $10.79/hr. Storage examples: container/volume disk on a running Pod $0.10/GB/month, volume disk on a stopped Pod $0.20/GB/month, billed per second. If the balance reaches $0, running Pods are stopped; Pods without a network volume are terminated and that data cannot be recovered; leftover storage charges can later terminate volumes. Default spend limit is $80/hour. Auto-pay and low-balance email alerts are documented. Pods and custom workers can run arbitrary containers (code execution / real compute spend). No account or key was created and no spend was made. vLLM Serverless workers expose an OpenAI-compatible API at https://api.runpod.ai/v2/ENDPOINT_ID/openai/v1 using a Runpod API key. Official MCP: a hosted API server at https://mcp.runpod.io/ (docs: Sign in with Runpod OAuth, or a Bearer API key; a direct browser GET is not a sign-in) and a no-auth docs MCP; local package @runpod/mcp-server (npx installer not run) with source github.com/runpod/runpod-mcp. A HEAD of https://mcp.runpod.io/ returned 401 on 2026-11-15, so that URL is not used as url, docs or a source. license proprietary; pricing paid.",
+  "url": "https://www.runpod.io",
+  "repo": "https://github.com/runpod/runpod-mcp",
+  "docs": "https://docs.runpod.io/overview",
+  "tags": [
+    "gpu",
+    "serverless",
+    "inference",
+    "openai-compatible",
+    "mcp"
+  ],
+  "license": "proprietary",
+  "pricing": "paid",
+  "agent_access": {
+    "llms_txt": "https://docs.runpod.io/llms.txt",
+    "auth": "api-key",
+    "notes": "API key or console login required for compute (not created). OpenAI-compatible vLLM path is https://api.runpod.ai/v2/ENDPOINT_ID/openai/v1. Official hosted MCP is documented at https://mcp.runpod.io/ (OAuth or API key); a HEAD of that host returned 401, so it is not cited as a source. Docs MCP is unauthenticated. Prepaid credits; pods execute customer containers."
+  },
+  "related": [
+    "modal",
+    "together-ai",
+    "vllm"
+  ],
+  "sources": [
+    "https://www.runpod.io",
+    "https://www.runpod.io/pricing",
+    "https://docs.runpod.io/overview",
+    "https://docs.runpod.io/llms.txt",
+    "https://docs.runpod.io/accounts-billing/billing",
+    "https://docs.runpod.io/serverless/vllm/openai-compatibility",
+    "https://docs.runpod.io/get-started/mcp-servers",
+    "https://www.runpod.io/legal/terms-of-service",
+    "https://www.runpod.io/legal/privacy-policy",
+    "https://github.com/runpod/runpod-mcp"
+  ],
+  "maintainer": "Runpod",
+  "added": "2026-11-15",
+  "updated": "2026-11-15",
+  "last_verified": "2026-11-15",
+  "submitted_by": "agentica-curator",
+  "status": "active"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "groq",
+  "name": "Groq",
+  "category": "apis",
+  "summary": "Hosted GroqCloud inference API, mostly OpenAI-compatible, with official SDKs, service tiers, and remote MCP tool connectors.",
+  "description": "Commercial fast-inference API (groq.com / GroqCloud). Established provider gap fill, not a claim of a brand-new launch. Official docs (console.groq.com/docs): “Fast LLM inference, OpenAI-compatible.” The OpenAI-compatible base URL is https://api.groq.com/openai/v1 with a Groq API key (GROQ_API_KEY; not created). Docs also publish official Groq Python (`pip install groq`) and TypeScript libraries and describe some unsupported OpenAI fields (including logprobs and N other than 1). Service tiers via the service_tier parameter: performance (enterprise), on_demand (default), flex (higher throughput, best effort, may return over-capacity errors), and auto. The Batch API has its own window and does not accept service_tier. Built-in tools include code execution and browser search on some models (code execution disclosed; not called). Remote tools and MCP connectors are documented at https://console.groq.com/docs/tool-use/remote-mcp. A dedicated public pricing URL was not available on 2026-11-15: https://groq.com/pricing and https://groq.com/pricing/ 308 to the site homepage, and https://console.groq.com/docs/pricing returned 404. Do not invent per-token rates. Usage is billed in the Groq console (Billing / Spend Limits docs exist; no numeric rate table was extracted). Legal index: https://groq.com/legal (200) including Privacy Policy at https://groq.com/privacy-policy and Groq Service Credit Terms. A public free-tier page was not found. https://docs.groq.com 301s toward the console docs; use https://console.groq.com/docs/overview. license proprietary; pricing paid. No signup or spend was used.",
+  "url": "https://groq.com",
+  "docs": "https://console.groq.com/docs/overview",
+  "tags": [
+    "inference",
+    "openai-compatible",
+    "llm-api",
+    "mcp"
+  ],
+  "license": "proprietary",
+  "pricing": "paid",
+  "agent_access": {
+    "auth": "api-key",
+    "notes": "API key required (not created). OpenAI-compatible base URL https://api.groq.com/openai/v1. Official groq Python/TS libraries. Service tiers: performance, on_demand, flex, auto. Built-in code execution and remote MCP connectors are documented. No durable public price table was found (groq.com/pricing 308s to /)."
+  },
+  "related": [
+    "together-ai",
+    "fireworks-ai",
+    "openrouter"
+  ],
+  "sources": [
+    "https://groq.com",
+    "https://console.groq.com/docs/overview",
+    "https://console.groq.com/docs/openai",
+    "https://console.groq.com/docs/quickstart",
+    "https://console.groq.com/docs/service-tiers",
+    "https://console.groq.com/docs/tool-use/remote-mcp",
+    "https://groq.com/legal",
+    "https://groq.com/privacy-policy"
+  ],
+  "maintainer": "Groq",
+  "added": "2026-11-15",
+  "updated": "2026-11-15",
+  "last_verified": "2026-11-15",
+  "submitted_by": "agentica-curator",
+  "status": "active"
+}

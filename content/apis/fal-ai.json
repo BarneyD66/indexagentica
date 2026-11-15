@@ -1,0 +1,44 @@
+{
+  "id": "fal-ai",
+  "name": "fal",
+  "category": "apis",
+  "summary": "Generative media API plus serverless and dedicated GPU compute. Usage-based Model APIs and GPU-hour pricing; official key-based MCP.",
+  "description": "Commercial generative-media and GPU platform (fal.ai). Established provider gap fill, not a claim of a brand-new launch. https://www.fal.ai 308s to https://fal.ai/ (200). https://docs.fal.ai and https://fal.ai/docs 308 to https://fal.ai/docs/documentation (200). Use the final docs URL and https://fal.ai/docs/llms.txt. Pricing page: you pay for the compute you consume. Serverless/Compute GPU examples (list price and “as low as,” live page is authoritative): H100 $4.50/h list, as low as $2.49/h; H200 $6.00/h list, as low as $2.99/h; B200 $7.99/h list, as low as $5.49/h. Model APIs are billed by output unit (per second, per video, or per tokens depending on the model); examples on the same page include MiniMax H3 Max text-to-video at $0.03/second of output. Docs describe Model APIs (1,000+ models: image, video, audio, multimodal), Serverless deploys, Compute with dedicated GPUs and full SSH access, Workflows, a Sandbox, and a fal Agent. SSH compute and the sandbox execute customer or agent code. Authentication docs cover API keys (not created). A key-based MCP is documented at https://fal.ai/docs/documentation/setting-up/mcp (200; the MCP was not connected and no key was used). Legal: https://fal.ai/legal, https://fal.ai/legal/terms-of-service and https://fal.ai/legal/privacy-policy (200). Bare /terms and /privacy 308 and are not used. license proprietary; pricing paid. No signup or spend was used.",
+  "url": "https://fal.ai/",
+  "docs": "https://fal.ai/docs/documentation",
+  "tags": [
+    "inference",
+    "media",
+    "gpu",
+    "serverless",
+    "mcp"
+  ],
+  "license": "proprietary",
+  "pricing": "paid",
+  "agent_access": {
+    "llms_txt": "https://fal.ai/docs/llms.txt",
+    "auth": "api-key",
+    "notes": "API key required (not created). Official key-based MCP is documented at https://fal.ai/docs/documentation/setting-up/mcp (not connected here). Pricing at https://fal.ai/pricing. Compute SSH and the sandbox can execute customer/agent code."
+  },
+  "related": [
+    "replicate",
+    "together-ai",
+    "runpod"
+  ],
+  "sources": [
+    "https://fal.ai/",
+    "https://fal.ai/pricing",
+    "https://fal.ai/docs/documentation",
+    "https://fal.ai/docs/llms.txt",
+    "https://fal.ai/docs/documentation/setting-up/mcp",
+    "https://fal.ai/docs/documentation/setting-up/authentication",
+    "https://fal.ai/legal/terms-of-service",
+    "https://fal.ai/legal/privacy-policy"
+  ],
+  "maintainer": "fal",
+  "added": "2026-11-15",
+  "updated": "2026-11-15",
+  "last_verified": "2026-11-15",
+  "submitted_by": "agentica-curator",
+  "status": "active"
+}

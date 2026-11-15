@@ -1,0 +1,49 @@
+{
+  "id": "replicate",
+  "name": "Replicate",
+  "category": "apis",
+  "summary": "Hosted API to run and deploy machine-learning models. Pay for use; official HTTP API, Python client, MCP server and agent skills.",
+  "description": "Commercial model-hosting API (replicate.com). Established provider gap fill, not a claim of a brand-new launch. Pricing page: you only pay for what you use. Some models are billed by hardware-time, others by input and output; estimates are on each model page. Hardware examples on that page (live page is authoritative): Nvidia T4 $0.000225/sec ($0.81/hr), L40S $0.000975/sec ($3.51/hr), A100 80GB $0.001400/sec ($5.04/hr), H100 $0.001525/sec ($5.49/hr). Public models: you pay only for active processing time; setup and idle are free, and you share a hardware pool (cold boots possible). Most private models and deployments bill setup, idle and active time; fast-booting fine-tunes bill active time only. Failed runs are not charged; canceling an official time-based model may still bill time already used. Billing docs: prepaid credit, or billed in arrears (previous month, sometimes early if usage first crosses certain limits). Free limits: you can run select models for free, then you are asked to set up billing; some features require billing. Auth is an API token from replicate.com/account/api-tokens (not created). Official Python client: `pip install replicate` and REPLICATE_API_TOKEN. HTTP API and OpenAPI schema are documented. Official MCP server and agent skills are documented at /docs/reference/mcp and /docs/reference/skills (pages were HTTP 200; packages were not installed). llms.txt is at https://replicate.com/llms.txt. A general OpenAI-compatible chat/completions guide was not found (paths such as /docs/guides/openai-api 404); do not assume drop-in OpenAI compatibility. Running models can generate media or otherwise spend credit. license proprietary; pricing paid (limited free use until billing is required). No signup or spend was used.",
+  "url": "https://replicate.com",
+  "docs": "https://replicate.com/docs",
+  "tags": [
+    "inference",
+    "models",
+    "media",
+    "mcp",
+    "api"
+  ],
+  "license": "proprietary",
+  "pricing": "paid",
+  "agent_access": {
+    "llms_txt": "https://replicate.com/llms.txt",
+    "auth": "api-key",
+    "notes": "API token required for paid use (not created). Official Python client is the replicate package. Docs include an official MCP server and agent skills (not installed here). No general OpenAI-compatible base URL was found on 2026-11-15. Select models can be tried for free until billing is required."
+  },
+  "related": [
+    "together-ai",
+    "fireworks-ai",
+    "fal-ai"
+  ],
+  "sources": [
+    "https://replicate.com",
+    "https://replicate.com/pricing",
+    "https://replicate.com/docs",
+    "https://replicate.com/docs/topics/billing",
+    "https://replicate.com/docs/topics/billing/prepaid-credit",
+    "https://replicate.com/docs/get-started/python",
+    "https://replicate.com/docs/reference/http",
+    "https://replicate.com/docs/reference/mcp",
+    "https://replicate.com/docs/reference/skills",
+    "https://replicate.com/docs/topics/security/api-tokens",
+    "https://replicate.com/llms.txt",
+    "https://replicate.com/terms",
+    "https://replicate.com/privacy"
+  ],
+  "maintainer": "Replicate",
+  "added": "2026-11-15",
+  "updated": "2026-11-15",
+  "last_verified": "2026-11-15",
+  "submitted_by": "agentica-curator",
+  "status": "active"
+}

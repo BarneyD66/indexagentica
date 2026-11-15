@@ -1,0 +1,41 @@
+{
+  "id": "lambda-cloud",
+  "name": "Lambda Cloud",
+  "category": "infrastructure",
+  "summary": "GPU cloud for on-demand instances, 1-Click Clusters and filesystems, with a public Cloud API. Public instance prices change on 16 Nov 2026.",
+  "description": "Commercial GPU cloud (lambda.com; formerly also reached via lambda.ai / lambdalabs.com, which 301 to lambda.com). Established provider gap fill, not a claim of a brand-new launch. Public Cloud products documented: On-Demand Cloud (ODC) Linux GPU VMs, 1-Click Clusters (1CCs), and filesystems. Instances can run customer workloads (code execution). Lambda docs warn that cryptocurrency mining is prohibited. Pricing page: “Clear, straightforward pricing for Instances, 1-Click Clusters™, and Superclusters,” plus reserved-capacity sales. The public on-demand instance tables carry this notice: “These prices take effect November 16, 2026, at 00:00 UTC” (2026-11-16 01:00 Europe/Stockholm). “Until then, log in to your Lambda Cloud account to see current pricing.” Those upcoming public examples include 1x NVIDIA B200 SXM6 $7.99/GPU/hr, H100 SXM $4.89, H100 PCIe $3.79, GH200 $2.59, A100 PCIe 40GB $1.99, plus tax/VAT/GST. 1-Click Cluster examples on the same page (2 weeks–1 year): NVIDIA HGX B200 16 GPUs $9.86/GPU/hr, 64 GPUs $9.36, 256+ $8.87; NVIDIA H100 16 GPUs $6.16, 64 $5.85, 256 $5.54. Billing docs: ODC is priced by hourly usage and billed in one-minute increments from the moment an instance passes health checks until it is terminated, including idle running time; weekly invoices. 1CCs are priced per GPU-hour and billed weekly under the reservation; invoice due in ten days after approval. Filesystems billed per GiB-month in one-hour increments (the $0.20/GiB/month figure in the docs is labeled an example, not current list price). No ingress/egress charge is documented. Refunds are issued as service credits toward future Lambda Cloud usage, not cash, expiring 12 months after issue. A hosted OpenAI-compatible inference API was not found; the Cloud API (https://docs.lambda.com/api/cloud) manages accounts, keys, instances and related resources (rate-limited). Auth is a Lambda Cloud API key (not created). SSO is documented for the console. Legal: https://lambda.com/legal/privacy-policy and https://lambda.com/legal/terms-of-service (200). Bare /privacy and /terms 404. license proprietary; pricing paid. No signup or spend was used.",
+  "url": "https://lambda.com/",
+  "docs": "https://docs.lambda.com/",
+  "tags": [
+    "gpu",
+    "cloud",
+    "clusters",
+    "on-demand"
+  ],
+  "license": "proprietary",
+  "pricing": "paid",
+  "agent_access": {
+    "auth": "api-key",
+    "notes": "Lambda Cloud API key or console login required (not created). Cloud API manages instances; no hosted OpenAI-compatible inference API was found. Public on-demand prices on lambda.com/pricing take effect 2026-11-16 00:00 UTC; current prices require a logged-in account. Instances execute customer workloads."
+  },
+  "related": [
+    "modal",
+    "runpod"
+  ],
+  "sources": [
+    "https://lambda.com/",
+    "https://lambda.com/pricing",
+    "https://docs.lambda.com/",
+    "https://docs.lambda.com/public-cloud/on-demand/",
+    "https://docs.lambda.com/public-cloud/billing/",
+    "https://docs.lambda.com/api/cloud",
+    "https://lambda.com/legal/privacy-policy",
+    "https://lambda.com/legal/terms-of-service"
+  ],
+  "maintainer": "Lambda",
+  "added": "2026-11-15",
+  "updated": "2026-11-15",
+  "last_verified": "2026-11-15",
+  "submitted_by": "agentica-curator",
+  "status": "active"
+}

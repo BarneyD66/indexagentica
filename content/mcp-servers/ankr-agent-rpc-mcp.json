@@ -3,9 +3,9 @@
   "name": "Ankr Agent RPC MCP",
   "category": "mcp-servers",
   "summary": "Ankr's MCP server of blockchain read tools (decoded transactions, logs, balances, contract metadata, prices), paid per call over x402 in USDC or with an Ankr API key.",
-  "description": "Launched 2026-10-15, starting on Monad mainnet. With x402 the agent needs no account or key: a call returns HTTP 402 with the price, the agent signs a USDC payment and retries. The discovery manifest lists 150 priced resources, $0.001 per call by default with describeMethods free, on Monad (eip155:143), Base (eip155:8453) and Solana. Sessions opened with an Ankr API key are bound to that key for their lifetime. Responses follow TORPC, Ankr's draft RPC format for agents (evm-v1; CC0 per Ankr): tier 2 ABI-decodes calls and logs into named args with decimal strings, and every response reports _meta.tier and an o200k _meta.token_count. Decoded amounts are raw base units. Plain JSON-RPC is at x402.rpc.ankr.com/monad_mainnet.",
-  "url": "https://mcp.ankr.com/rpc",
-  "docs": "https://www.ankr.com/blog/ankr-launches-x402-payments-starting-with-monad/",
+  "description": "Launched 2026-10-15, starting on Monad mainnet. With x402 the agent needs no account or key: a call returns HTTP 402 with the price, the agent signs a USDC payment and retries. The discovery manifest (still HTTP 200 on 2026-11-15, priceListVersion 2026-10-07.2) lists priced resources at $0.001 per call by default, with discovery tools free, on Monad (eip155:143), Base (eip155:8453) and Solana. Sessions opened with an Ankr API key are bound to that key for their lifetime and use the existing Ankr plan limits. Official docs (https://www.ankr.com/docs/agentic-rpc/overview/, HTTP 200) still name the MCP at https://mcp.ankr.com/rpc, and the x402 manifest still lists that host. On 2026-11-15 that host presented a “Kubernetes Ingress Controller Fake Certificate” (O=Acme Co, CN=Kubernetes Ingress Controller Fake Certificate) and, even with TLS verification skipped, returned an nginx 404. It is therefore omitted from url, docs, sources and agent_access.mcp_endpoint; no replacement MCP host is claimed (https://x402.rpc.ankr.com/mcp was not this service — initialize returned 404 JSON “chain not served: mcp”). Docs state that nothing on the Agentic RPC page can move funds. Responses follow TORPC, Ankr's draft RPC format for agents (evm-v1; CC0 per Ankr); the former source https://rpc.ankr.com/.well-known/torpc.json returned 404, so the normative repo https://github.com/w3tech/torpc is cited instead. Plain JSON-RPC remains at x402.rpc.ankr.com/monad_mainnet. No key, wallet or spend was used.",
+  "url": "https://www.ankr.com/docs/agentic-rpc/overview/",
+  "docs": "https://www.ankr.com/docs/agentic-rpc/overview/",
   "tags": [
     "blockchain",
     "rpc",
@@ -19,9 +19,8 @@
   "pricing": "paid",
   "status": "active",
   "agent_access": {
-    "mcp_endpoint": "https://mcp.ankr.com/rpc",
     "auth": "other",
-    "notes": "x402 per-call USDC payment (manifest https://x402.rpc.ankr.com/.well-known/x402, prices at https://x402.rpc.ankr.com/pricing) or an Ankr API key bound to the session."
+    "notes": "Official docs and the x402 manifest still advertise https://mcp.ankr.com/rpc, but on 2026-11-15 that host had a fake ingress certificate and 404'd even with TLS skipped, so it is not used as url or mcp_endpoint. Pay-per-call remains x402 USDC (manifest https://x402.rpc.ankr.com/.well-known/x402, prices at https://x402.rpc.ankr.com/pricing) or an Ankr API key bound to the session. No spend."
   },
   "related": [
     "x402",
@@ -29,14 +28,15 @@
     "cdp-x402"
   ],
   "sources": [
+    "https://www.ankr.com/docs/agentic-rpc/overview/",
     "https://www.ankr.com/blog/ankr-launches-x402-payments-starting-with-monad/",
     "https://x402.rpc.ankr.com/.well-known/x402",
     "https://x402.rpc.ankr.com/pricing",
-    "https://rpc.ankr.com/.well-known/torpc.json"
+    "https://github.com/w3tech/torpc"
   ],
   "added": "2026-11-04",
-  "updated": "2026-11-04",
-  "last_verified": "2026-11-04",
+  "updated": "2026-11-15",
+  "last_verified": "2026-11-15",
   "submitted_by": "agentica-curator",
   "maintainer": "Ankr"
 }
