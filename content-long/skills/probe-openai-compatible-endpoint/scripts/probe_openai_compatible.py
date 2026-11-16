@@ -6,30 +6,43 @@ Safe by default:
 - --allow-remote is only for global (public) unicast addresses; RFC1918,
   link-local, metadata and other non-public ranges are refused even then
   (use --allow-private only if you really meant a private URL you typed).
+- Every address from a single getaddrinfo() is classified. A mix of
+  classes (for example a public address and a private one) is refused.
+  IPv4-mapped IPv6 addresses are treated as their IPv4 equivalents.
+- The TCP connection is made to a pinned address from that lookup. The
+  Host header stays the original name; HTTPS uses SNI and certificate
+  verification against that name, not the IP. The hostname is not
+  resolved again at connect time.
 - API keys come from an environment variable (default OPENAI_API_KEY) and
   are never printed. There is no --api-key flag.
 - GET /v1/models is the default request.
 - A chat smoke test or a tool-call check is opt-in (--smoke-test / --check-tools)
   and, for any non-loopback URL, also requires --allow-paid (at most one tiny
   chat request and one tools request).
-- Redirects that change host, or that leave loopback, are refused.
+- Redirects are followed manually, with a hop cap. Each hop is resolved,
+  classified and pinned again under the same flags. A redirect that leaves
+  loopback, that fails classification, or that would turn a POST into a GET
+  (301/302/303) is refused.
 """
 from __future__ import annotations
 
 import argparse
+import http.client
 import ipaddress
 import json
 import os
 import socket
 import ssl
 import sys
-import urllib.error
 import urllib.parse
-import urllib.request
 
 TIMEOUT = 20
 MAX_BODY = 1_000_000
 MAX_REDIRECTS = 5
+METADATA_ADDRS = {
+    ipaddress.ip_address("169.254.169.254"),
+    ipaddress.ip_address("fd00:ec2::254"),
+}
 # IPv4/IPv6 ranges we never treat as "remote public"
 NONPUBLIC_NETS = [
     ipaddress.ip_network("0.0.0.0/8"),
@@ -61,12 +74,71 @@ def die(msg, code=2):
     raise SystemExit(code)
 
 
+def canonical_ip(value) -> ipaddress._BaseAddress:
+    """Parse an IP and unwrap IPv4-mapped IPv6 (::ffff:x.x.x.x) to IPv4."""
+    ip = value if isinstance(value, (ipaddress.IPv4Address, ipaddress.IPv6Address)) else ipaddress.ip_address(value)
+    mapped = getattr(ip, "ipv4_mapped", None)
+    if mapped is not None:
+        return mapped
+    return ip
+
+
 def is_loopback(ip: ipaddress._BaseAddress) -> bool:
-    return ip.is_loopback
+    return canonical_ip(ip).is_loopback
+
+
+def is_metadata(ip: ipaddress._BaseAddress) -> bool:
+    return canonical_ip(ip) in METADATA_ADDRS
+
+
+def is_private_like(ip: ipaddress._BaseAddress) -> bool:
+    """RFC1918 / ULA, link-local, and documented metadata addresses."""
+    ip = canonical_ip(ip)
+    if is_metadata(ip):
+        return True
+    if ip.is_private or ip.is_link_local:
+        return True
+    for net in (
+        ipaddress.ip_network("10.0.0.0/8"),
+        ipaddress.ip_network("100.64.0.0/10"),
+        ipaddress.ip_network("169.254.0.0/16"),
+        ipaddress.ip_network("172.16.0.0/12"),
+        ipaddress.ip_network("192.168.0.0/16"),
+        ipaddress.ip_network("fc00::/7"),
+        ipaddress.ip_network("fe80::/10"),
+    ):
+        if ip in net:
+            return True
+    return False
+
+
+def is_never_allowed(ip: ipaddress._BaseAddress) -> bool:
+    """Multicast, reserved, unspecified, and documentation ranges: no flag allows these."""
+    ip = canonical_ip(ip)
+    if ip.is_multicast or ip.is_reserved or ip.is_unspecified:
+        return True
+    for net in (
+        ipaddress.ip_network("0.0.0.0/8"),
+        ipaddress.ip_network("192.0.0.0/24"),
+        ipaddress.ip_network("192.0.2.0/24"),
+        ipaddress.ip_network("198.18.0.0/15"),
+        ipaddress.ip_network("198.51.100.0/24"),
+        ipaddress.ip_network("203.0.113.0/24"),
+        ipaddress.ip_network("224.0.0.0/4"),
+        ipaddress.ip_network("240.0.0.0/4"),
+        ipaddress.ip_network("255.255.255.255/32"),
+        ipaddress.ip_network("::/128"),
+        ipaddress.ip_network("ff00::/8"),
+        ipaddress.ip_network("2001:db8::/32"),
+    ):
+        if ip in net:
+            return True
+    return False
 
 
 def is_nonpublic(ip: ipaddress._BaseAddress) -> bool:
-    if ip.is_loopback or ip.is_private or ip.is_link_local or ip.is_multicast or ip.is_reserved or ip.is_unspecified:
+    ip = canonical_ip(ip)
+    if is_loopback(ip) or is_private_like(ip) or is_never_allowed(ip):
         return True
     for net in NONPUBLIC_NETS:
         if ip in net:
@@ -74,14 +146,30 @@ def is_nonpublic(ip: ipaddress._BaseAddress) -> bool:
     return False
 
 
+def address_class(ip: ipaddress._BaseAddress) -> str:
+    ip = canonical_ip(ip)
+    if is_loopback(ip):
+        return "loopback"
+    if is_never_allowed(ip) and not is_private_like(ip):
+        return "blocked"
+    if is_private_like(ip):
+        return "private"
+    if is_nonpublic(ip):
+        return "blocked"
+    return "public"
+
+
 def resolve_host(host: str) -> list[ipaddress._BaseAddress]:
-    infos = socket.getaddrinfo(host, None, type=socket.SOCK_STREAM)
+    """One getaddrinfo(); IPv4-mapped results are unwrapped. Order preserved."""
+    try:
+        infos = socket.getaddrinfo(host, None, type=socket.SOCK_STREAM)
+    except socket.gaierror as e:
+        die(f"could not resolve {host}: {e}", 1)
     addrs = []
     for info in infos:
-        addrs.append(ipaddress.ip_address(info[4][0]))
+        addrs.append(canonical_ip(info[4][0]))
     if not addrs:
         die(f"could not resolve {host}", 1)
-    # unique, preserve order
     out, seen = [], set()
     for a in addrs:
         if a not in seen:
@@ -101,48 +189,62 @@ def normalize_base(url: str) -> urllib.parse.ParseResult:
         die("URL is missing a host")
     if parsed.username or parsed.password:
         die("do not put credentials in the URL; use an environment variable")
-    # strip trailing slash from path for joining; keep /v1 if present
     path = parsed.path or ""
     path = path.rstrip("/")
     return parsed._replace(path=path, fragment="")
 
 
-def classify(parsed: urllib.parse.ParseResult, allow_remote: bool, allow_private: bool) -> str:
-    """Return 'loopback' or 'remote'. Exits if the URL is not allowed."""
+def resolve_and_classify(parsed: urllib.parse.ParseResult, allow_remote: bool, allow_private: bool) -> tuple[str, str, list[ipaddress._BaseAddress]]:
+    """Resolve once, classify every address, pin the first allowed one.
+
+    Returns (kind, pinned_ip, addresses). Exits if the URL is not allowed.
+    """
     host = parsed.hostname
     addrs = resolve_host(host)
-    kinds = set()
-    for a in addrs:
-        if is_loopback(a):
-            kinds.add("loopback")
-        elif is_nonpublic(a):
-            kinds.add("private")
-        else:
-            kinds.add("public")
-    if "loopback" in kinds and kinds == {"loopback"}:
-        return "loopback"
-    if "loopback" in kinds and len(kinds) > 1:
-        die(f"{host} resolved to a mix of loopback and non-loopback addresses; refusing")
-    if "private" in kinds and not allow_private:
+    classes = [address_class(a) for a in addrs]
+    unique = set(classes)
+    listed = ", ".join(map(str, addrs))
+
+    if "blocked" in unique:
         die(
-            f"{host} resolved to a non-public address ({', '.join(map(str, addrs))}). "
-            "Refusing automatic probes of private, link-local or metadata addresses. "
-            "If you typed this URL on purpose, pass --allow-private (and --allow-remote)."
+            f"{host} resolved to a reserved, multicast, unspecified or documentation address ({listed}); refusing"
         )
-    if not allow_remote:
+    if len(unique) > 1:
         die(
-            f"{host} is not loopback. Default is loopback-only. "
-            "Pass --allow-remote to probe a URL you specified, and --allow-paid "
-            "before any chat or tool request that might cost money."
+            f"{host} resolved to a mix of address classes ({listed}); refusing"
         )
-    return "remote"
+    kind_class = next(iter(unique))
+    if kind_class == "loopback":
+        kind = "loopback"
+    elif kind_class == "private":
+        if not allow_private:
+            die(
+                f"{host} resolved to a non-public address ({listed}). "
+                "Refusing automatic probes of private, link-local or metadata addresses. "
+                "If you typed this URL on purpose, pass --allow-private (and --allow-remote)."
+            )
+        if not allow_remote:
+            die(
+                f"{host} is not loopback. Default is loopback-only. "
+                "Pass --allow-remote to probe a URL you specified, and --allow-paid "
+                "before any chat or tool request that might cost money."
+            )
+        kind = "remote"
+    else:
+        if not allow_remote:
+            die(
+                f"{host} is not loopback. Default is loopback-only. "
+                "Pass --allow-remote to probe a URL you specified, and --allow-paid "
+                "before any chat or tool request that might cost money."
+            )
+        kind = "remote"
+    pinned = str(addrs[0])
+    return kind, pinned, addrs
 
 
 def join(base: urllib.parse.ParseResult, rel: str) -> str:
-    # rel is like /models or /chat/completions; base path often ends with /v1
     path = base.path.rstrip("/")
     if rel.startswith("/v1/") and path.endswith("/v1"):
-        # already has /v1
         suffix = rel[len("/v1"):]
         new_path = path + suffix
     elif rel.startswith("/"):
@@ -152,72 +254,139 @@ def join(base: urllib.parse.ParseResult, rel: str) -> str:
     return urllib.parse.urlunparse(base._replace(path=new_path, query="", fragment=""))
 
 
+class PinnedHTTPConnection(http.client.HTTPConnection):
+    def __init__(self, host, port, timeout, pinned_ip):
+        super().__init__(host, port=port, timeout=timeout)
+        self._pinned_ip = pinned_ip
 
-class NoRedirect(urllib.request.HTTPRedirectHandler):
-    def redirect_request(self, req, fp, code, msg, headers, newurl):
-        return None
+    def connect(self):
+        self.sock = socket.create_connection((self._pinned_ip, self.port), self.timeout)
 
 
-def request(method: str, url: str, *, token: str | None, body: dict | None, origin: urllib.parse.ParseResult, kind: str, timeout: int = 20):
-    """HTTP request that refuses unsafe redirects. Returns (status, headers, obj_or_text)."""
+class PinnedHTTPSConnection(http.client.HTTPSConnection):
+    def __init__(self, host, port, timeout, pinned_ip, context):
+        super().__init__(host, port=port, timeout=timeout, context=context)
+        self._pinned_ip = pinned_ip
+
+    def connect(self):
+        sock = socket.create_connection((self._pinned_ip, self.port), self.timeout)
+        context = self._context or ssl.create_default_context()
+        # Verify the certificate against the original hostname, not the pinned IP.
+        self.sock = context.wrap_socket(sock, server_hostname=self.host)
+
+
+def _port_for(parsed: urllib.parse.ParseResult) -> int:
+    if parsed.port:
+        return parsed.port
+    return 443 if parsed.scheme == "https" else 80
+
+
+def _same_origin(a: urllib.parse.ParseResult, b: urllib.parse.ParseResult) -> bool:
+    return (
+        a.scheme == b.scheme
+        and a.hostname == b.hostname
+        and _port_for(a) == _port_for(b)
+    )
+
+
+def request(
+    method: str,
+    url: str,
+    *,
+    token: str | None,
+    body: dict | None,
+    origin: urllib.parse.ParseResult,
+    origin_kind: str,
+    pinned_ip: str,
+    allow_remote: bool,
+    allow_private: bool,
+    allow_paid: bool,
+    timeout: int = 20,
+):
+    """HTTP request with pinned connects and manual redirect handling.
+
+    The caller's already-classified pin is reused for hops that stay on the
+    same scheme/host/port, so connect() never triggers a second getaddrinfo
+    for that origin. Any other hop is resolved, classified and pinned again.
+
+    Returns (status, headers, obj_or_text).
+    """
     current = url
     data = None if body is None else json.dumps(body).encode("utf-8")
-    for hop in range(MAX_REDIRECTS + 1):
+    for _hop in range(MAX_REDIRECTS + 1):
         parsed = urllib.parse.urlparse(current)
         if parsed.scheme not in ("http", "https"):
             die(f"refusing redirect to {parsed.scheme}", 1)
-        if parsed.hostname != origin.hostname:
-            die(f"refusing redirect off host {origin.hostname} -> {parsed.hostname}", 1)
-        # Re-check destination class
-        addrs = resolve_host(parsed.hostname)
-        if kind == "loopback" and not all(is_loopback(a) for a in addrs):
+        if parsed.username or parsed.password:
+            die("do not put credentials in the URL; use an environment variable")
+        if _same_origin(parsed, origin):
+            kind, hop_pin = origin_kind, pinned_ip
+        else:
+            kind, hop_pin, _addrs = resolve_and_classify(
+                parsed, allow_remote=allow_remote, allow_private=allow_private
+            )
+        if origin_kind == "loopback" and kind != "loopback":
             die("refusing redirect or request that leaves loopback", 1)
+        if kind != "loopback" and method == "POST" and not allow_paid:
+            die(
+                "chat and tool probes against a non-loopback URL require --allow-paid "
+                "(opt-in to a tiny paid request)"
+            )
         headers = {
             "Accept": "application/json",
-            "User-Agent": "probe-openai-compatible-endpoint/1.0 (+https://indexagentica.com/skills/probe-openai-compatible-endpoint/)",
+            "User-Agent": "probe-openai-compatible-endpoint/1.0.1 (+https://indexagentica.com/skills/probe-openai-compatible-endpoint/)",
         }
         if data is not None:
             headers["Content-Type"] = "application/json"
         if token:
             headers["Authorization"] = "Bearer " + token
-        req = urllib.request.Request(current, data=data, headers=headers, method=method)
-        handlers = [NoRedirect()]
-        # Never proxy loopback: a proxy would take the request (and any key) off the machine.
-        if kind == "loopback":
-            handlers.insert(0, urllib.request.ProxyHandler({}))
-        if parsed.scheme == "https":
-            handlers.append(urllib.request.HTTPSHandler(context=ssl.create_default_context()))
-        opener = urllib.request.build_opener(*handlers)
+        port = _port_for(parsed)
+        host = parsed.hostname
+        path = parsed.path or "/"
+        if parsed.query:
+            path = path + "?" + parsed.query
         try:
-            with opener.open(req, timeout=timeout) as resp:
-                return _read(resp)
-        except urllib.error.HTTPError as e:
-            if e.code in (301, 302, 303, 307, 308):
-                loc = e.headers.get("Location")
-                if not loc:
-                    die(f"HTTP {e.code} redirect without Location", 1)
-                current = urllib.parse.urljoin(current, loc)
-                if e.code in (301, 302, 303) and method == "POST":
-                    # Do not silently convert a paid POST into a GET on another URL
-                    die(f"refusing {e.code} redirect on {method} (Location present). Probe stopped.", 1)
-                continue
-            raw = e.read(MAX_BODY + 1)
-            payload = _decode(raw, e.headers)
-            return e.code, dict(e.headers), payload
-        except urllib.error.URLError as e:
+            if parsed.scheme == "https":
+                conn = PinnedHTTPSConnection(
+                    host, port, timeout, hop_pin, ssl.create_default_context()
+                )
+            else:
+                conn = PinnedHTTPConnection(host, port, timeout, hop_pin)
+            try:
+                conn.request(method, path, body=data, headers=headers)
+                resp = conn.getresponse()
+                status = resp.status
+                resp_headers = {k: v for k, v in resp.getheaders()}
+                raw = resp.read(MAX_BODY + 1)
+            finally:
+                conn.close()
+        except OSError as e:
             die(f"request failed: {e}", 1)
+        if len(raw) > MAX_BODY:
+            die("response too large; stopping", 1)
+        if status in (301, 302, 303, 307, 308):
+            loc = None
+            for k, v in resp_headers.items():
+                if k.lower() == "location":
+                    loc = v
+                    break
+            if not loc:
+                die(f"HTTP {status} redirect without Location", 1)
+            if status in (301, 302, 303) and method == "POST":
+                die(f"refusing {status} redirect on {method} (Location present). Probe stopped.", 1)
+            current = urllib.parse.urljoin(current, loc)
+            continue
+        payload = _decode(raw, resp_headers)
+        return status, resp_headers, payload
     die("too many redirects", 1)
 
 
-def _read(resp):
-    raw = resp.read(MAX_BODY + 1)
-    if len(raw) > MAX_BODY:
-        die("response too large; stopping", 1)
-    return resp.status, dict(resp.headers), _decode(raw, resp.headers)
-
-
 def _decode(raw: bytes, headers):
-    ctype = (headers.get("Content-Type") or "").lower()
+    ctype = ""
+    for k, v in headers.items():
+        if k.lower() == "content-type":
+            ctype = (v or "").lower()
+            break
     text = raw.decode("utf-8", errors="replace")
     if "json" in ctype or text[:1] in "{[":
         try:
@@ -286,11 +455,12 @@ def main(argv=None):
     timeout = max(1, args.timeout)
 
     base = normalize_base(args.url)
-    kind = classify(base, allow_remote=args.allow_remote, allow_private=args.allow_private)
+    kind, pinned_ip, _addrs = resolve_and_classify(
+        base, allow_remote=args.allow_remote, allow_private=args.allow_private
+    )
 
     token = os.environ.get(args.api_key_env) or None
     if not token and kind != "loopback":
-        # Many local servers accept a dummy key; remotes usually need a real one.
         print(
             f"note: ${args.api_key_env} is unset. Requests will go without an Authorization header.",
             file=sys.stderr,
@@ -309,8 +479,19 @@ def main(argv=None):
         "tool_check": None,
     }
 
+    req_kwargs = dict(
+        token=token,
+        origin=base,
+        origin_kind=kind,
+        pinned_ip=pinned_ip,
+        allow_remote=args.allow_remote,
+        allow_private=args.allow_private,
+        allow_paid=args.allow_paid,
+        timeout=timeout,
+    )
+
     models_url = join(base, "/v1/models")
-    status, _headers, payload = request("GET", models_url, token=token, body=None, origin=base, kind=kind, timeout=timeout)
+    status, _headers, payload = request("GET", models_url, body=None, **req_kwargs)
     ids = list_models(payload) if status == 200 else []
     report["models"] = {
         "ok": status == 200 and isinstance(payload, dict),
@@ -331,7 +512,7 @@ def main(argv=None):
             "max_tokens": 8,
             "temperature": 0,
         }
-        status, _headers, payload = request("POST", chat_url, token=token, body=body, origin=base, kind=kind, timeout=timeout)
+        status, _headers, payload = request("POST", chat_url, body=body, **req_kwargs)
         msg = {}
         if isinstance(payload, dict):
             choices = payload.get("choices") or []
@@ -372,7 +553,7 @@ def main(argv=None):
             "max_tokens": 64,
             "temperature": 0,
         }
-        status, _headers, payload = request("POST", chat_url, token=token, body=body, origin=base, kind=kind, timeout=timeout)
+        status, _headers, payload = request("POST", chat_url, body=body, **req_kwargs)
         tool_calls = None
         finish = None
         if isinstance(payload, dict):

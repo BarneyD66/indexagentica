@@ -55,7 +55,7 @@ rows:
     OpenAI-compatible API: "Yes for Model APIs: official OpenAI client base_url https://inference.baseten.co/v1 (Chat Completions and Responses). Anthropic Messages at https://inference.baseten.co (path /v1/messages). Dedicated deployments use https://model-MODEL_ID.api.baseten.co/environments/production/sync/v1."
     Tools and structured output: "Model APIs docs: the listed language models support tool calling (function-calling guide). All listed except Muse Spark Open support structured outputs. Confirm the current model table before relying on a specific model."
     BYO model or container: "Deploy an open-source model, private checkpoint, or custom model on dedicated GPUs with the Baseten CLI / examples. Model APIs cover only the hosted catalog."
-    Scale-to-zero and billing: Model APIs are billed per tokens (see www.baseten.co/pricing/). Dedicated Inference is billed per GPU time on the same pricing page. An idle sandbox is documented to go on (see sandbox docs). Use the live pricing page; do not cache dollar figures.
+    Scale-to-zero and billing: "Model APIs are billed per tokens (see www.baseten.co/pricing/). Dedicated Inference is billed per GPU time on the same pricing page. An idle sandbox is documented to go on standby and resume on the next request. Use the live pricing page; do not cache dollar figures."
     Programmatic access: "HTTPS Inference and Management APIs, official OpenAI/Anthropic SDK examples, Baseten CLI (documented for dedicated deploys), and further SDKs in the reference. API key required."
     Trust and isolation: "Hosted Model APIs run on Baseten-managed infrastructure. Dedicated deployments and sandboxes are the documented isolation paths. Sandboxes execute agent code on the platform."
   replicate:
@@ -185,6 +185,9 @@ sources:
     accessed: 2026-11-16
   - title: "Baseten docs, Calling your model"
     url: https://docs.baseten.co/inference/calling-your-model
+    accessed: 2026-11-16
+  - title: "Baseten docs, Sandbox lifecycle"
+    url: https://docs.baseten.co/sandboxes/lifecycle
     accessed: 2026-11-16
   - title: Baseten pricing
     url: https://www.baseten.co/pricing/

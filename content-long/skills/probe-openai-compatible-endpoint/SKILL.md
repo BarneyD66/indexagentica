@@ -7,7 +7,7 @@ metadata:
   title: Probe an OpenAI-compatible endpoint
   summary: A read-only-by-default Python probe that lists models on an OpenAI-compatible /v1 endpoint, with opt-in chat and tool-call checks, loopback default, and keys from env only.
   author: Agentica Author
-  version: "1.0"
+  version: "1.0.1"
   last_verified: 2026-11-16
   published: 2026-11-16
   tags: openai-compatible, inference, local-llm, tool-calling, probe
@@ -27,14 +27,15 @@ How to run a local server and wire an SDK is covered in https://indexagentica.co
 Do these in order. The bundled script enforces them; follow the same rules if you probe with `curl`.
 
 1. **Default is loopback only.** Pass a `http://127.0.0.1:...` or `http://localhost:...` base URL. The script refuses any other host unless you add `--allow-remote`.
-2. **Private, link-local and metadata addresses stay refused** even with `--allow-remote` (for example `10.0.0.0/8`, `192.168.0.0/16`, `169.254.0.0/16`, `fd00::/8`, cloud instance-metadata names). If you typed a private URL on purpose, you must also pass `--allow-private`.
-3. **Keys come from the environment**, never from the command line and never from the URL. Default is `$OPENAI_API_KEY`. Use `--api-key-env NAME` to read a different variable (for example `GROQ_API_KEY`). The value is never printed in the report or in logs.
-4. **`GET /v1/models` is the only default request.** It is read-only.
-5. **Chat and tool probes are opt-in** (`--smoke-test`, `--check-tools`). Against a non-loopback URL they also require `--allow-paid`, because they can incur usage. The script sends at most one short chat request and one short tools request (`max_tokens` 8 and 64).
-6. **Redirects that change host, or that leave loopback, are refused.** A 301/302/303 on a POST is also refused, so a paid request is not silently turned into a GET on another URL.
-7. **Do not paste a key into chat.** If a probe fails with 401, ask the user to set the env var in their shell; do not have them send the secret to you.
+2. **Every address from one DNS lookup is classified.** The script calls `getaddrinfo` once for the URL you passed (and once more only for a redirect hop that leaves that scheme, host or port). IPv4-mapped IPv6 addresses such as `::ffff:10.0.0.1` are treated as their IPv4 equivalents. If *any* address is loopback, private, link-local, metadata (`169.254.169.254`, `fd00:ec2::254`), multicast, reserved or unspecified, the URL is refused unless the matching flag allows that class (loopback is the default; `--allow-private`, with `--allow-remote`, is for RFC1918, link-local and metadata). A mix of classes (for example one public address and one private address) is refused. `--allow-remote` alone is only for global unicast addresses.
+3. **The TCP connection is pinned to an already-checked address.** The script connects to the first address from that lookup and does not resolve the hostname again at connect time. The HTTP `Host` header stays the original name; for HTTPS, SNI and certificate verification also use that name, not the IP. This closes a DNS-rebinding race between the check and the connect. It does not make every request safe: you still have to pass a URL you mean, and flags you mean, and a later redirect hop is looked up and classified from scratch.
+4. **Keys come from the environment**, never from the command line and never from the URL. Default is `$OPENAI_API_KEY`. Use `--api-key-env NAME` to read a different variable (for example `GROQ_API_KEY`). The value is never printed in the report or in logs.
+5. **`GET /v1/models` is the only default request.** It is read-only.
+6. **Chat and tool probes are opt-in** (`--smoke-test`, `--check-tools`). Against a non-loopback URL they also require `--allow-paid`, because they can incur usage. The script sends at most one short chat request and one short tools request (`max_tokens` 8 and 64). The same `--allow-paid` rule is applied again if a redirect hop is no longer loopback.
+7. **Redirects are followed manually, with a hop cap.** Each hop that changes scheme, host or port is resolved, classified and pinned again under the same flags. A redirect that leaves loopback, that fails classification (including a redirect to `169.254.169.254` or another private or metadata address), or that would turn a POST into a GET (`301`/`302`/`303`) is refused.
+8. **Do not paste a key into chat.** If a probe fails with 401, ask the user to set the env var in their shell; do not have them send the secret to you.
 
-The script talks only to the host in `--url`. It does not crawl, does not create accounts, and does not purchase GPU time.
+The script does not crawl, does not create accounts, and does not purchase GPU time. It only connects to an address that already passed classification for the URL you passed, or for a redirect hop that was also classified.
 
 ## Probe
 
@@ -92,7 +93,7 @@ Official vendor `base_url` values differ (plain `/v1`, `/openai/v1`, `/inference
 
 ## What was tested (2026-11-16)
 
-The script (v1.0) was run on this box against a local mock OpenAI-compatible server bound to `127.0.0.1` (not a vendor). The mock implemented `GET /v1/models`, a chat completion that replies `pong`, and a tools response that returns a `get_time` tool call.
+The script (v1.0.1) was run on this box against a local mock OpenAI-compatible server bound to `127.0.0.1` (not a vendor). The mock implemented `GET /v1/models`, a chat completion that replies `pong`, and a tools response that returns a `get_time` tool call. Extra cases used a second mock that issued a redirect, plus a test harness that monkeypatched `socket.getaddrinfo`.
 
 - Default `--url http://127.0.0.1:<port>/v1` listed the mock model and exited 0.
 - `--smoke-test --check-tools` on loopback returned `pong` and a `get_time` tool call, without `--allow-paid`.
@@ -100,5 +101,10 @@ The script (v1.0) was run on this box against a local mock OpenAI-compatible ser
 - `--smoke-test` against `http://1.1.1.1/v1` with `--allow-remote` but without `--allow-paid` was refused (no request was sent).
 - A `http://192.168.0.1:9/v1` URL was refused even with `--allow-remote` (it needs `--allow-private` as well). No packet needed to be sent for the refusal.
 - A fake key in `$OPENAI_API_KEY` did not appear in stdout or stderr.
+- Credentials in the URL were refused.
+- A hostname whose `getaddrinfo` result included both a public address and a private address was refused.
+- A rebind simulation where the first `getaddrinfo` result was a public address and a later lookup would have returned a private address connected only to the pinned first address; `getaddrinfo` was not called again at connect time.
+- A loopback mock that redirected to `http://169.254.169.254/` was refused (and a redirect to a private host was refused the same way).
+- The IPv4-mapped address `::ffff:10.0.0.1` was refused.
 
-The mock was stopped afterwards. No real API keys were used and no paid remote requests were sent.
+The mocks were stopped afterwards. No real API keys were used and no paid remote requests were sent.
