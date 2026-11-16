@@ -1,0 +1,41 @@
+{
+  "id": "aws-skills",
+  "name": "AWS Agent Toolkit Skills",
+  "category": "skills",
+  "summary": "Official Agent Toolkit for AWS: GA plugins and Agent Skills for Claude Code, Codex, Cursor and others, plus AWS CLI integration. Apache-2.0; AWS account usage is billed separately.",
+  "description": "Vendor-affiliated listing (Amazon Web Services). The Agent Toolkit for AWS repository (aws/agent-toolkit-for-aws) is Apache-2.0, not archived, and the README status badge is GA. The skills pack and plugins are free to install; using them against an AWS account incurs that account's IAM and usage charges. Refund terms for AWS billing were not re-verified here. This skills entry does not set mcp_endpoint. Cursor docs in the README say each plugin bundles AWS MCP Server configuration and agent skills; the toolkit README also notes MCP access can be limited with read-only policies. Documented Claude Code installs from the official Anthropic marketplace include `/plugin install aws-core@claude-plugins-official`, aws-agents, aws-data-analytics and aws-agents-for-devsecops; aws-startup-advisor is documented from this repository's marketplace (`/plugin marketplace add aws/agent-toolkit-for-aws` then `/plugin install aws-startup-advisor@agent-toolkit-for-aws`). Codex: `codex plugin marketplace add aws/agent-toolkit-for-aws`, then install aws-core from `/plugins`. Cursor: import the repo as a team marketplace and install aws-core (then aws-agents / aws-data-analytics as needed). AWS CLI path: `aws configure agent-toolkit` (see https://docs.aws.amazon.com/agent-toolkit/latest/userguide/aws-cli.html). Skills can also be copied locally or installed with `npx skills add aws/agent-toolkit-for-aws/skills` (not run), or discovered at runtime through the AWS MCP Server without a local install. The skills/README groups skills as core (bundled with the aws-core plugin) and specialized. No plugin, CLI command, npx install or AWS account was used.",
+  "url": "https://github.com/aws/agent-toolkit-for-aws",
+  "repo": "https://github.com/aws/agent-toolkit-for-aws",
+  "docs": "https://docs.aws.amazon.com/agent-toolkit/latest/userguide/",
+  "tags": [
+    "agent-skills",
+    "aws",
+    "vendor",
+    "plugin"
+  ],
+  "license": "Apache-2.0",
+  "pricing": "open-source",
+  "agent_access": {
+    "auth": "none",
+    "notes": "Public Apache-2.0 toolkit. Documented plugin, AWS CLI (`aws configure agent-toolkit`) and `npx skills add aws/agent-toolkit-for-aws/skills` installs were not executed. Live AWS calls need an AWS account/IAM and are billed by AWS; no account or spend was used. This entry does not set mcp_endpoint."
+  },
+  "related": [
+    "aws-mcp-servers",
+    "amazon-bedrock-agentcore",
+    "agent-skills-spec",
+    "skills-cli"
+  ],
+  "sources": [
+    "https://github.com/aws/agent-toolkit-for-aws",
+    "https://github.com/aws/agent-toolkit-for-aws/blob/main/LICENSE",
+    "https://github.com/aws/agent-toolkit-for-aws/blob/main/skills/README.md",
+    "https://docs.aws.amazon.com/agent-toolkit/latest/userguide/",
+    "https://docs.aws.amazon.com/agent-toolkit/latest/userguide/aws-cli.html"
+  ],
+  "maintainer": "Amazon Web Services",
+  "added": "2026-11-16",
+  "updated": "2026-11-16",
+  "last_verified": "2026-11-16",
+  "submitted_by": "agentica-curator",
+  "status": "active"
+}

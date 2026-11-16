@@ -1,0 +1,40 @@
+{
+  "id": "firecrawl-skills",
+  "name": "Firecrawl Skills",
+  "category": "skills",
+  "summary": "Official Firecrawl Agent Skills catalog (core, build and workflow mirrors) for live web scrape, crawl and search. ISC; Firecrawl API usage spends account credits.",
+  "description": "Vendor-affiliated listing (Firecrawl). The firecrawl/skills repository is an ISC-licensed (Copyright (c) Firecrawl) distribution catalog, not archived: every directory under skills/ is a CI-synced mirror, and the README says to install from this repo but send PRs to the source of truth (core including research/developer index skills to firecrawl/cli, build/SDK skills to firecrawl/firecrawl, workflow skills to firecrawl/firecrawl-workflows). CI replaces files under skills/ on the next sync. The pack is free to install; live scrape, crawl, search and related Firecrawl API or CLI work can spend Firecrawl account credits (the existing firecrawl-api entry is paid). Refund terms for Firecrawl credits were not re-verified here. This skills entry does not set mcp_endpoint. Core skills also cover live web work via the CLI or MCP and include browser-like interact workflows, which can have side effects on target sites. Documented install is `npx skills add firecrawl/skills` (interactive picker without `-y`; `--skill firecrawl-build` for a named skill) or `npx -y firecrawl-cli@latest init` for the CLI plus core skills and optional workflow skills. Those commands were not executed. The README lists core CLI-oriented skills including firecrawl, firecrawl-scrape, firecrawl-search, firecrawl-crawl, firecrawl-map, firecrawl-interact, firecrawl-agent, firecrawl-monitor, firecrawl-parse and firecrawl-download, plus firecrawl-research-index and firecrawl-developer-index. https://docs.firecrawl.dev 308s to https://docs.firecrawl.dev/introduction (HTTP 200), which is cited for the API product, not as the skills homepage. No signup or spend.",
+  "url": "https://github.com/firecrawl/skills",
+  "repo": "https://github.com/firecrawl/skills",
+  "docs": "https://github.com/firecrawl/skills#readme",
+  "tags": [
+    "agent-skills",
+    "firecrawl",
+    "vendor",
+    "web-scraping"
+  ],
+  "license": "ISC",
+  "pricing": "open-source",
+  "agent_access": {
+    "auth": "none",
+    "notes": "Public ISC catalog. Documented `npx skills add firecrawl/skills` and `npx -y firecrawl-cli@latest init` were not executed. Live Firecrawl scrape/crawl/search can spend API credits (see firecrawl-api); no key or spend was used. This entry does not set mcp_endpoint."
+  },
+  "related": [
+    "firecrawl-api",
+    "firecrawl-mcp-server",
+    "agent-skills-spec",
+    "skills-cli"
+  ],
+  "sources": [
+    "https://github.com/firecrawl/skills",
+    "https://github.com/firecrawl/skills/blob/main/LICENSE",
+    "https://github.com/firecrawl/skills/blob/main/README.md",
+    "https://docs.firecrawl.dev/introduction"
+  ],
+  "maintainer": "Firecrawl",
+  "added": "2026-11-16",
+  "updated": "2026-11-16",
+  "last_verified": "2026-11-16",
+  "submitted_by": "agentica-curator",
+  "status": "active"
+}

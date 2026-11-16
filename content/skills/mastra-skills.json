@@ -1,0 +1,40 @@
+{
+  "id": "mastra-skills",
+  "name": "Mastra Skills",
+  "category": "skills",
+  "summary": "Official Mastra Agent Skills (mastra and mastra-factory) for the Mastra TypeScript framework. Apache-2.0 in the repo LICENSE (GitHub SPDX is NOASSERTION).",
+  "description": "Official skills pack for the already-listed Mastra framework (mastra-ai/skills). The GitHub license API reports SPDX NOASSERTION, but the root LICENSE file is Apache License 2.0, Copyright (c) 2026 Kepler Software, Inc., and the README says Apache-2.0; this entry uses Apache-2.0 from that LICENSE file. The repo is not archived. https://mastra.ai/skills returned 404 on 2026-11-16 and is not used as url, docs or a source. Use the GitHub repo, or discovery at https://mastra.ai/.well-known/skills/index.json and https://mastra.ai/llms.txt (both HTTP 200). Documented install is `npx skills add mastra-ai/skills` or, via the well-known discovery standard, `npx skills add https://mastra.ai/`. The Factory skill alone is `npx skills add mastra-ai/skills --skill mastra-factory`. Those commands were not executed. Manual git clone is also documented. The pack includes two skills: mastra (framework setup, embedded and remote docs lookup via mastra.ai/llms.txt, troubleshooting, migrations, the Mastra API CLI, Mastra Platform deploy, trace queries and feedback) and mastra-factory (the `mastra api factory` skill for connection, session/memory inspection and user-authorized operations). Mastra Platform deploy and Factory operations against a live deployment can have side effects; no deploy or login was performed. This skills entry does not set mcp_endpoint.",
+  "url": "https://github.com/mastra-ai/skills",
+  "repo": "https://github.com/mastra-ai/skills",
+  "docs": "https://github.com/mastra-ai/skills#readme",
+  "tags": [
+    "agent-skills",
+    "mastra",
+    "vendor"
+  ],
+  "license": "Apache-2.0",
+  "pricing": "open-source",
+  "agent_access": {
+    "llms_txt": "https://mastra.ai/llms.txt",
+    "auth": "none",
+    "notes": "Public skills pack (LICENSE is Apache-2.0; GitHub SPDX NOASSERTION). Documented `npx skills add mastra-ai/skills` (or https://mastra.ai/) was not executed. Discovery index: https://mastra.ai/.well-known/skills/index.json. https://mastra.ai/skills is 404 and is not used."
+  },
+  "related": [
+    "mastra",
+    "agent-skills-spec",
+    "skills-cli"
+  ],
+  "sources": [
+    "https://github.com/mastra-ai/skills",
+    "https://github.com/mastra-ai/skills/blob/main/LICENSE",
+    "https://github.com/mastra-ai/skills/blob/main/README.md",
+    "https://mastra.ai/.well-known/skills/index.json",
+    "https://mastra.ai/llms.txt"
+  ],
+  "maintainer": "Kepler Software, Inc.",
+  "added": "2026-11-16",
+  "updated": "2026-11-16",
+  "last_verified": "2026-11-16",
+  "submitted_by": "agentica-curator",
+  "status": "active"
+}

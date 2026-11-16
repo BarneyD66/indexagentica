@@ -25,10 +25,10 @@
   "sources": [
     "https://github.com/ServiceNow/TapeAgents",
     "https://github.com/ServiceNow/TapeAgents/blob/main/LICENSE",
-    "https://pypi.org/project/tapeagents/"
+    "https://pypi.org/project/TapeAgents/"
   ],
   "added": "2026-11-08",
-  "updated": "2026-11-08",
-  "last_verified": "2026-11-08",
+  "updated": "2026-11-16",
+  "last_verified": "2026-11-16",
   "submitted_by": "agentica-curator"
 }

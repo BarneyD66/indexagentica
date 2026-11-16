@@ -1,0 +1,43 @@
+{
+  "id": "stripe-skills",
+  "name": "Stripe Skills",
+  "category": "skills",
+  "summary": "Official Stripe Agent Skills and plugins for Stripe integrations. MIT pack in stripe/ai; live account data is paid and goes through Stripe MCP or the official plugins.",
+  "description": "Vendor-affiliated listing (Stripe). The skills pack itself is MIT (Copyright (c) 2024–2025 Stripe) in the non-archived stripe/ai repository and is free to install; connecting official plugins or the hosted Stripe MCP (https://mcp.stripe.com, already listed as stripe-mcp) to a live Stripe account can move real money. Refund terms for Stripe API usage were not re-verified in this pass. This skills entry does not set mcp_endpoint. Host-trust does not apply to the markdown skills pack. Docs at https://docs.stripe.com/skills (HTTP 200; the trailing-slash URL 301s here and is not used). The published skills index (https://docs.stripe.com/.well-known/skills/index.json, 11 skills on 2026-11-16) names connect-recommend, connect-required-verification-information, metronome, stripe-apps, stripe-best-practices, stripe-directory, stripe-docs, stripe-implementation-planner, stripe-pay, stripe-projects and upgrade-stripe. Recommended install is an official plugin, which the docs say automatically configures the Stripe MCP server, installs the skills, and keeps them up to date. The docs' plugin path first installs the Stripe CLI with `curl -fsSL https://cli.stripe.com/install.sh | sh` (macOS/Linux) or the Windows PowerShell install.ps1 equivalent, then `stripe agent setup`; those install scripts were not executed. Harness-specific plugin commands documented in the stripe/ai README: `claude plugin install stripe@claude-plugins-official`, `codex plugin add stripe@openai-curated`, Cursor `/add-plugin stripe` or the Cursor marketplace, and `grok plugin install stripe --trust`. None were run. Manual install is `npx skills add https://docs.stripe.com` (not run). The docs warn that manually installed skills do not auto-update and to run `npx skills update -y` for latest versions. The stripe/ai README also documents an Agent Plugins package under providers/agent-plugins/plugin/. It lists @stripe/agent-toolkit, stripe-agent-toolkit, @stripe/mcp, @stripe/ai-sdk and @stripe/token-meter as deprecated. https://docs.stripe.com/llms.txt was HTTP 200. No signup or spend.",
+  "url": "https://docs.stripe.com/skills",
+  "repo": "https://github.com/stripe/ai",
+  "docs": "https://docs.stripe.com/skills",
+  "tags": [
+    "agent-skills",
+    "stripe",
+    "vendor",
+    "payments"
+  ],
+  "license": "MIT",
+  "pricing": "open-source",
+  "agent_access": {
+    "llms_txt": "https://docs.stripe.com/llms.txt",
+    "auth": "none",
+    "notes": "Public MIT skills pack. Documented installs (Stripe CLI install.sh then stripe agent setup, official plugins, or npx skills add https://docs.stripe.com) were not executed. Live Stripe account data uses the hosted MCP / plugins (OAuth; see stripe-mcp) and can move real money; no key or spend was used. This entry does not set mcp_endpoint."
+  },
+  "related": [
+    "stripe-mcp",
+    "stripe-agents",
+    "agent-skills-spec",
+    "skills-cli"
+  ],
+  "sources": [
+    "https://docs.stripe.com/skills",
+    "https://docs.stripe.com/.well-known/skills/index.json",
+    "https://docs.stripe.com/llms.txt",
+    "https://github.com/stripe/ai",
+    "https://github.com/stripe/ai/blob/main/LICENSE",
+    "https://github.com/stripe/ai/tree/main/skills"
+  ],
+  "maintainer": "Stripe",
+  "added": "2026-11-16",
+  "updated": "2026-11-16",
+  "last_verified": "2026-11-16",
+  "submitted_by": "agentica-curator",
+  "status": "active"
+}

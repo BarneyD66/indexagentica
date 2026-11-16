@@ -1,0 +1,38 @@
+{
+  "id": "elevenlabs-skills",
+  "name": "ElevenLabs Skills",
+  "category": "skills",
+  "summary": "Official ElevenLabs Agent Skills for speech, voice, music, dubbing and agents. MIT pack; calling ElevenLabs APIs needs an API key and is billed separately.",
+  "description": "Vendor-affiliated listing (ElevenLabs). The elevenlabs/skills repository is MIT (Copyright (c) 2024 ElevenLabs), not archived. The pack is free to install; the README says all skills require an ElevenLabs API key in ELEVENLABS_API_KEY, and calling ElevenLabs APIs is paid under ElevenLabs billing. Refund terms for that API were not re-verified here. No key was created and no spend was made. This skills entry does not set mcp_endpoint. Documented install is `npx skills add elevenlabs/skills` (not run). Twelve skills: text-to-speech, speech-to-text, speech-engine, realtime, agents, sound-effects, music, voice-changer, voice-isolator, dubbing, onboarding and setup-api-key. The README warns to use the JavaScript SDK `@elevenlabs/elevenlabs-js` and not `npm install elevenlabs` (an outdated v1.x package). Python examples use `pip install elevenlabs`; a CLI is documented as `npm install -g @elevenlabs/cli` or `brew install elevenlabs/tap/elevenlabs`. Those installs were not run. The onboarding skill is documented to write an API key into a project env file; that skill was not executed. Related conversational-agent product: elevenagents.",
+  "url": "https://github.com/elevenlabs/skills",
+  "repo": "https://github.com/elevenlabs/skills",
+  "docs": "https://github.com/elevenlabs/skills#readme",
+  "tags": [
+    "agent-skills",
+    "elevenlabs",
+    "vendor",
+    "speech"
+  ],
+  "license": "MIT",
+  "pricing": "open-source",
+  "agent_access": {
+    "auth": "none",
+    "notes": "Public MIT pack. Documented `npx skills add elevenlabs/skills` was not executed. The README says skills require ELEVENLABS_API_KEY to call ElevenLabs APIs, which are billed separately; no key or spend was used. Do not npm-install the outdated `elevenlabs` JS package; use `@elevenlabs/elevenlabs-js`."
+  },
+  "related": [
+    "elevenagents",
+    "agent-skills-spec",
+    "skills-cli"
+  ],
+  "sources": [
+    "https://github.com/elevenlabs/skills",
+    "https://github.com/elevenlabs/skills/blob/main/LICENSE",
+    "https://github.com/elevenlabs/skills/blob/main/README.md"
+  ],
+  "maintainer": "ElevenLabs",
+  "added": "2026-11-16",
+  "updated": "2026-11-16",
+  "last_verified": "2026-11-16",
+  "submitted_by": "agentica-curator",
+  "status": "active"
+}

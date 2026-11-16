@@ -1,0 +1,37 @@
+{
+  "id": "notion-skills",
+  "name": "Notion Skills",
+  "category": "skills",
+  "summary": "Official Notion Agent Skills for the Notion CLI (notion-cli) and scaffolding Notion Apps (notion-apps). MIT (LICENSE.md).",
+  "description": "Vendor-affiliated listing (Notion Labs, Inc.). The makenotion/skills repository is MIT via LICENSE.md (Copyright (c) 2026 Notion Labs, Inc.; there is no root LICENSE file; GitHub SPDX is MIT), not archived. Pushed 2026-09-22; this is an official pack, not a new 2026-11 launch. The pack is free to install; using notion-cli or Notion Apps against a Notion workspace needs a Notion account and follows Notion's own product terms (not re-verified here). This skills entry does not set mcp_endpoint (see notion-mcp for the MCP server). Documented install, recommended via the skills CLI, is `npx skills add makenotion/skills` or `npx skills add makenotion/skills --skill notion-cli` (not run). Two skills: notion-cli (install and use the Notion CLI `ntn` for workers, public API requests and file uploads) and notion-apps (scaffold and build Notion Apps, including workflows and database syncs). No CLI install or workspace access was used.",
+  "url": "https://github.com/makenotion/skills",
+  "repo": "https://github.com/makenotion/skills",
+  "docs": "https://github.com/makenotion/skills#readme",
+  "tags": [
+    "agent-skills",
+    "notion",
+    "vendor"
+  ],
+  "license": "MIT",
+  "pricing": "open-source",
+  "agent_access": {
+    "auth": "none",
+    "notes": "Public MIT pack (LICENSE.md). Documented `npx skills add makenotion/skills` was not executed. Live Notion CLI/API use needs a Notion account; no account or spend was used. This entry does not set mcp_endpoint."
+  },
+  "related": [
+    "notion-mcp",
+    "agent-skills-spec",
+    "skills-cli"
+  ],
+  "sources": [
+    "https://github.com/makenotion/skills",
+    "https://github.com/makenotion/skills/blob/main/LICENSE.md",
+    "https://github.com/makenotion/skills/blob/main/README.md"
+  ],
+  "maintainer": "Notion Labs, Inc.",
+  "added": "2026-11-16",
+  "updated": "2026-11-16",
+  "last_verified": "2026-11-16",
+  "submitted_by": "agentica-curator",
+  "status": "active"
+}

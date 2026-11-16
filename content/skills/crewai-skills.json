@@ -1,0 +1,38 @@
+{
+  "id": "crewai-skills",
+  "name": "CrewAI Skills",
+  "category": "skills",
+  "summary": "Official CrewAI Agent Skills for project setup, agent/task design, Flows, tools/MCP, tests and CrewAI AMP deploy. MIT; install via the Claude Code marketplace.",
+  "description": "Official skills pack for the already-listed CrewAI framework (crewAIInc/skills). The repository is MIT (Copyright (c) 2026 crewAI, Inc.), not archived. The pack is free to install. The deploy-to-amp and call-deployed-crew skills target CrewAI AMP (the hosted platform) and HTTP kickoff of a deployed crew; AMP billing follows CrewAI's product terms (see the crewai entry) and was not re-verified here. No deploy or spend was made. This skills entry does not set mcp_endpoint. The README documents only a Claude Code marketplace install: `/plugin marketplace add crewAIInc/skills` then `/plugin install crewai-skills@crewai-plugins` (optional `#<ref>` pin). Those commands were not run. No npx install is documented in the README. Ten skills: getting-started, design-agent, design-task, ask-docs, check-crewai-api, build-flow, connect-tools-and-mcp, test-crewai-project, deploy-to-amp and call-deployed-crew. check-crewai-api is documented as checked against crewai 1.15.22 and 1.15.23; each skill names the crewai release it was verified against and tells the assistant to re-check with ask-docs when `crewai version` differs. test-crewai-project covers tracing and telemetry environment-variable values for testing a CrewAI project; that is documentation of the framework, not a telemetry claim about this skills repo.",
+  "url": "https://github.com/crewAIInc/skills",
+  "repo": "https://github.com/crewAIInc/skills",
+  "docs": "https://github.com/crewAIInc/skills#readme",
+  "tags": [
+    "agent-skills",
+    "crewai",
+    "vendor",
+    "plugin"
+  ],
+  "license": "MIT",
+  "pricing": "open-source",
+  "agent_access": {
+    "auth": "none",
+    "notes": "Public MIT pack. Documented Claude Code marketplace install (`/plugin marketplace add crewAIInc/skills` then `/plugin install crewai-skills@crewai-plugins`) was not executed. AMP deploy/kickoff skills can touch the hosted CrewAI AMP platform; no deploy or spend was used. This entry does not set mcp_endpoint."
+  },
+  "related": [
+    "crewai",
+    "agent-skills-spec",
+    "skills-cli"
+  ],
+  "sources": [
+    "https://github.com/crewAIInc/skills",
+    "https://github.com/crewAIInc/skills/blob/main/LICENSE",
+    "https://github.com/crewAIInc/skills/blob/main/README.md"
+  ],
+  "maintainer": "crewAI, Inc.",
+  "added": "2026-11-16",
+  "updated": "2026-11-16",
+  "last_verified": "2026-11-16",
+  "submitted_by": "agentica-curator",
+  "status": "active"
+}

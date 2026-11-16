@@ -1,0 +1,39 @@
+{
+  "id": "playwright-skills",
+  "name": "Playwright CLI Skills",
+  "category": "skills",
+  "summary": "Agent Skills for playwright-cli: browser automation, storage state, tracing, video and arbitrary Playwright scripts via run-code. Apache-2.0; distinct from Playwright MCP.",
+  "description": "Vendor-affiliated listing (Microsoft). These are the official Agent Skills for playwright-cli, documented at https://playwright.dev/agent-cli/skills (HTTP 200, Copyright © 2026 Microsoft) and shipped in the same Apache-2.0 microsoft/playwright-cli repository as the already-listed playwright-cli tool; this entry is the skills pack, not the CLI itself and not playwright-mcp. Installing and using the skills enables browser automation with possible credentialed browser state (storage state covers cookies and localStorage), tracing, video recording, and execution of arbitrary Playwright scripts via run-code. That is code execution and can have side effects on sites you point it at. The Playwright CLI README requires Node.js 20 or newer. Documented skills install, after the CLI is present, is `playwright-cli install --skills` (default `.claude/skills/playwright-cli`), `playwright-cli install --skills=agents` for `.agents/skills`, or `-g` / `--global` for the home directory. Those commands, and `npm install -g @playwright/cli@latest`, were not executed. The docs say the CLI can also be used without installing skills, and that skills work with Claude Code, GitHub Copilot, Cursor, and any coding agent that supports locally installed skills. No browse session was started.",
+  "url": "https://playwright.dev/agent-cli/skills",
+  "repo": "https://github.com/microsoft/playwright-cli",
+  "docs": "https://playwright.dev/agent-cli/skills",
+  "tags": [
+    "agent-skills",
+    "playwright",
+    "browser-automation",
+    "vendor"
+  ],
+  "license": "Apache-2.0",
+  "pricing": "open-source",
+  "agent_access": {
+    "auth": "none",
+    "notes": "Public Apache-2.0 skills for playwright-cli. Documented `playwright-cli install --skills` (and any CLI install) was not run. Using the skills automates a browser and can execute arbitrary Playwright scripts (run-code) and persist cookies/localStorage. No browser session was started."
+  },
+  "related": [
+    "playwright-cli",
+    "playwright-mcp",
+    "agent-skills-spec"
+  ],
+  "sources": [
+    "https://playwright.dev/agent-cli/skills",
+    "https://github.com/microsoft/playwright-cli",
+    "https://github.com/microsoft/playwright-cli/blob/main/LICENSE",
+    "https://github.com/microsoft/playwright-cli/blob/main/README.md"
+  ],
+  "maintainer": "Microsoft",
+  "added": "2026-11-16",
+  "updated": "2026-11-16",
+  "last_verified": "2026-11-16",
+  "submitted_by": "agentica-curator",
+  "status": "active"
+}
