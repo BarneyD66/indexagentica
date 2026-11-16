@@ -1,0 +1,37 @@
+{
+  "id": "planetscale-skills",
+  "name": "PlanetScale Skills",
+  "category": "skills",
+  "summary": "Official PlanetScale Agent Skills for read-only assessment, reviewable Class B schema proposals, and approval-gated Class C/D changes. MIT; live ops need an authenticated pscale CLI.",
+  "description": "Vendor-affiliated listing (PlanetScale). The planetscale/skills repository is MIT (Copyright (c) 2026 PlanetScale), not archived. The pack is free to install. The README's safety model (skill planetscale-change-gates-and-approval-contract) classifies every operation before it happens. Assessment (Class A) is read-only: the first pass always produces a report and changes nothing. Class B work — development branches, pull requests, deploy requests, and restore tests — can be prepared without per-change approval, because the review workflow is the gate. The agent's default deliverable for a schema recommendation is the complete reviewable unit: a branch with the DDL applied, a PR with the evidence, and an open deploy request; the operator's action is the merge/deploy decision. Class C work (behavior-changing: safety flags, webhooks, roles, and budgets, including Traffic Control budgets) needs approval or authorization. Class D work (production data/availability: deploys, DDL, deletions, credentials) needs approval, a named target, and a rollback plan. Class E work (destructive without recourse) is never executed autonomously. Automate creates scheduled agent loops. The README's recommended loops include recommendation-to-PR (no authorization; it only produces proposals), a recommendation deployer (requires a standing authorization), regression watch, and posture drift check. Class B preparation already applies DDL on a development branch and opens PRs/deploy requests; Class C/D work and authorized deploys can change production schema or configuration and incur PlanetScale usage. Refund terms for PlanetScale billing were not re-verified here. No CLI auth or org access was used. Prerequisites in the README: an authenticated PlanetScale CLI (`pscale`), with agents told to pass `--format json` and to use `pscale sql` rather than `pscale shell`. An optional insights-only PlanetScale MCP server is preferred for telemetry when available; nothing requires MCP. This skills entry does not set mcp_endpoint. Documented install: `git clone https://github.com/planetscale/skills.git` then `script/setup` (installs into detected agent skill directories), or `npx skills add planetscale/skills -g -y`, or a manual copy of the sibling `planetscale-*` directories (they reference each other by relative path and must stay siblings). The setup script and npx command were not executed. https://docs.planetscale.com/skills returned HTTP 200 with an empty body (Content-Length 0) on 2026-11-16, so it is not used as url, docs or a source.",
+  "url": "https://github.com/planetscale/skills",
+  "repo": "https://github.com/planetscale/skills",
+  "docs": "https://github.com/planetscale/skills#readme",
+  "tags": [
+    "agent-skills",
+    "planetscale",
+    "vendor",
+    "database"
+  ],
+  "license": "MIT",
+  "pricing": "open-source",
+  "agent_access": {
+    "auth": "none",
+    "notes": "Public MIT pack. Documented `npx skills add planetscale/skills -g -y` and script/setup were not executed. Live flows need an authenticated pscale CLI. Class B (dev branches, PRs, deploy requests, restore tests) can be prepared without per-change approval — the default schema deliverable is a branch with DDL applied, a PR, and an open deploy request. Class C/D (webhooks, Traffic Control budgets, production deploys/DDL, etc.) need approval or authorization and can change a live database and incur usage. Automate creates scheduled loops. No auth or spend was used. https://docs.planetscale.com/skills returned an empty 200 and is not cited. This entry does not set mcp_endpoint."
+  },
+  "related": [
+    "agent-skills-spec",
+    "skills-cli"
+  ],
+  "sources": [
+    "https://github.com/planetscale/skills",
+    "https://github.com/planetscale/skills/blob/main/LICENSE",
+    "https://github.com/planetscale/skills/blob/main/README.md"
+  ],
+  "maintainer": "PlanetScale",
+  "added": "2026-11-16",
+  "updated": "2026-11-16",
+  "last_verified": "2026-11-16",
+  "submitted_by": "agentica-curator",
+  "status": "active"
+}

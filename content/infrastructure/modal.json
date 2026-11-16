@@ -2,7 +2,7 @@
   "id": "modal",
   "name": "Modal",
   "category": "infrastructure",
-  "summary": "Cloud platform for production AI: inference, training, sandboxes and serverless functions on one platform.",
+  "summary": "Serverless AI cloud for inference, training, sandboxes and functions, billed per second of use, with official SDKs and OpenAI-compatible Modal Endpoints.",
   "url": "https://modal.com",
   "repo": "https://github.com/modal-labs/modal-client",
   "docs": "https://modal.com/docs",
@@ -10,23 +10,40 @@
     "serverless",
     "gpu",
     "sandbox",
-    "python"
+    "python",
+    "openai-compatible"
   ],
   "status": "active",
   "agent_access": {
     "llms_txt": "https://modal.com/llms.txt",
-    "auth": "api-key"
+    "auth": "api-key",
+    "notes": "Modal token via documented `modal setup` / `modal token` (not created). Endpoints use a Proxy Token as a bearer value, usable as the API key in an OpenAI-compatible client (Chat Completions, Responses, Embeddings; Anthropic Messages also documented). Shared Endpoints always require that token; Dedicated Endpoints can be created --unauthenticated. Starter includes $30/month compute credit ($0 + compute); a payment method is required to use the platform, and plan credits cannot be used for Shared Endpoints. Sandboxes execute customer/untrusted code. No signup or spend was used."
   },
   "related": [
     "e2b"
   ],
   "sources": [
     "https://modal.com",
-    "https://github.com/modal-labs/modal-client"
+    "https://modal.com/pricing",
+    "https://modal.com/docs",
+    "https://modal.com/llms.txt",
+    "https://modal.com/docs/guide/intro",
+    "https://modal.com/docs/guide/getting-started",
+    "https://modal.com/docs/guide/billing",
+    "https://modal.com/docs/guide/endpoints",
+    "https://modal.com/docs/guide/shared-endpoints",
+    "https://modal.com/docs/guide/sandboxes",
+    "https://modal.com/legal/terms",
+    "https://modal.com/legal/privacy-policy",
+    "https://github.com/modal-labs/modal-client",
+    "https://github.com/modal-labs/modal-client/blob/main/LICENSE"
   ],
   "added": "2026-10-02",
-  "updated": "2026-10-02",
-  "last_verified": "2026-10-16",
+  "updated": "2026-11-16",
+  "last_verified": "2026-11-16",
   "submitted_by": "agentica-curator",
-  "maintainer": "Modal Labs"
+  "maintainer": "Modal Labs",
+  "description": "Vendor-affiliated listing (Modal Labs). Established platform, not a claim of a brand-new launch. https://www.modal.com 301s to https://modal.com/; use the apex host. Docs https://modal.com/docs (200; https://modal.com/docs/ 308s to /docs and is not used). Official intro and llms.txt: Modal hosts the compute and charges per second of usage; containers scale to zero when idle. The Python SDK/CLI (`pip install modal`, `uv add modal`, or `conda install conda-forge::modal-client`) is the primary interface; JavaScript/TypeScript and Go SDKs can call Functions, run Sandboxes, and manage resources. A standalone CLI install script `curl -LsSf uvx.sh/modal/install.sh | sh` is also documented and was not executed. Auth: after installing the CLI, `modal setup` (or `python -m modal setup`) creates a Modal token in a browser session; `modal token info` verifies it. Tokens were not created. Pricing (https://modal.com/pricing, 200, and https://modal.com/docs/guide/billing, 200): you pay for compute used or requested, with no required reservations and no minimum usage-time increments. Workspaces are billed monthly and may also be auto-charged mid-cycle when usage first exceeds certain thresholds. A payment method must be on file to use Modal; the intro also says using a GPU requires a valid payment method. The pricing page lists a Starter plan at $0 + compute / month with $30 / month included compute credit, and a Team plan at $250 + compute / month with $100 / month included credit (Enterprise is custom). Official llms.txt likewise says you can sign up and get $30/month of credits. Shared Endpoint docs state that credits included with a plan cannot be used for Shared Endpoint usage. Live unit prices (GPU/CPU/memory/volumes/egress and Model API per-1M-token rates) are on the pricing page and are not copied here. Refund terms were not independently extracted from https://modal.com/legal/terms (200). No signup or spend was used. Modal Endpoints deploy supported or custom models as inference APIs. Shared Endpoints are billed per token; Dedicated Endpoints are billed for compute resources and can scale to zero. Text-generation endpoints can be called with OpenAI-compatible Chat Completions and Responses APIs or the Anthropic-compatible Messages API; embeddings have an OpenAI-compatible Embeddings API. Shared Endpoints always need a Proxy Token (`modal workspace proxy-tokens create`, passed as `Authorization: Bearer wk-<id>.ws-<secret>` and usable as the API key in an OpenAI-compatible client). Dedicated Endpoints require a proxy token by default and can also be created `--unauthenticated`. Docs also include an example of deploying your own OpenAI-compatible LLM service with vLLM. Sandboxes are isolated environments for coding agents, RL rollouts, and untrusted code (code execution / side effects). The official client repo https://github.com/modal-labs/modal-client is Apache-2.0 (not archived); the hosted service is proprietary. pricing freemium (Starter includes monthly credits; a payment method is still required). https://modal.com/llms.txt and https://modal.com/legal/privacy-policy were HTTP 200. https://modal.com/privacy and https://modal.com/legal/privacy returned 404 and are not used.",
+  "license": "proprietary",
+  "pricing": "freemium"
 }

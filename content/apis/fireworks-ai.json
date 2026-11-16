@@ -2,8 +2,8 @@
   "id": "fireworks-ai",
   "name": "Fireworks AI",
   "category": "apis",
-  "summary": "Hosted inference and training platform for open models: serverless pay-per-token, dedicated deployments and fine-tuning APIs.",
-  "description": "Commercial inference/training API (fireworks.ai). Pricing page verified 2026-11-09: serverless from about $0.05 / 1M input tokens on listed models, with Standard/Priority/Spot tables, embeddings, managed training from $0.50 / 1M training tokens and dedicated GPUs from $8/GPU-hour — live pricing page is authoritative. Docs and llms.txt at docs.fireworks.ai. Account/API key required for inference (not created during verification). Established platform, not presented as a brand-new launch.",
+  "summary": "Hosted inference and training platform for open models: prepaid pay-per-token serverless, reserved throughput, dedicated GPUs and fine-tuning, with OpenAI- and Anthropic-compatible APIs.",
+  "description": "Commercial inference/training API (fireworks.ai). Established platform, not presented as a brand-new launch. https://www.fireworks.ai 308s to https://fireworks.ai/; use the apex host. Docs at https://docs.fireworks.ai/ (200; also 200 without the trailing slash). Pricing page verified 2026-11-16 (https://fireworks.ai/pricing, 200): usage draws down prepaid credits. Serverless is pay-per-token, advertised from $0.05 / 1M input tokens, with Standard, Priority, Fast, Batch (50% off input and output for jobs that do not need an immediate answer), Spot (30% off Standard on best-effort capacity for select models; throughput can drop to zero), and Ultra-fast (preview, talk to us). Cached input is billed at half price or less, with no write fee. Reserved Throughput is documented as reserve dollars per minute on serverless rates with an SLA. Dedicated Training API is advertised from $8.00 / GPU-hour (the page lists H100 80 GB and H200 141 GB at $8.00/hour). Serverless Training is billed for tokens you prefill, sample and train (per-model table on the pricing page; a previous “from $0.50 / 1M training tokens” floor was not found on the 2026-11-16 page and is not repeated). The live pricing page is authoritative; rates change. Billing FAQs (200): Fireworks uses a usage-based pre-paid credit system (per token for serverless, per GPU time for on-demand deployments, per training token for Serverless Training, per GPU hour for Dedicated Training). If the balance reaches zero and Auto Reload is not enabled, usage pauses until credits are added. A $1 starter credit is documented: without a payment method the account is suspended when that credit is finished; with a payment method you add credits to continue. Contracted customers may move to post-paid billing. Refund terms were not independently extracted beyond those FAQs. No purchase was made. Auth is an API key from the Fireworks dashboard (`FIREWORKS_API_KEY`; not created). Official Python SDK `fireworks-ai`, or OpenAI / Anthropic SDKs. OpenAI compatibility (https://docs.fireworks.ai/tools-sdks/openai-compatibility, 200): OpenAI client base URL https://api.fireworks.ai/inference/v1. Anthropic compatibility is documented at base URL https://api.fireworks.ai/inference. Training data can use the OpenAI-compatible chat completion format. Documented API differences include max_tokens shrinking to fit the context window by default (`context_length_exceeded_behavior`: truncate or error) and usage stats on the last streaming chunk. llms.txt https://docs.fireworks.ai/llms.txt was HTTP 200. license proprietary; pricing paid. No signup or spend was used.",
   "url": "https://fireworks.ai",
   "docs": "https://docs.fireworks.ai/",
   "tags": [
@@ -11,14 +11,15 @@
     "training",
     "serverless",
     "open-models",
-    "llm-api"
+    "llm-api",
+    "openai-compatible"
   ],
   "license": "proprietary",
   "pricing": "paid",
   "agent_access": {
     "llms_txt": "https://docs.fireworks.ai/llms.txt",
     "auth": "api-key",
-    "notes": "OpenAI-compatible and Fireworks APIs; requires API key. Pricing at https://fireworks.ai/pricing."
+    "notes": "API key required (FIREWORKS_API_KEY; not created). OpenAI-compatible base URL https://api.fireworks.ai/inference/v1; Anthropic-compatible base URL https://api.fireworks.ai/inference. Official fireworks-ai SDK. Prepaid credits; a documented $1 starter credit suspends the account when exhausted unless a payment method and further credits are added. Auto Reload and monthly spend limits are documented. Live rates: https://fireworks.ai/pricing (serverless advertised from $0.05 / 1M input tokens). No key or spend was used."
   },
   "related": [
     "openrouter",
@@ -28,12 +29,17 @@
     "https://fireworks.ai",
     "https://fireworks.ai/pricing",
     "https://docs.fireworks.ai/",
-    "https://docs.fireworks.ai/llms.txt"
+    "https://docs.fireworks.ai/llms.txt",
+    "https://docs.fireworks.ai/getting-started/quickstart",
+    "https://docs.fireworks.ai/tools-sdks/openai-compatibility",
+    "https://docs.fireworks.ai/faq-new/billing-pricing/how-much-does-fireworks-cost",
+    "https://docs.fireworks.ai/faq-new/billing-pricing/how-does-billing-and-credit-usage-work",
+    "https://docs.fireworks.ai/faq-new/billing-pricing/what-happens-when-i-finish-my-1-dollar-credit"
   ],
   "maintainer": "Fireworks AI",
   "added": "2026-11-09",
-  "updated": "2026-11-09",
-  "last_verified": "2026-11-09",
+  "updated": "2026-11-16",
+  "last_verified": "2026-11-16",
   "submitted_by": "agentica-curator",
   "status": "active"
 }
