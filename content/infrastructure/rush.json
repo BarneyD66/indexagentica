@@ -1,0 +1,52 @@
+{
+  "id": "rush",
+  "name": "Rush",
+  "category": "infrastructure",
+  "summary": "Phoenix Horizon's hosted cloud computers for agent runs. Freemium; MIT plugin repo; MCP at api.phoenix.so/mcp. Isolated E2B/AWS hosts, not the operator's machine.",
+  "description": "Vendor-affiliated listing (Phoenix Horizon, Inc., Palo Alto, CA). The product is real and independently verified on 2026-11-17, with pricing and billing re-checked on 2026-11-20; GitHub issue #50 was filed by the maker, and every claim below was checked against official pages, the plugin repo, and read-only probes of the MCP host — tools were not called, and no signup or spend was used. Rush is made by Phoenix (https://phoenix.so). Marketing and docs live on getrush.ai; the API and MCP live on api.phoenix.so; the console is at cloud.getrush.ai (the console root 307/308-redirects through /console to /auth/signin and is not used as url, docs, or a source). OpenAPI 1.0.0 (title \"Rush API\") also lists https://api.prix.dev as \"the same API under its earlier name, kept for existing integrations.\" That domain split is official, not a typo. The phnx-labs/rush-mcp repository is MIT (Copyright (c) 2026 Phoenix Horizon, Inc.), not archived, created 2026-11-04 and pushed 2026-11-12; the hosted service itself is proprietary. Documented install paths were not executed: `claude plugin install rush-cloud --marketplace phnx-labs/rush-mcp` (older Claude: marketplace add, then rush-cloud@phoenix); Codex marketplace plus `codex mcp login rush`; `claude mcp add --transport http rush https://api.phoenix.so/mcp`; a Cursor mcp.json URL; VS Code `--add-mcp`; and `gemini extensions install https://github.com/phnx-labs/rush-mcp`. The plugin ships six skills: get-started, hand-off-a-task, fix-a-bug, review-a-pr, run-in-parallel, and save-an-agent. Auth is OAuth with dynamic registration and PKCE, or an organization API key (rk_live_…) as Bearer; official docs say a person's console session token is refused 403 FORBIDDEN. Pricing is freemium (https://getrush.ai/pricing.md and https://getrush.ai/docs/concepts/usage-and-billing.md). Free is a $1 one-time free credit, no card: the AI model and cloud computer are included, one run at a time; then upgrade and bring your own Claude or ChatGPT subscription, or an API key. Usage-and-billing docs say Free has no hours and its $1 pays your runs' compute; when the $1 is used, runs pause with HTTP 402 FREE_TRIAL_USED. Automations and Slack runs on Free need Pro or Max (PLAN_REQUIRED). Pro is $40 per member a month (40 cloud computer hours a month per member, pooled, weekly cap 16, 4 runs at once). Max is $300 per member a month (200 hours, weekly cap 80, 12 at once). Paid plans can be cancelled any time. A paid plan's price buys compute, never models: on Pro and Max the AI model is not included, and your own console or signed-in runs use your Claude or ChatGPT subscription or an API key (MODEL_ACCOUNT_MISSING if none is connected). API-key runs (including an MCP client sending a key) and template-agent runs always use Rush's models, billed per token from prepaid credits (from $10, no paid plan needed) once the account's one-time $1 is used; those runs also pay their compute from credits and never use the plan's hours. Official billing docs say total_cost_usd is the model cost of the run: on Rush's models it is what the provider billed for the run's calls, which your credits pay for; on your own account it is the cost the harness reports, which your provider bills, and is not a Rush charge. Auto-reload charges the default card. Parked time is free. Credits never pay for a person's own console runs. A run already going can finish the model call it is in past $0. Limits answer HTTP 402 with typed codes (FREE_TRIAL_USED, PLAN_REQUIRED, MODEL_ACCOUNT_MISSING, COMPUTE_LIMIT_REACHED, WEEKLY_COMPUTE_LIMIT_REACHED, SPEND_CAP_REACHED, PAYMENT_METHOD_REQUIRED, TOKEN_LIMIT_REACHED, CREDITS_EXHAUSTED). Terms (https://getrush.ai/legal/terms/): fees are non-refundable except as required by law; usage-based LLM charges are billed on actual consumption; Delaware law, binding arbitration, no class actions; contact support@getrush.ai; agent actions that use the operator's connected accounts are deemed authorized by the operator. Privacy (https://getrush.ai/legal/privacy/): PostHog analytics cookies on getrush.ai only after cookie-consent opt-in (until consent, no cookies or identifiers); Stripe for payments; optional connections include Google, Microsoft, Slack, Linear, and GitHub. Infrastructure disclosed as Supabase (AWS us-west-2), E2B and Amazon Web Services for isolated cloud computers, Cloudflare, and Vercel. Host trust and code execution: every run gets its own cloud computer and browser on E2B/AWS, not the operator's machine; it can be signed into connected accounts and can send email, post, and change calendars or files. MET Norway weather uses an approximately 10 km rounded Cloudflare location only; no IP is sent to MET, and the browser never contacts MET. No affiliate links were found on the cited pages.",
+  "url": "https://getrush.ai/",
+  "repo": "https://github.com/phnx-labs/rush-mcp",
+  "docs": "https://getrush.ai/docs/",
+  "tags": [
+    "cloud-agents",
+    "mcp",
+    "sandbox",
+    "e2b",
+    "vendor",
+    "phoenix"
+  ],
+  "license": "MIT",
+  "pricing": "freemium",
+  "agent_access": {
+    "mcp_endpoint": "https://api.phoenix.so/mcp",
+    "llms_txt": "https://getrush.ai/llms.txt",
+    "openapi": "https://getrush.ai/openapi.json",
+    "auth": "other",
+    "notes": "Bare GET of https://api.phoenix.so/mcp (and GET with Accept: application/json or text/event-stream) returned HTTP 404 application/json {\"error\":\"Not found\",\"code\":\"NOT_FOUND\"} (40 bytes, Rush-Version: 2026-09-11). Unauthenticated initialize and tools/list POSTs returned HTTP 401 {\"error\":\"Authentication required\",\"code\":\"AUTH_FAILED\"} with WWW-Authenticate Bearer resource_metadata=\"https://api.prix.dev/.well-known/oauth-protected-resource/mcp\" and scope runs:read runs:write. Official MCP docs say an unsigned request gets 401 and cite api.phoenix.so well-known metadata; observed GET is 404, and both well-known documents still name resource and issuer https://api.prix.dev. Auth is OAuth (dynamic registration, PKCE) or an org API key as Bearer; a console session token is refused 403. Tools were not called; no signup or spend. Hosted runs use isolated E2B/AWS computers, not the operator's machine."
+  },
+  "related": [
+    "e2b",
+    "daytona",
+    "modal"
+  ],
+  "sources": [
+    "https://getrush.ai/",
+    "https://getrush.ai/docs/",
+    "https://getrush.ai/llms.txt",
+    "https://getrush.ai/openapi.json",
+    "https://getrush.ai/pricing.md",
+    "https://getrush.ai/docs/concepts/mcp-server/",
+    "https://getrush.ai/docs/concepts/usage-and-billing/",
+    "https://getrush.ai/legal/terms/",
+    "https://getrush.ai/legal/privacy/",
+    "https://github.com/phnx-labs/rush-mcp",
+    "https://github.com/phnx-labs/rush-mcp/blob/main/LICENSE",
+    "https://phoenix.so"
+  ],
+  "maintainer": "Phoenix Horizon, Inc.",
+  "added": "2026-11-17",
+  "updated": "2026-11-20",
+  "last_verified": "2026-11-20",
+  "submitted_by": "agentica-curator",
+  "status": "active"
+}
