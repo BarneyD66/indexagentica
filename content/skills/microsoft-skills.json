@@ -3,7 +3,7 @@
   "name": "Microsoft Agent Skills",
   "category": "skills",
   "summary": "Microsoft's official Agent Skills catalog for Azure SDKs and AI Foundry, plus plugins, custom agents and MCP configs. MIT; a different repo from microsoft/azure-skills.",
-  "description": "Vendor-affiliated listing (Microsoft). This is github.com/microsoft/skills (MIT, Copyright (c) Microsoft Corporation, not archived), distinct from the already-listed azure-skills entry at github.com/microsoft/azure-skills. The README is marked Work in Progress and says more skills are being added. It is internally inconsistent on catalog size: the What's Inside table says 174 Skills, while the Skill Catalog heading and the Skill Explorer line on https://microsoft.github.io/skills/ (HTTP 200) say 175 skills. That count is not resolved here. Documented install is `npx skills add microsoft/skills` (interactive picker; not run). The README also documents a manual git clone and copying selected skill directories, and warns to install skills selectively because loading all of them causes context rot. Besides skills, the repo ships installable plugins, custom agents, an AGENTS.md template, and pre-configured MCP server configs for docs, GitHub and browser automation. Browser-automation MCP configs can drive a browser; those configs were not installed or called. This skills entry does not set mcp_endpoint. The pack is free to install; using the skills against an Azure or Foundry subscription is billed by Microsoft and was not re-verified here. No signup or spend.",
+  "description": "Vendor-affiliated listing (Microsoft). This is github.com/microsoft/skills (MIT, Copyright (c) Microsoft Corporation, not archived), distinct from the already-listed azure-skills entry at github.com/microsoft/azure-skills. The README is marked Work in Progress and says more skills are being added. It is internally inconsistent on catalog size: the What's Inside table says \"174 Skills\", the Skill Catalog blurb and the Skill Explorer line on https://microsoft.github.io/skills/ (HTTP 200) say \"175 skills\", and the catalog table rows themselves (Core 11, Foundry 11, Python 39, .NET 28, TypeScript 25, Java 25, Rust 7) add up to 146. Those figures are recorded as an inconsistency; this entry does not treat any one of them as the catalog size. Documented install is `npx skills add microsoft/skills` (interactive picker; not run). The README also documents a manual git clone and copying selected skill directories, and warns to install skills selectively because loading all of them causes context rot. Besides skills, the repo ships installable plugins, custom agents, an AGENTS.md template, and pre-configured MCP server configs for docs, GitHub and browser automation. Browser-automation MCP configs can drive a browser; those configs were not installed or called. This skills entry does not set mcp_endpoint. The pack is free to install; using the skills against an Azure or Foundry subscription is billed by Microsoft and was not re-verified here. No signup or spend.",
   "url": "https://microsoft.github.io/skills/",
   "repo": "https://github.com/microsoft/skills",
   "docs": "https://microsoft.github.io/skills/",
@@ -17,7 +17,7 @@
   "pricing": "open-source",
   "agent_access": {
     "auth": "none",
-    "notes": "Public MIT catalog, distinct from microsoft/azure-skills. Documented `npx skills add microsoft/skills` was not executed. README Work-in-Progress text cites both 174 and 175 skills. The repo also ships MCP configs including browser automation; they were not installed. This entry does not set mcp_endpoint."
+    "notes": "Public MIT catalog, distinct from microsoft/azure-skills. Documented `npx skills add microsoft/skills` was not executed. The official README is inconsistent on size: What's Inside says \"174 Skills\", the Skill Catalog blurb and Skill Explorer line say 175 skills, and the catalog table rows (Core 11, Foundry 11, Python 39, .NET 28, TypeScript 25, Java 25, Rust 7) add up to 146. That count is not resolved here. The repo also ships MCP configs including browser automation; they were not installed. This entry does not set mcp_endpoint."
   },
   "related": [
     "azure-skills",
@@ -32,8 +32,8 @@
   ],
   "maintainer": "Microsoft",
   "added": "2026-11-16",
-  "updated": "2026-11-16",
-  "last_verified": "2026-11-16",
+  "updated": "2026-11-17",
+  "last_verified": "2026-11-17",
   "submitted_by": "agentica-curator",
   "status": "active"
 }

@@ -1,0 +1,39 @@
+{
+  "id": "grafana-skills",
+  "name": "Grafana Skills",
+  "category": "skills",
+  "summary": "Official Grafana Labs Agent Skills for Grafana, Prometheus, Loki, Tempo, Pyroscope, k6, and LGTM. Apache-2.0 pack in grafana/skills.",
+  "description": "Vendor-affiliated listing (Grafana Labs). The grafana/skills repository is Apache-2.0, not archived, and was pushed 2026-11-17. The pack is free to install; Grafana Cloud or self-hosted usage is separate and was not purchased. https://docs.grafana.com/skills 301s to https://grafana.com/docs/grafana/latest/skills, which returned HTTP 404 on 2026-11-17, so those URLs are not used as docs or sources; documentation is the GitHub README. Documented installs were not executed: `npx skills add grafana/skills`, and Claude Code plugins including grafana-plugins, core, cloud, lgtm, app-sdk, k6, and datasources under @grafana-skills after adding the marketplace. The pack covers Grafana, Prometheus, Loki, Tempo, Pyroscope, k6, and LGTM. A related official MCP is already listed as grafana-mcp; this skills entry does not set mcp_endpoint. No signup or spend.",
+  "url": "https://github.com/grafana/skills",
+  "repo": "https://github.com/grafana/skills",
+  "docs": "https://github.com/grafana/skills#readme",
+  "tags": [
+    "agent-skills",
+    "grafana",
+    "vendor",
+    "observability",
+    "prometheus"
+  ],
+  "license": "Apache-2.0",
+  "pricing": "open-source",
+  "agent_access": {
+    "auth": "none",
+    "notes": "Public Apache-2.0 pack. Documented `npx skills add grafana/skills` and Claude Code grafana-*@grafana-skills plugin installs were not executed. https://docs.grafana.com/skills 301s to a 404 page and is not cited. This entry does not set mcp_endpoint (see grafana-mcp for the official Grafana MCP). No signup or spend."
+  },
+  "related": [
+    "grafana-mcp",
+    "agent-skills-spec",
+    "skills-cli"
+  ],
+  "sources": [
+    "https://github.com/grafana/skills",
+    "https://github.com/grafana/skills/blob/main/LICENSE",
+    "https://github.com/grafana/skills/blob/main/README.md"
+  ],
+  "maintainer": "Grafana Labs",
+  "added": "2026-11-17",
+  "updated": "2026-11-17",
+  "last_verified": "2026-11-17",
+  "submitted_by": "agentica-curator",
+  "status": "active"
+}

@@ -1,0 +1,39 @@
+{
+  "id": "n8n-skills",
+  "name": "n8n Skills",
+  "category": "skills",
+  "summary": "Official n8n Agent Skills that pair with an instance-level n8n MCP so a coding agent can build and edit workflows. Apache-2.0 pack in n8n-io/skills.",
+  "description": "Vendor-affiliated listing (n8n). The n8n-io/skills repository is Apache-2.0, not archived, and was pushed 2026-11-14. The pack is free to install; n8n Cloud or self-hosted usage is separate and was not purchased. Prerequisite from the README: an n8n instance (any plan, Cloud or self-hosted) with the instance-level MCP server enabled (Settings → Instance-level MCP), minimum n8n 2.2.0. Official MCP setup docs: https://docs.n8n.io/build/ways-of-building-workflows/connect-to-n8n-mcp-server (HTTP 200; the trailing-slash URL 302s there and is not used). https://docs.n8n.io/advanced-ai/skills returned 404 and is not cited. Documented installs were not executed: Claude Code `/plugin marketplace add n8n-io/skills` then `/plugin install n8n-skills@n8n-io` (prompts for the instance base URL and appends `/mcp-server/http`, then browser OAuth via `/mcp`); Codex ≥ 0.142.0 `codex plugin marketplace add n8n-io/skills`, `codex plugin add n8n-skills@n8n-io`, hook-trust prompt, then `codex mcp add n8n-mcp --url https://<your-n8n-domain>/mcp-server/http`; OpenCode plugin `n8n-skills@git+https://github.com/n8n-io/skills.git`. The pack includes 14 capability skills, 50+ on-demand reference docs, a SessionStart hook that loads a compact MCP tool reference, and PreToolUse hooks that nudge the agent to consult the matching skill before high-impact MCP calls. Those hooks run in the coding-agent session; they are not a third-party analytics product. Through the operator's n8n MCP, a connected agent can build and edit workflows, organize folders and projects, and build n8n Agents — side-effecting against that instance. This entry does not set mcp_endpoint (the MCP is the operator's own instance). Already-listed harness: n8n. No signup or spend.",
+  "url": "https://github.com/n8n-io/skills",
+  "repo": "https://github.com/n8n-io/skills",
+  "docs": "https://docs.n8n.io/build/ways-of-building-workflows/connect-to-n8n-mcp-server",
+  "tags": [
+    "agent-skills",
+    "n8n",
+    "vendor",
+    "workflows"
+  ],
+  "license": "Apache-2.0",
+  "pricing": "open-source",
+  "agent_access": {
+    "auth": "none",
+    "notes": "Public Apache-2.0 pack. Documented Claude (`n8n-skills@n8n-io`), Codex (`codex plugin add n8n-skills@n8n-io` plus `codex mcp add`), and OpenCode plugin installs were not executed. Live use needs n8n ≥ 2.2.0 with instance-level MCP; the plugin talks to the operator's https://<instance>/mcp-server/http and can create or edit workflows after browser OAuth. That host is the operator's instance, was not probed, and is not set as mcp_endpoint. SessionStart and PreToolUse hooks run in the coding-agent session. No signup or spend."
+  },
+  "related": [
+    "n8n",
+    "agent-skills-spec",
+    "skills-cli"
+  ],
+  "sources": [
+    "https://github.com/n8n-io/skills",
+    "https://github.com/n8n-io/skills/blob/main/LICENSE",
+    "https://github.com/n8n-io/skills/blob/main/README.md",
+    "https://docs.n8n.io/build/ways-of-building-workflows/connect-to-n8n-mcp-server"
+  ],
+  "maintainer": "n8n",
+  "added": "2026-11-17",
+  "updated": "2026-11-17",
+  "last_verified": "2026-11-17",
+  "submitted_by": "agentica-curator",
+  "status": "active"
+}

@@ -1,0 +1,40 @@
+{
+  "id": "hashicorp-agent-skills",
+  "name": "HashiCorp Agent Skills",
+  "category": "skills",
+  "summary": "Official HashiCorp Agent Skills for Terraform (16) and Packer (4). MPL-2.0 pack in hashicorp/agent-skills; HashiCorp is an IBM company.",
+  "description": "Vendor-affiliated listing (HashiCorp, an IBM company). The hashicorp/agent-skills repository is MPL-2.0, not archived, and was pushed 2026-11-04. The pack is free to install; HashiCorp Cloud Platform or other paid product usage is separate and was not purchased. The README states that third-party MCP or LLM terms are the provider's, and that IBM is not responsible for those terms. Contributions are restricted to HashiCorp-internal contributors until further notice. Legacy plugin IDs were replaced by terraform@hashicorp and packer@hashicorp. Documented installs were not executed: `npx skills add hashicorp/agent-skills` (or path-specific skills), and Claude Code marketplace add followed by the terraform@hashicorp / packer@hashicorp plugins. A related official MCP is already listed as terraform-mcp-server. This skills entry does not set mcp_endpoint. No signup or spend.",
+  "url": "https://github.com/hashicorp/agent-skills",
+  "repo": "https://github.com/hashicorp/agent-skills",
+  "docs": "https://github.com/hashicorp/agent-skills#readme",
+  "tags": [
+    "agent-skills",
+    "hashicorp",
+    "terraform",
+    "packer",
+    "vendor",
+    "ibm"
+  ],
+  "license": "MPL-2.0",
+  "pricing": "open-source",
+  "agent_access": {
+    "auth": "none",
+    "notes": "Public MPL-2.0 pack. Documented `npx skills add hashicorp/agent-skills` and Claude Code terraform@hashicorp / packer@hashicorp plugin installs were not executed. The README says third-party MCP/LLM terms are the provider's and IBM is not responsible; contributions are HashiCorp-internal until further notice. This entry does not set mcp_endpoint (see terraform-mcp-server). No signup or spend."
+  },
+  "related": [
+    "terraform-mcp-server",
+    "agent-skills-spec",
+    "skills-cli"
+  ],
+  "sources": [
+    "https://github.com/hashicorp/agent-skills",
+    "https://github.com/hashicorp/agent-skills/blob/main/LICENSE",
+    "https://github.com/hashicorp/agent-skills/blob/main/README.md"
+  ],
+  "maintainer": "HashiCorp",
+  "added": "2026-11-17",
+  "updated": "2026-11-17",
+  "last_verified": "2026-11-17",
+  "submitted_by": "agentica-curator",
+  "status": "active"
+}

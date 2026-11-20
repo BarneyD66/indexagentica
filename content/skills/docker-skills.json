@@ -1,0 +1,42 @@
+{
+  "id": "docker-skills",
+  "name": "Docker Skills",
+  "category": "skills",
+  "summary": "Official Docker Agent Skills for Dockerfiles, Compose, Docker Sandboxes, and Docker Agent. Apache-2.0 pack in docker/skills; live Docker usage is billed separately.",
+  "description": "Vendor-affiliated listing (Docker). The docker/skills repository is Apache-2.0, not archived, and was pushed 2026-11-13. The pack is free to install. Paid Docker product usage (Hub, cloud, Sandboxes compute) is separate and was not purchased. Official docs at https://docs.docker.com/ai/skills/ and the install page at https://docs.docker.com/ai/skills/install/ (both HTTP 200; https://docs.docker.com/ai/skills.md is also 200). Documented installs were not executed: `npx skills add docker/skills` (variants include --list, --skill, --all, --yes, -g); Claude Code `/plugin marketplace add docker/skills` then the docker-skills@docker plugin; Codex `codex plugin add docker-skills@docker`; and `gemini extensions install https://github.com/docker/skills`. Plugin and extension installs also register a remote Docker docs MCP at https://ai-backend-service.docker.com/mcp, used by the docker-docs skill. That host was not probed and this entry does not set mcp_endpoint. Skills cover Dockerfile and image builds, Compose, Docker Sandboxes (isolated code execution; see docker-sandboxes), and Docker Agent. Docs say to review proposed changes and confirm destructive operations. No signup or spend.",
+  "url": "https://docs.docker.com/ai/skills/",
+  "repo": "https://github.com/docker/skills",
+  "docs": "https://docs.docker.com/ai/skills/",
+  "tags": [
+    "agent-skills",
+    "docker",
+    "vendor",
+    "sandboxes",
+    "compose"
+  ],
+  "license": "Apache-2.0",
+  "pricing": "open-source",
+  "agent_access": {
+    "auth": "none",
+    "notes": "Public Apache-2.0 pack. Documented installs (`npx skills add docker/skills`, Claude marketplace docker-skills@docker, Codex `codex plugin add docker-skills@docker`, Gemini extensions install) were not executed. Plugin/extension installs also register a remote Docker docs MCP at https://ai-backend-service.docker.com/mcp; that host was not probed and this entry does not set mcp_endpoint. Docs tell the operator to review proposed changes and confirm destructive operations. Docker Sandboxes execute code in isolation. No signup or spend."
+  },
+  "related": [
+    "docker-sandboxes",
+    "agent-skills-spec",
+    "skills-cli"
+  ],
+  "sources": [
+    "https://docs.docker.com/ai/skills/",
+    "https://docs.docker.com/ai/skills/install/",
+    "https://docs.docker.com/ai/skills.md",
+    "https://github.com/docker/skills",
+    "https://github.com/docker/skills/blob/main/LICENSE",
+    "https://github.com/docker/skills/blob/main/README.md"
+  ],
+  "maintainer": "Docker",
+  "added": "2026-11-17",
+  "updated": "2026-11-17",
+  "last_verified": "2026-11-17",
+  "submitted_by": "agentica-curator",
+  "status": "active"
+}

@@ -1,0 +1,38 @@
+{
+  "id": "dagster-skills",
+  "name": "Dagster Skills",
+  "category": "skills",
+  "summary": "Official Dagster Agent Skills and Claude plugin for Dagster. Apache-2.0 pack in dagster-io/skills; the plugin can also attach a Dagster+ MCP that launches runs.",
+  "description": "Vendor-affiliated listing (Dagster Labs / Elementl). The dagster-io/skills repository is Apache-2.0, not archived, and was pushed 2026-11-12. The default branch is master (https://github.com/dagster-io/skills/blob/main/LICENSE returned 404; the LICENSE is at blob/master/LICENSE). The pack is free to install; Dagster+ usage is separate and was not purchased. Install paths deliver the release-stable ref. Documented installs were not executed: Claude Code `/plugin marketplace add dagster-io/skills` then `/plugin install dagster@dagster`; `npx skills add dagster-io/skills#release-stable` (skills only, no MCP); Codex with `--ref release-stable`. The Claude plugin also includes the Dagster+ MCP (US default; EU via DAGSTER_CLOUD_MCP_URL=https://mcp.agent.eu.dagster.cloud/mcp). Official docs at https://dagster.io/docs/getting-started/ai-tools/dagster-mcp (HTTP 200; docs.dagster.io/getting-started/ai-tools/dagster-mcp 308s there and is not used). That MCP can launch runs, materialize assets, re-run, backfill, and send alerts — side-effecting against the operator's Dagster+ organization. It needs org auth and was not probed; this skills entry does not set mcp_endpoint. Upgrade note from the README: the skill is still invoked with `/dagster-expert`; the old dagster-expert plugin is now a stub — install dagster@dagster and uninstall the stub or the stub may win. No signup or spend.",
+  "url": "https://github.com/dagster-io/skills",
+  "repo": "https://github.com/dagster-io/skills",
+  "docs": "https://dagster.io/docs/getting-started/ai-tools/dagster-mcp",
+  "tags": [
+    "agent-skills",
+    "dagster",
+    "vendor",
+    "orchestration"
+  ],
+  "license": "Apache-2.0",
+  "pricing": "open-source",
+  "agent_access": {
+    "auth": "none",
+    "notes": "Public Apache-2.0 pack; LICENSE is on the master branch, not main. Documented installs (`/plugin install dagster@dagster`, `npx skills add dagster-io/skills#release-stable`, Codex --ref release-stable) were not executed. The Claude plugin can attach the Dagster+ MCP, which can launch runs, materialize assets, re-run, backfill, and alert. That host needs org auth, was not probed, and is not set as mcp_endpoint. Old dagster-expert plugin is a stub and may win if it is not uninstalled. No signup or spend."
+  },
+  "related": [
+    "agent-skills-spec",
+    "skills-cli"
+  ],
+  "sources": [
+    "https://github.com/dagster-io/skills",
+    "https://github.com/dagster-io/skills/blob/master/LICENSE",
+    "https://github.com/dagster-io/skills/blob/master/README.md",
+    "https://dagster.io/docs/getting-started/ai-tools/dagster-mcp"
+  ],
+  "maintainer": "Dagster Labs",
+  "added": "2026-11-17",
+  "updated": "2026-11-17",
+  "last_verified": "2026-11-17",
+  "submitted_by": "agentica-curator",
+  "status": "active"
+}

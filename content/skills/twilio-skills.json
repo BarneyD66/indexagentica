@@ -1,0 +1,40 @@
+{
+  "id": "twilio-skills",
+  "name": "Twilio Skills",
+  "category": "skills",
+  "summary": "Official Twilio Agent Skills (Public Beta) for product selection and messaging architecture. MIT pack in twilio/ai; not covered by Twilio Support Terms or SLA.",
+  "description": "Vendor-affiliated listing (Twilio). github.com/twilio/skills 301s to the non-archived twilio/ai repository, which is MIT (Copyright (c) 2026 Twilio) and was pushed 2026-11-11. The pack is free to install; sending messages or other Twilio API usage is billed separately and was not purchased. Official docs at https://www.twilio.com/docs/ai/skills (HTTP 200; the trailing-slash URL 301s there and is not used). Twilio Skills and the docs MCP are Public Beta, subject to change, and are not covered by the Twilio Support Terms or Twilio Service Level Agreement. Documented installs were not executed: Claude Code `/plugin marketplace add twilio/ai` then `/plugin install twilio-developer-kit@twilio` (includes skills plus the docs MCP); Cursor clone into `.agents/skills/`; Codex `codex mcp add twilio-docs --url https://mcp.twilio.com/docs` plus a copy of skills into `~/.agents/skills/`. The streamable HTTP docs MCP at https://mcp.twilio.com/docs (tools twilio__search and twilio__retrieve) is already listed as twilio-docs-mcp; it is read-only documentation search and cannot make Twilio API calls (that is twilio-mcp). This skills entry does not set mcp_endpoint. Skills help with product selection, architecture, and documented CANNOT constraints across SMS, MMS, WhatsApp, RCS, Voice, Verify, SendGrid, Conversations, Messaging Services, and compliance (A2P 10DLC, Toll-Free, STIR/SHAKEN). Feedback: questions-skills@twilio.com. No signup or spend.",
+  "url": "https://www.twilio.com/docs/ai/skills",
+  "repo": "https://github.com/twilio/ai",
+  "docs": "https://www.twilio.com/docs/ai/skills",
+  "tags": [
+    "agent-skills",
+    "twilio",
+    "vendor",
+    "messaging",
+    "public-beta"
+  ],
+  "license": "MIT",
+  "pricing": "open-source",
+  "agent_access": {
+    "auth": "none",
+    "notes": "Public MIT pack, Public Beta (not covered by Twilio Support Terms or SLA). Documented installs (`/plugin install twilio-developer-kit@twilio`, Cursor/Codex skill copies, `codex mcp add twilio-docs`) were not executed. The docs MCP at https://mcp.twilio.com/docs is already listed as twilio-docs-mcp (read-only search/retrieve; cannot call the Twilio API). This entry does not set mcp_endpoint. Live Twilio API usage can send messages and incur charges; no signup or spend."
+  },
+  "related": [
+    "twilio-docs-mcp",
+    "twilio-mcp",
+    "agent-skills-spec"
+  ],
+  "sources": [
+    "https://www.twilio.com/docs/ai/skills",
+    "https://github.com/twilio/ai",
+    "https://github.com/twilio/ai/blob/main/LICENSE",
+    "https://github.com/twilio/ai/blob/main/README.md"
+  ],
+  "maintainer": "Twilio",
+  "added": "2026-11-17",
+  "updated": "2026-11-17",
+  "last_verified": "2026-11-17",
+  "submitted_by": "agentica-curator",
+  "status": "active"
+}

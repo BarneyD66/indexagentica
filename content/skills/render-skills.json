@@ -1,0 +1,37 @@
+{
+  "id": "render-skills",
+  "name": "Render Skills",
+  "category": "skills",
+  "summary": "Official Render Agent Skills for deploys, logs, and SSH against a Render account. MIT pack in render-oss/skills; live Render usage is billed separately.",
+  "description": "Vendor-affiliated listing (Render). The render-oss/skills repository is MIT (Copyright (c) 2026 Render), not archived, and was pushed 2026-11-03. The README claims 21 skills. The pack is free to install; paid Render usage is separate and was not purchased. docs.render.com/skills 301s and render.com/docs/skills returned HTTP 404 on 2026-11-17, so those URLs are not used as docs or sources; documentation is the GitHub README. Documented installs were not executed. The recommended path is `render skills install` via the Render CLI; also `npx skills add render-oss/skills`, and Claude Code `/plugin marketplace add render-oss/skills` then `/plugin install render@skills`. Prerequisites stated in the README: a Render account, the Render MCP or CLI, a RENDER_API_KEY, and a git repo for deploy skills. Skills can deploy, SSH, and read logs — those are side-effecting against the operator's Render account. Auto-approval hooks are documented only for Claude Code. No signup or spend. This entry does not set mcp_endpoint.",
+  "url": "https://github.com/render-oss/skills",
+  "repo": "https://github.com/render-oss/skills",
+  "docs": "https://github.com/render-oss/skills#readme",
+  "tags": [
+    "agent-skills",
+    "render",
+    "vendor",
+    "deploy"
+  ],
+  "license": "MIT",
+  "pricing": "open-source",
+  "agent_access": {
+    "auth": "none",
+    "notes": "Public MIT pack. Documented installs (`render skills install`, `npx skills add render-oss/skills`, Claude marketplace then render@skills) were not executed. Live flows need a Render account, Render MCP or CLI, and RENDER_API_KEY; deploy, SSH, and logs skills can change a live service and incur Render usage. Auto-approval hooks are documented only for Claude Code. render.com/docs/skills returned 404 and is not cited. This entry does not set mcp_endpoint. No signup or spend."
+  },
+  "related": [
+    "agent-skills-spec",
+    "skills-cli"
+  ],
+  "sources": [
+    "https://github.com/render-oss/skills",
+    "https://github.com/render-oss/skills/blob/main/LICENSE",
+    "https://github.com/render-oss/skills/blob/main/README.md"
+  ],
+  "maintainer": "Render",
+  "added": "2026-11-17",
+  "updated": "2026-11-17",
+  "last_verified": "2026-11-17",
+  "submitted_by": "agentica-curator",
+  "status": "active"
+}

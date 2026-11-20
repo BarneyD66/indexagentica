@@ -1,0 +1,37 @@
+{
+  "id": "intercom-2x-skills",
+  "name": "Intercom Fin 2x Skills",
+  "category": "skills",
+  "summary": "Official Intercom Fin 2x team marketplace of generic Claude Code skills (skill review, Actions hardening, PRs, incidents). MIT; not Intercom product API skills.",
+  "description": "Vendor-affiliated listing (Intercom; published by the Fin 2x team). The intercom/2x-skills repository is MIT (Copyright (c) 2026 Intercom), not archived, and was pushed 2026-11-11. github.com/intercom/skills 301s here. The pack is free to install. This is not a pack of Intercom product or Messenger API skills. The README describes \"a marketplace of Claude Code skills built by the Fin 2x team\" and, in the repo description, skills the team thinks are generic enough to be useful to everyone. The already-listed Intercom product MCP is intercom-mcp. Documented install was not executed: `/plugin marketplace add intercom/2x-skills` then `/plugin install skill-tools@fin-2x` (other plugins are installed the same way). Plugins include skill-tools (skill-review against an 8-category rubric), security-tools (secure-github-actions checklist plus a hook that auto-loads when a workflow file is edited), claude-code-tools (permissions-analyzer, tool-misses, cc-cost-analysis from OpenTelemetry data, audit-memory), test-tools (fix-flaky-tests), code-review-tools (thermo-nuclear-code-review), pr-tools (create-pr and attach-github-assets, which can open pull requests and upload local images or recordings to GitHub), and incident-tools (five-whys). create-pr and attach-github-assets can change a GitHub repository when the operator's agent is authenticated; those commands were not run. This entry does not set mcp_endpoint. No signup or spend.",
+  "url": "https://github.com/intercom/2x-skills",
+  "repo": "https://github.com/intercom/2x-skills",
+  "docs": "https://github.com/intercom/2x-skills#readme",
+  "tags": [
+    "agent-skills",
+    "intercom",
+    "vendor",
+    "claude-code"
+  ],
+  "license": "MIT",
+  "pricing": "open-source",
+  "agent_access": {
+    "auth": "none",
+    "notes": "Public MIT pack from Intercom's Fin 2x team; generic coding-agent skills, not Intercom product API skills. Documented `/plugin marketplace add intercom/2x-skills` and `/plugin install skill-tools@fin-2x` were not executed. pr-tools can open GitHub pull requests and upload assets when the agent is authenticated; those flows were not used. This entry does not set mcp_endpoint. No signup or spend."
+  },
+  "related": [
+    "intercom-mcp",
+    "agent-skills-spec"
+  ],
+  "sources": [
+    "https://github.com/intercom/2x-skills",
+    "https://github.com/intercom/2x-skills/blob/main/LICENSE",
+    "https://github.com/intercom/2x-skills/blob/main/README.md"
+  ],
+  "maintainer": "Intercom",
+  "added": "2026-11-17",
+  "updated": "2026-11-17",
+  "last_verified": "2026-11-17",
+  "submitted_by": "agentica-curator",
+  "status": "active"
+}
