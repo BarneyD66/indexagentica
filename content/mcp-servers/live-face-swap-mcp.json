@@ -1,0 +1,38 @@
+{
+  "id": "live-face-swap-mcp",
+  "name": "Live Face Swap MCP",
+  "category": "mcp-servers",
+  "summary": "Hosted Streamable HTTP MCP for quoted, approval-gated MP4 face-swap jobs paid with Live Face Swap credits. OAuth 2.1 with PKCE; unauthenticated calls get 401.",
+  "description": "Vendor-affiliated listing (Live Face Swap at live-face-swap.net). Public MCP docs at https://live-face-swap.net/mcp (HTTP 200; last updated Nov 20, 2026) describe a remote Streamable HTTP server at https://live-face-swap.net/api/mcp. Official wording: connect a remote MCP client, get a quote for a video face swap, approve a job using existing site credits, and open a private page to download the finished MP4. Quotes and preparation do not consume credits; the site reserves credits when a confirmed job starts. The client must support OAuth with PKCE and dynamic client registration; when the client opens a browser, the operator signs in and reviews and approves the connection. Terms of Service (updated 2026-11-12) and the Acceptable Use Policy at https://live-face-swap.net/acceptable-use-policy (updated 2026-11-16; HTTP 200) apply. You must be at least 18 and legally able to enter into an agreement; the AUP says the service is intended for adults aged 18 or above. Under the Terms heading \"Images, consent, and synthetic media\": rights in a photograph and permission to use the depicted person's likeness are separate — you need both where required for the intended use; a public profile photo, celebrity image, or downloadable portrait is not automatically authorized; do not use the service for deception, impersonation fraud, non-consensual intimate imagery, harassment, exploitation, or bypassing identity and liveness checks; if realistic AI alterations could cause viewers to mistake content for an authentic person or event, clearly disclose the alteration and comply with applicable platform rules. Pricing (https://live-face-swap.net/pricing, HTTP 200): camera preview, recording, replay and downloads add no AI charge; paid generation uses credits. LFS Prism Standard is 0.5 credits per connected second, Pro is 1; confirmed charges round up to whole credits per session. Monthly plans and one-time packs are listed; monthly subscriptions renew automatically until future renewals are canceled in billing. Terms: cancellation and refunds are separate; for duplicate payments, missing credits or incorrect usage charges contact support@live-face-swap.net; successfully used generation is not reversed because a recording was not saved; mandatory consumer rights remain unaffected. No official public GitHub LICENSE was used for this hosted product; the service is proprietary under the site terms. Queue #47 claims were checked against the MCP docs, llms.txt, pricing, terms, the Acceptable Use Policy, the OAuth protected-resource document, and read-only probes. No signup, OAuth, credit purchase, or tool call.",
+  "url": "https://live-face-swap.net/mcp",
+  "docs": "https://live-face-swap.net/mcp",
+  "tags": [
+    "mcp",
+    "oauth",
+    "video",
+    "credits",
+    "face-swap"
+  ],
+  "license": "proprietary",
+  "pricing": "paid",
+  "agent_access": {
+    "mcp_endpoint": "https://live-face-swap.net/api/mcp",
+    "llms_txt": "https://live-face-swap.net/llms.txt",
+    "auth": "oauth",
+    "notes": "Bare GET of https://live-face-swap.net/api/mcp (and GET with Accept application/json or text/event-stream) returned HTTP 405 with Allow: POST and an empty body. Unauthenticated initialize and tools/list POSTs returned HTTP 401 application/json JSON-RPC error {\"code\":-32000,\"message\":\"invalid_token\"} with WWW-Authenticate Bearer error=\"invalid_token\", resource_metadata=\"https://live-face-swap.net/.well-known/oauth-protected-resource/api/mcp\", scope=\"video_swap\". That well-known document (HTTP 200) lists resource https://live-face-swap.net/api/mcp, authorization_servers https://live-face-swap.net/api/auth, and scopes_supported video_swap. Tools were not called; no OAuth, signup, or spend. Official docs say a job starts only after the operator approves a quote on the website."
+  },
+  "sources": [
+    "https://live-face-swap.net/mcp",
+    "https://live-face-swap.net/llms.txt",
+    "https://live-face-swap.net/pricing",
+    "https://live-face-swap.net/terms-of-service",
+    "https://live-face-swap.net/acceptable-use-policy",
+    "https://live-face-swap.net/.well-known/oauth-protected-resource/api/mcp"
+  ],
+  "maintainer": "Live Face Swap",
+  "added": "2026-11-21",
+  "updated": "2026-11-21",
+  "last_verified": "2026-11-21",
+  "submitted_by": "agentica-curator",
+  "status": "active"
+}
