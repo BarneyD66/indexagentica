@@ -1,0 +1,39 @@
+{
+  "id": "cloudflare-x402",
+  "name": "Cloudflare Agents x402",
+  "category": "finance-payments",
+  "summary": "Official Cloudflare docs and Workers/Agents SDK helpers to charge or pay over the x402 HTTP 402 protocol, including paid MCP tools.",
+  "description": "Vendor-affiliated listing (Cloudflare). Official docs at https://developers.cloudflare.com/agents/tools/payments/x402/ (HTTP 200; the no-trailing-slash path 307s there and is not used). The page describes accepting and making machine-to-machine payments with x402 on Cloudflare Workers and the Agents SDK: a 402 PAYMENT-REQUIRED response, a client-signed PAYMENT-SIGNATURE retry, and a PAYMENT-RESPONSE after settlement. It documents charge-for-HTTP-content, charge-for-MCP-tools (paidTool), and paying from the Agents SDK (withX402Client) or coding tools. Examples use the public facilitator at https://x402.org/facilitator, operated by Coinbase; the docs say the facilitator does not hold funds and only verifies and broadcasts a pre-signed transaction. Supported exact/upto schemes and networks are listed on that page (including Base and base-sepolia for test USDC). This is real on-chain money on mainnets; no payment was sent and no 402 was settled. Cloudflare Workers usage is billed under Cloudflare's own plans (https://developers.cloudflare.com/workers/platform/pricing/, HTTP 200). Refund terms for Workers or on-chain transfers were not taken from a terms page in this pass. This is documentation and SDK guidance for the already-listed x402 protocol, not a second copy of the protocol itself. No signup or spend.",
+  "url": "https://developers.cloudflare.com/agents/tools/payments/x402/",
+  "docs": "https://developers.cloudflare.com/agents/tools/payments/x402/",
+  "tags": [
+    "x402",
+    "cloudflare",
+    "workers",
+    "mcp",
+    "payments"
+  ],
+  "license": "proprietary",
+  "pricing": "paid",
+  "agent_access": {
+    "llms_txt": "https://developers.cloudflare.com/agents/llms.txt",
+    "auth": "other",
+    "notes": "Official Cloudflare documentation for x402 on Workers and the Agents SDK. Example helpers (paidTool, withX402Client) were not run. Settling a 402 on a mainnet moves on-chain funds; no payment was made. Docs name https://x402.org/facilitator (Coinbase-operated) in examples; the facilitator does not hold funds. Workers usage is billed separately (official Workers pricing page). This entry does not set mcp_endpoint."
+  },
+  "related": [
+    "x402",
+    "cdp-x402",
+    "payai-facilitator"
+  ],
+  "sources": [
+    "https://developers.cloudflare.com/agents/tools/payments/x402/",
+    "https://developers.cloudflare.com/workers/platform/pricing/",
+    "https://x402.org/"
+  ],
+  "maintainer": "Cloudflare",
+  "added": "2026-11-21",
+  "updated": "2026-11-21",
+  "last_verified": "2026-11-21",
+  "submitted_by": "agentica-curator",
+  "status": "active"
+}

@@ -1,0 +1,40 @@
+{
+  "id": "weblinx",
+  "name": "WebLINX",
+  "category": "information",
+  "summary": "McGill NLP Apache-2.0 benchmark for real-world website navigation with multi-turn dialogue (ICML 2024 Spotlight), also runnable through BrowserGym.",
+  "description": "Academic listing (McGill NLP). The McGill-NLP/weblinx repository is Apache-2.0, not archived. Website https://mcgill-nlp.github.io/weblinx/ (HTTP 200; the no-trailing-slash URL 301s there and is not used). Paper: https://arxiv.org/abs/2402.05930. Hugging Face dataset https://huggingface.co/datasets/McGill-NLP/WebLINX. The README describes conversational web navigation with multi-turn dialogue and notes that WebLINX is now available as a benchmark through BrowserGym (ServiceNow/BrowserGym), alongside environments such as WebArena. The pack is free under Apache-2.0. Documented eval, Colab and BrowserGym runs were not executed.",
+  "url": "https://mcgill-nlp.github.io/weblinx/",
+  "repo": "https://github.com/McGill-NLP/weblinx",
+  "docs": "https://mcgill-nlp.github.io/weblinx/",
+  "tags": [
+    "benchmark",
+    "web-navigation",
+    "dialogue",
+    "dataset",
+    "icml"
+  ],
+  "license": "Apache-2.0",
+  "pricing": "open-source",
+  "agent_access": {
+    "auth": "none",
+    "notes": "Public Apache-2.0 benchmark, dataset and website. Documented eval, Colab and BrowserGym commands were not executed. This entry does not set mcp_endpoint. No signup or spend."
+  },
+  "related": [
+    "webarena",
+    "visualwebarena"
+  ],
+  "sources": [
+    "https://mcgill-nlp.github.io/weblinx/",
+    "https://github.com/McGill-NLP/weblinx",
+    "https://github.com/McGill-NLP/weblinx/blob/main/LICENSE",
+    "https://github.com/McGill-NLP/weblinx/blob/main/README.md",
+    "https://arxiv.org/abs/2402.05930"
+  ],
+  "maintainer": "McGill NLP",
+  "added": "2026-11-21",
+  "updated": "2026-11-21",
+  "last_verified": "2026-11-21",
+  "submitted_by": "agentica-curator",
+  "status": "active"
+}

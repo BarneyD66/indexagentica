@@ -1,0 +1,40 @@
+{
+  "id": "tau2-bench",
+  "name": "τ-bench 2.0 (tau2-bench)",
+  "category": "information",
+  "summary": "Sierra Research's MIT τ-bench 2.0: tool-agent-user customer-service tasks in six languages, text and voice, with a live leaderboard at taubench.com.",
+  "description": "Vendor-affiliated listing (Sierra Research). The sierra-research/tau2-bench repository is MIT (Copyright (c) 2025 Sierra Research), not archived, and was pushed 2026-11-21. Homepage listed on GitHub: https://www.taubench.com (that host 301s to http://taubench.com/; use https://taubench.com, HTTP 200). This is τ-bench 2.0, distinct from the already-listed original tau-bench. The README describes τ-i18n / τ-multi: the same customer-service tasks in six languages (English, Spanish, Portuguese, Hindi, Chinese and Korean), in text and in full-duplex voice, plus post-hoc judges for how the agent speaks; language packs localize tasks, database and caller personas for airline, retail and telecom. Paper: https://arxiv.org/abs/2506.07982 (HTTP 200). Sierra blog: https://sierra.ai/blog/benchmarking-agents-in-collaborative-real-world-scenarios (HTTP 200). The pack is free to use under MIT. Running the benchmark may call paid model APIs; no eval run or spend was performed.",
+  "url": "https://taubench.com",
+  "repo": "https://github.com/sierra-research/tau2-bench",
+  "docs": "https://github.com/sierra-research/tau2-bench#readme",
+  "tags": [
+    "benchmark",
+    "agents",
+    "customer-service",
+    "voice",
+    "i18n",
+    "sierra"
+  ],
+  "license": "MIT",
+  "pricing": "open-source",
+  "agent_access": {
+    "auth": "none",
+    "notes": "Public MIT benchmark repository and leaderboard. Documented eval commands were not executed. A live run may call third-party model APIs and incur their charges; no key or spend was used. This entry does not set mcp_endpoint. Use https://taubench.com (www.taubench.com 301s to http and is not cited)."
+  },
+  "related": [
+    "tau-bench"
+  ],
+  "sources": [
+    "https://taubench.com",
+    "https://github.com/sierra-research/tau2-bench",
+    "https://github.com/sierra-research/tau2-bench/blob/main/LICENSE",
+    "https://github.com/sierra-research/tau2-bench/blob/main/README.md",
+    "https://arxiv.org/abs/2506.07982"
+  ],
+  "maintainer": "Sierra Research",
+  "added": "2026-11-21",
+  "updated": "2026-11-21",
+  "last_verified": "2026-11-21",
+  "submitted_by": "agentica-curator",
+  "status": "active"
+}

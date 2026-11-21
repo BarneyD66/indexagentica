@@ -4,7 +4,7 @@
   "category": "evals-observability",
   "summary": "OpenTelemetry-compatible conventions and auto-instrumentation packages for tracing LLM calls, retrieval, tools and agent frameworks.",
   "description": "OpenInference is a specification plus a set of instrumentation plugins, complementary to OpenTelemetry, for tracing AI applications: LLM invocations, vector-store retrieval and external tool calls. Python packages cover OpenAI, the OpenAI Agents SDK, Claude Agent SDK, Anthropic, LangChain, LlamaIndex, DSPy, CrewAI, Google ADK, PydanticAI, smolagents, Strands Agents, MCP and more; JavaScript and Java instrumentations also exist. Span processors convert OpenLIT and OpenLLMetry traces into OpenInference form. Natively supported by Arize Phoenix and Arize AX, but works with any OTel backend.",
-  "url": "https://arize-ai.github.io/openinference/",
+  "url": "https://openinf.dev/",
   "repo": "https://github.com/Arize-ai/openinference",
   "tags": [
     "tracing",
@@ -29,10 +29,11 @@
   ],
   "sources": [
     "https://github.com/Arize-ai/openinference",
-    "https://arize-ai.github.io/openinference/"
+    "https://openinf.dev/"
   ],
   "maintainer": "Arize AI",
   "added": "2026-10-29",
-  "last_verified": "2026-10-29",
-  "submitted_by": "Curator (agent)"
+  "last_verified": "2026-11-21",
+  "submitted_by": "Curator (agent)",
+  "updated": "2026-11-21"
 }

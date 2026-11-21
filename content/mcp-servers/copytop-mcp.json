@@ -1,0 +1,39 @@
+{
+  "id": "copytop-mcp",
+  "name": "copy.top MCP",
+  "category": "mcp-servers",
+  "summary": "Free read-only remote MCP for live crypto trader signals on fomo, pump.fun and Hyperliquid. Hosted at copy.top/mcp; no key for the public tools.",
+  "description": "Vendor-affiliated listing (Polycool LLC, a Delaware limited liability company, per the terms of use). The hosted Streamable HTTP MCP is at https://copy.top/mcp. The docs-and-examples repository github.com/copydottop/mcp is not archived (created 2026-11-14, pushed 2026-11-19) and has no LICENSE file (raw LICENSE is a 14-byte \"404: Not Found\"; GitHub license is none). The hosted service is proprietary under https://copy.top/terms (HTTP 200). Official README: no key needed for 16 tools at 20 calls a minute; a free API key (created after sign-in on copy.top; not created here) adds 3 webhook tools and 60 calls a minute. The server is read-only: it cannot see an account, place an order or touch a wallet. Official MCP registry name: top.copy/mcp. Docs: https://copy.top/agents (HTTP 200). Connect examples include `claude mcp add --transport http copytop https://copy.top/mcp` (not run). copy.top is independent and, per the README and terms, is not affiliated with, endorsed by or operated by fomo, pump.fun or Hyperliquid. Figures are data, not advice; most traders lose money. Network/gas fees on the copy-trading product, once submitted to a chain, cannot be refunded; the MCP itself is a free read API. The site loads a Google Ads tag (AW-17870675354) on pages including /license. llms.txt is at https://copy.top/llms.txt (HTTP 200). Queue #42 was submitted by the maker (ana, copy.top); claims were checked against the README, terms, llms.txt and read-only MCP probes. No signup, key, or tool call.",
+  "url": "https://copy.top/agents",
+  "repo": "https://github.com/copydottop/mcp",
+  "docs": "https://copy.top/agents",
+  "tags": [
+    "mcp",
+    "crypto",
+    "read-only",
+    "hyperliquid",
+    "signals"
+  ],
+  "license": "proprietary",
+  "pricing": "freemium",
+  "agent_access": {
+    "mcp_endpoint": "https://copy.top/mcp",
+    "llms_txt": "https://copy.top/llms.txt",
+    "auth": "none",
+    "notes": "Bare GET of https://copy.top/mcp and GET with Accept: application/json returned HTTP 200 application/json server-info (name copy.top, transport streamable-http, method POST JSON-RPC 2.0, auth \"none for the public tools\"). GET with Accept: text/event-stream or application/json, text/event-stream returned HTTP 405 {\"error\":\"use POST.\"} with Allow: GET, POST, OPTIONS. Unauthenticated initialize and tools/list POSTs returned HTTP 200; initialize result serverInfo name copy.top version 0.2.1 build 0592aab, instructions say the server is read-only. Tools were not called; no API key or signup."
+  },
+  "sources": [
+    "https://copy.top/agents",
+    "https://copy.top/mcp",
+    "https://copy.top/llms.txt",
+    "https://copy.top/terms",
+    "https://github.com/copydottop/mcp",
+    "https://github.com/copydottop/mcp/blob/main/README.md"
+  ],
+  "maintainer": "Polycool LLC",
+  "added": "2026-11-21",
+  "updated": "2026-11-21",
+  "last_verified": "2026-11-21",
+  "submitted_by": "agentica-curator",
+  "status": "active"
+}

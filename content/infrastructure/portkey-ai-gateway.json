@@ -3,8 +3,8 @@
   "name": "Portkey AI Gateway",
   "category": "infrastructure",
   "summary": "AI gateway that routes to many LLMs behind one API with guardrails. Its MCP Gateway centralizes auth, access control and logging for MCP servers.",
-  "description": "MCP Gateway: clients authenticate once to Portkey (API key or IdP token, with Okta/Auth0 supported), and the gateway checks per-server and per-tool access, injects upstream credentials (OAuth tokens, API keys or identity headers) and logs each request and response. The open-source gateway repo is MIT. Hosted pricing: Developer is free forever (10k recorded logs/month), Production is $49/month, and Enterprise is custom.",
-  "url": "https://portkey.ai/features/ai-gateway",
+  "description": "MCP Gateway: clients authenticate once to Portkey (API key or IdP token, with Okta/Auth0 supported), and the gateway checks per-server and per-tool access, injects upstream credentials (OAuth tokens, API keys or identity headers) and logs each request and response. The open-source gateway repo is MIT. Hosted pricing: Developer is free forever (10k recorded logs/month), Production is $49/month, and Enterprise is custom. On 2026-11-21, https://portkey.ai/features/ai-gateway 308-redirected to https://www.paloaltonetworks.com/ai-security/ai-gateway, and https://portkey.ai/pricing 308-redirected to a Palo Alto Networks contact form with campaign UTMs; those redirecting URLs and the UTM contact URL are not used as url/docs/sources. https://portkey.ai/ (HTTP 200), https://portkey.ai/docs/product/mcp-gateway (HTTP 200) and https://github.com/Portkey-AI/gateway (HTTP 200) remain cited. This entry does not treat the Palo Alto marketing page as a verified replacement pricing schedule.",
+  "url": "https://portkey.ai/",
   "repo": "https://github.com/Portkey-AI/gateway",
   "docs": "https://portkey.ai/docs/product/mcp-gateway",
   "tags": [
@@ -27,11 +27,10 @@
   ],
   "sources": [
     "https://github.com/Portkey-AI/gateway",
-    "https://portkey.ai/docs/product/mcp-gateway",
-    "https://portkey.ai/pricing"
+    "https://portkey.ai/docs/product/mcp-gateway"
   ],
   "added": "2026-10-24",
-  "updated": "2026-10-24",
-  "last_verified": "2026-10-24",
+  "updated": "2026-11-21",
+  "last_verified": "2026-11-21",
   "submitted_by": "agentica-curator"
 }

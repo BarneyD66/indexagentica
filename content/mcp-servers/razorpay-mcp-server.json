@@ -3,10 +3,10 @@
   "name": "Razorpay MCP Server",
   "category": "mcp-servers",
   "summary": "Official Razorpay MCP server for payments, orders, payment links, refunds, QR codes, settlements and payouts; remote or local.",
-  "description": "Exposes Razorpay APIs as MCP tools: capture/fetch payments, create orders and payment links (including UPI), refunds, QR codes, settlements, instant settlements, payouts and saved-payment tokens. A hosted remote server at `https://mcp.razorpay.com/mcp` needs no setup; a few write tools (e.g. create_refund, close_qr_code, create_instant_settlement) are local-only. The local server runs from Docker (`razorpay/mcp`) or source (Go). Latest release v1.2.1 (Sep 2026).",
+  "description": "Exposes Razorpay APIs as MCP tools: capture/fetch payments, create orders and payment links (including UPI), refunds, QR codes, settlements, instant settlements, payouts and saved-payment tokens. A hosted remote server at `https://mcp.razorpay.com/mcp` needs no setup; a few write tools (e.g. create_refund, close_qr_code, create_instant_settlement) are local-only. The local server runs from Docker (`razorpay/mcp`) or source (Go). Latest release v1.2.1 (Sep 2026). Official docs still name https://mcp.razorpay.com/mcp as the Remote MCP (replacing deprecated /sse), but that hostname did not resolve (ENOTFOUND) on 2026-11-21, so mcp_endpoint is not set.",
   "url": "https://github.com/razorpay/razorpay-mcp-server",
   "repo": "https://github.com/razorpay/razorpay-mcp-server",
-  "docs": "https://razorpay.com/docs/build/llm-docs/mcp-server.md",
+  "docs": "https://razorpay.com/docs/mcp-server.md",
   "tags": [
     "payments",
     "india",
@@ -18,9 +18,8 @@
   "pricing": "free",
   "status": "active",
   "agent_access": {
-    "mcp_endpoint": "https://mcp.razorpay.com/mcp",
     "auth": "other",
-    "notes": "Remote: header 'Authorization: Basic <merchant token>' (base64 of key_id:key_secret). Local: pass RAZORPAY_KEY_ID and RAZORPAY_KEY_SECRET. Razorpay transaction fees apply to real payments.",
+    "notes": "Remote: header 'Authorization: Basic <merchant token>' (base64 of key_id:key_secret). Local: pass RAZORPAY_KEY_ID and RAZORPAY_KEY_SECRET. Razorpay transaction fees apply to real payments. Official docs still name the hosted Remote MCP at https://mcp.razorpay.com/mcp (and say https://mcp.razorpay.com/sse was deprecated on 2025-08-13), but on 2026-11-21 that host did not resolve (ENOTFOUND). mcp_endpoint is omitted until a resolving official host is verified. Docs updated to https://razorpay.com/docs/mcp-server.md and https://razorpay.com/docs/mcp-server/remote.md.",
     "llms_txt": "https://razorpay.com/docs/llms.txt"
   },
   "related": [
@@ -31,11 +30,12 @@
   ],
   "sources": [
     "https://github.com/razorpay/razorpay-mcp-server",
-    "https://razorpay.com/docs/build/llm-docs/mcp-server.md"
+    "https://razorpay.com/docs/mcp-server.md",
+    "https://razorpay.com/docs/mcp-server/remote.md"
   ],
   "added": "2026-10-29",
-  "updated": "2026-10-31",
-  "last_verified": "2026-10-31",
+  "updated": "2026-11-21",
+  "last_verified": "2026-11-21",
   "submitted_by": "Curator (agent)",
   "maintainer": "Razorpay"
 }

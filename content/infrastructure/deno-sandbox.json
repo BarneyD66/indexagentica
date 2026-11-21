@@ -1,0 +1,41 @@
+{
+  "id": "deno-sandbox",
+  "name": "Deno Sandbox",
+  "category": "infrastructure",
+  "summary": "Deno Deploy Linux microVMs for running untrusted code, including AI agents. MIT @deno/sandbox SDK; official pricing banner says Deno Deploy will be sunset in April 2027.",
+  "description": "Vendor-affiliated listing (Deno Land Inc.; official 9 October 2026 announcement that the Deno team is joining Cloudflare: https://deno.com/blog/cloudflare). Docs at https://docs.deno.com/sandbox/ (HTTP 200; https://docs.deno.com/sandbox/index.md is 200). Deno Sandbox is instant Linux microVMs orchestrated by Deno Deploy, designed for running untrusted code, API-driven from the @deno/sandbox SDK, with configurable allowNet egress; official docs say secrets never enter the sandbox environment and are substituted only when the sandbox makes outbound requests to approved hosts. Limits on the docs page include memory 768 MB to 4096 MB (1.2GB default), 2 vCPU, and a configurable lifetime. SDK examples were not executed. The SDK on JSR is @deno/sandbox, latest 0.13.2; the package LICENSE is MIT, Copyright (c) 2025-2026 the Deno authors (https://jsr.io/@deno/sandbox/0.13.2/LICENSE, HTTP 200). github.com/denoland/sandbox returned 404 and is not cited. The hosted microVMs run on Deno Deploy (proprietary). Pricing for Deploy and Subhosting is at https://deno.com/deploy/pricing (HTTP 200): Free $0/month, Pro $20/month, Builder $200/month, Enterprise custom, with included request, egress and other allowances (for example Free 1M requests/month and 20GiB egress). That same official pricing page shows a banner: \"Deno Deploy will be sunset in April 2027,\" linking to the Cloudflare announcement. This entry records that banner; it does not add unstated claims about a separate Sandbox SKU after that date. Refund terms were not found on the cited pages. No signup or spend.",
+  "url": "https://docs.deno.com/sandbox/",
+  "docs": "https://docs.deno.com/sandbox/",
+  "tags": [
+    "sandbox",
+    "deno",
+    "microvm",
+    "untrusted-code",
+    "cloudflare"
+  ],
+  "license": "MIT",
+  "pricing": "freemium",
+  "agent_access": {
+    "auth": "api-key",
+    "notes": "Public MIT SDK (@deno/sandbox 0.13.2 on JSR). Documented Sandbox.create / DenoDeploy examples and any CLI were not executed. Live sandboxes are Linux microVMs on Deno Deploy, designed for untrusted code, with allowNet egress and official wording that secrets never enter the sandbox. A Deno Deploy account and plan apply; the official pricing page lists Free $0 / Pro $20 / Builder $200 and banners that Deno Deploy will be sunset in April 2027 (announcement https://deno.com/blog/cloudflare). No signup or spend. This entry does not set mcp_endpoint."
+  },
+  "related": [
+    "e2b",
+    "cloudflare-sandbox",
+    "modal"
+  ],
+  "sources": [
+    "https://docs.deno.com/sandbox/",
+    "https://docs.deno.com/sandbox/index.md",
+    "https://jsr.io/@deno/sandbox",
+    "https://jsr.io/@deno/sandbox/0.13.2/LICENSE",
+    "https://deno.com/deploy/pricing",
+    "https://deno.com/blog/cloudflare"
+  ],
+  "maintainer": "Deno Land Inc.",
+  "added": "2026-11-21",
+  "updated": "2026-11-21",
+  "last_verified": "2026-11-21",
+  "submitted_by": "agentica-curator",
+  "status": "active"
+}

@@ -3,7 +3,7 @@
   "name": "Graphiti",
   "category": "tools",
   "summary": "Zep's open-source framework for building real-time knowledge graphs for AI agents.",
-  "url": "https://help.getzep.com/graphiti",
+  "url": "https://help.getzep.com/graphiti/getting-started/welcome",
   "repo": "https://github.com/getzep/graphiti",
   "tags": [
     "memory",
@@ -21,11 +21,13 @@
   ],
   "sources": [
     "https://github.com/getzep/graphiti",
-    "https://help.getzep.com/graphiti"
+    "https://help.getzep.com/graphiti/getting-started/welcome",
+    "https://help.getzep.com/graphiti/working-with-data/crud-operations.md"
   ],
   "added": "2026-10-02",
-  "updated": "2026-10-02",
-  "last_verified": "2026-10-16",
+  "updated": "2026-11-21",
+  "last_verified": "2026-11-21",
   "submitted_by": "agentica-curator",
-  "maintainer": "Zep"
+  "maintainer": "Zep",
+  "docs": "https://help.getzep.com/graphiti/getting-started/welcome"
 }

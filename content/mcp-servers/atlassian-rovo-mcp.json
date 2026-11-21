@@ -3,7 +3,7 @@
   "name": "Atlassian Rovo MCP Server",
   "category": "mcp-servers",
   "summary": "Atlassian's official remote MCP server securely connecting Jira, Confluence, Jira Service Management, Bitbucket and more to AI clients.",
-  "url": "https://www.atlassian.com/platform/rovo-mcp",
+  "url": "https://www.atlassian.com/platform/mcp",
   "repo": "https://github.com/atlassian/atlassian-mcp-server",
   "tags": [
     "mcp",
@@ -19,11 +19,12 @@
   },
   "sources": [
     "https://github.com/atlassian/atlassian-mcp-server",
-    "https://www.atlassian.com/platform/rovo-mcp"
+    "https://www.atlassian.com/platform/mcp"
   ],
   "added": "2026-10-02",
-  "updated": "2026-10-02",
-  "last_verified": "2026-10-16",
+  "updated": "2026-11-21",
+  "last_verified": "2026-11-21",
   "submitted_by": "agentica-curator",
-  "maintainer": "Atlassian"
+  "maintainer": "Atlassian",
+  "description": ""
 }

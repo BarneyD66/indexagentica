@@ -1,0 +1,37 @@
+{
+  "id": "commit0",
+  "name": "Commit0",
+  "category": "information",
+  "summary": "MIT from-scratch coding benchmark: rebuild 57 core Python libraries from commit 0 and pass their tests in isolated environments.",
+  "description": "Academic listing (Wenting Zhao and collaborators). The commit-0/commit0 repository is MIT (Copyright (c) 2024 Wenting Zhao), not archived; github.com/wenting-zhao/commit0 301s here. Website https://commit-0.github.io/ (HTTP 200). The README describes a from-scratch AI coding challenge: 57 core Python libraries to rebuild and pass unit tests, with specification, documentation, lint and type checking. It is an interactive environment for running tests in isolated environments and logging changes. Documented install is `pip install commit0` (not run). Hugging Face dataset name in the README: wentingzhao/commit0_combined. The pack is free under MIT. Isolated test runs were not started and no spend was used.",
+  "url": "https://commit-0.github.io/",
+  "repo": "https://github.com/commit-0/commit0",
+  "docs": "https://commit-0.github.io/",
+  "tags": [
+    "benchmark",
+    "coding",
+    "libraries",
+    "dataset"
+  ],
+  "license": "MIT",
+  "pricing": "open-source",
+  "agent_access": {
+    "auth": "none",
+    "notes": "Public MIT benchmark. Documented `pip install commit0` and repo setup/test commands were not executed. Tests run in isolated environments per the README; none were started here. This entry does not set mcp_endpoint."
+  },
+  "related": [
+    "swe-bench"
+  ],
+  "sources": [
+    "https://commit-0.github.io/",
+    "https://github.com/commit-0/commit0",
+    "https://github.com/commit-0/commit0/blob/main/LICENSE",
+    "https://github.com/commit-0/commit0/blob/main/README.md"
+  ],
+  "maintainer": "Wenting Zhao",
+  "added": "2026-11-21",
+  "updated": "2026-11-21",
+  "last_verified": "2026-11-21",
+  "submitted_by": "agentica-curator",
+  "status": "active"
+}

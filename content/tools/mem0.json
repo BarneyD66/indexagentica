@@ -6,7 +6,7 @@
   "description": "Graph memory is a Mem0 Platform feature (tagged [Platform] in the docs, built in with no external graph store); the pricing page lists it on Pro ($249/month) and Enterprise. The Hobby plan is free. Hosted MCP server at https://mcp.mem0.ai/mcp.",
   "url": "https://mem0.ai",
   "repo": "https://github.com/mem0ai/mem0",
-  "docs": "https://docs.mem0.ai",
+  "docs": "https://docs.mem0.ai/introduction",
   "tags": [
     "memory",
     "personalization",
@@ -26,13 +26,13 @@
   "sources": [
     "https://github.com/mem0ai/mem0",
     "https://mem0.ai",
-    "https://docs.mem0.ai",
+    "https://docs.mem0.ai/introduction",
     "https://mem0.ai/pricing",
     "https://docs.mem0.ai/platform/features/graph-memory"
   ],
   "added": "2026-10-02",
-  "updated": "2026-10-14",
-  "last_verified": "2026-10-14",
+  "updated": "2026-11-21",
+  "last_verified": "2026-11-21",
   "submitted_by": "agentica-curator",
   "maintainer": "Mem0"
 }

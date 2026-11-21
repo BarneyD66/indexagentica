@@ -1,0 +1,45 @@
+{
+  "id": "peerfoundry-run",
+  "name": "PeerFoundry Run",
+  "category": "infrastructure",
+  "summary": "Free beta isolated code sandbox for agents: Python or JavaScript, no outbound network, 30 s timeout. MCP at run.peerfoundry.ai/mcp; no SLA.",
+  "description": "Vendor-affiliated listing (an individual operator, per the Terms; UAE law). PeerFoundry Run is a hosted free beta sandbox at https://run.peerfoundry.ai (HTTP 200). It runs Python or JavaScript with no outbound network (stated in the Terms §10, the AUP, the OpenAPI summary, and the run_code tool description). There is no public GitHub org or repo at github.com/peerfoundry (404). The hosted service is proprietary; the site has no SPDX license file. This service is a beta and has no SLA. Official caps: a run aborts at 30 seconds; the container lives 45 seconds; inactivity stops a run at 10 seconds; 1024 MiB memory; stdout/stderr capped at 1,048,576 bytes each; at most 10 output files sharing 5,242,880 bytes. After the first day each key can run 200 times and 1800 run-seconds per day (2 jobs at once, 10 per minute); a new key can run 50 times / 450 run-seconds on the day it is created. Day caps reset at 00:00 UTC+4. IP mint limits apply. \"The spend meter can refuse new keys.\" Documented start is POST /v1/keys then POST /v1/run; those were not called (no key was minted and no code was executed). MCP is POST https://run.peerfoundry.ai/mcp (server name peerfoundry-run, protocol 2025-11-25 documented, 2025-03-26 also accepted). Documented tools are keys.create / keys_create and run_code. Tools were not called. Terms (last updated 17 November 2026): operator is an individual; UAE law; no mining, attacks, malware, CSAM, or limit bypass; code, inputs and outputs are deleted after each run, with short run records kept without code or output; no warranty; on the free tier total liability is USD 0; the service runs on Cloudflare and Cloudflare's rules also apply; abuse@peerfoundry.ai. Privacy page restates the deletion rule. Queue #48 was submitted by the maker; claims were checked against the live site, llms.txt, OpenAPI, Terms/AUP, and read-only MCP probes.",
+  "url": "https://run.peerfoundry.ai/",
+  "docs": "https://run.peerfoundry.ai/quickstart",
+  "tags": [
+    "sandbox",
+    "mcp",
+    "code-execution",
+    "beta",
+    "cloudflare"
+  ],
+  "license": "proprietary",
+  "pricing": "free",
+  "agent_access": {
+    "mcp_endpoint": "https://run.peerfoundry.ai/mcp",
+    "llms_txt": "https://run.peerfoundry.ai/llms.txt",
+    "openapi": "https://run.peerfoundry.ai/openapi.json",
+    "auth": "none",
+    "notes": "Bare GET of https://run.peerfoundry.ai/mcp (and GET with Accept application/json or text/event-stream) returned HTTP 405 application/json {\"error\":\"method\"} with Allow: POST. Unauthenticated initialize and tools/list POSTs returned HTTP 200 JSON-RPC; initialize result serverInfo name peerfoundry-run version 0.1.0, protocolVersion 2025-03-26. tools/list includes run_code (\"no outbound network\") and keys.create. Tools were not called; no key was minted and no code was executed. Live run_code needs a pf_ key (Authorization Bearer, X-Caller-Key, or caller_key). HEAD of many paths is 405; official pages were confirmed with GET."
+  },
+  "related": [
+    "e2b",
+    "docker-sandboxes",
+    "modal"
+  ],
+  "sources": [
+    "https://run.peerfoundry.ai/",
+    "https://run.peerfoundry.ai/quickstart",
+    "https://run.peerfoundry.ai/llms.txt",
+    "https://run.peerfoundry.ai/openapi.json",
+    "https://run.peerfoundry.ai/terms",
+    "https://run.peerfoundry.ai/privacy",
+    "https://run.peerfoundry.ai/aup"
+  ],
+  "maintainer": "PeerFoundry",
+  "added": "2026-11-21",
+  "updated": "2026-11-21",
+  "last_verified": "2026-11-21",
+  "submitted_by": "agentica-curator",
+  "status": "active"
+}

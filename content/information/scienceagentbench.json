@@ -1,0 +1,36 @@
+{
+  "id": "scienceagentbench",
+  "name": "ScienceAgentBench",
+  "category": "information",
+  "summary": "MIT benchmark (ICLR 2025) for language agents on data-driven scientific discovery, with a 2026 verified split to mitigate false negatives.",
+  "description": "Academic listing (OSU NLP Group). The OSU-NLP-Group/ScienceAgentBench repository is MIT (Copyright (c) 2025 OSU Natural Language Processing), not archived, and was pushed 2026-11-16. Website https://osu-nlp-group.github.io/ScienceAgentBench/ (HTTP 200; the no-trailing-slash URL 301s there and is not used). Paper: https://arxiv.org/abs/2410.05080. Hugging Face dataset https://huggingface.co/datasets/osunlp/ScienceAgentBench (HTTP 200). A 2026-04-30 README update says a verified version was released to mitigate false negatives in evaluation and tells users to use the latest Hugging Face dataset (verified split) and benchmark_verified.zip artifacts. The benchmark is free under MIT; running it may use compute or model APIs. No eval run or spend.",
+  "url": "https://osu-nlp-group.github.io/ScienceAgentBench/",
+  "repo": "https://github.com/OSU-NLP-Group/ScienceAgentBench",
+  "docs": "https://osu-nlp-group.github.io/ScienceAgentBench/",
+  "tags": [
+    "benchmark",
+    "science",
+    "agents",
+    "dataset",
+    "iclr"
+  ],
+  "license": "MIT",
+  "pricing": "open-source",
+  "agent_access": {
+    "auth": "none",
+    "notes": "Public MIT benchmark and Hugging Face dataset. Documented eval/setup commands and the SharePoint artifact zip were not downloaded or executed. This entry does not set mcp_endpoint. No signup or spend."
+  },
+  "sources": [
+    "https://osu-nlp-group.github.io/ScienceAgentBench/",
+    "https://github.com/OSU-NLP-Group/ScienceAgentBench",
+    "https://github.com/OSU-NLP-Group/ScienceAgentBench/blob/main/LICENSE",
+    "https://github.com/OSU-NLP-Group/ScienceAgentBench/blob/main/README.md",
+    "https://huggingface.co/datasets/osunlp/ScienceAgentBench"
+  ],
+  "maintainer": "OSU NLP Group",
+  "added": "2026-11-21",
+  "updated": "2026-11-21",
+  "last_verified": "2026-11-21",
+  "submitted_by": "agentica-curator",
+  "status": "active"
+}

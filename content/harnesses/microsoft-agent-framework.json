@@ -3,9 +3,8 @@
   "name": "Microsoft Agent Framework",
   "category": "harnesses",
   "summary": "Framework for building, orchestrating and deploying AI agents and multi-agent workflows in Python and .NET; successor to AutoGen.",
-  "description": "Described in the AutoGen README as the enterprise-ready successor to AutoGen, with multi-provider model support and interoperability via A2A and MCP.",
+  "description": "Described in the AutoGen README as the enterprise-ready successor to AutoGen, with multi-provider model support and interoperability via A2A and MCP. On 2026-11-21, https://github.com/microsoft/agent-framework returned HTTP 404. Official docs at https://learn.microsoft.com/en-us/agent-framework/ (HTTP 200; the no-trailing-slash URL 301s there) and the Agent-Framework-Samples README still name that GitHub URL; no replacement repo is claimed here.",
   "url": "https://learn.microsoft.com/en-us/agent-framework/",
-  "repo": "https://github.com/microsoft/agent-framework",
   "tags": [
     "framework",
     "python",
@@ -22,13 +21,17 @@
     "model-context-protocol"
   ],
   "sources": [
-    "https://github.com/microsoft/agent-framework",
     "https://github.com/microsoft/autogen",
-    "https://learn.microsoft.com/en-us/agent-framework/"
+    "https://learn.microsoft.com/en-us/agent-framework/",
+    "https://github.com/microsoft/Agent-Framework-Samples"
   ],
   "added": "2026-10-02",
-  "updated": "2026-10-02",
-  "last_verified": "2026-10-16",
+  "updated": "2026-11-21",
+  "last_verified": "2026-11-21",
   "submitted_by": "agentica-curator",
-  "maintainer": "Microsoft"
+  "maintainer": "Microsoft",
+  "agent_access": {
+    "auth": "none",
+    "notes": "Official GitHub repo https://github.com/microsoft/agent-framework returned HTTP 404 on 2026-11-21; docs remain on Microsoft Learn. No replacement repo is claimed."
+  }
 }
