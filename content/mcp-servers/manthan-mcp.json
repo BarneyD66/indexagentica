@@ -1,0 +1,40 @@
+{
+  "id": "manthan-mcp",
+  "name": "Manthan MCP",
+  "category": "mcp-servers",
+  "summary": "Apache-2.0 Git-native agent memory MCP (@kidakaka/manthan-mcp 0.4.0). Working vs constitution layers, SQLite FTS5 recall; memories stored as Git commits in the repo.",
+  "description": "Open-source project. The GitHub repository kidakaka/manthan-mcp is not archived (created 2026-11-09, pushed 2026-11-15T14:04:51Z = 2026-11-15 15:04:51 Europe/Stockholm). GitHub's license API reports NOASSERTION, but the repo LICENSE file is the Apache License 2.0 text (HTTP 200) and the npm registry JSON for @kidakaka/manthan-mcp 0.4.0 (the latest dist-tag when fetched) also states Apache-2.0; this entry uses Apache-2.0 from those files, not the API label. The npm web page https://www.npmjs.com/package/@kidakaka/manthan-mcp returned HTTP 403 and was not used; metadata is from https://registry.npmjs.org/@kidakaka/manthan-mcp (HTTP 200). Official description: a Git-native, deterministic memory engine for AI agents exposed via MCP. Official README: Git is the single source of truth; memories are structured Markdown under .manthan/memory/ with YAML frontmatter; an embedded SQLite FTS5 sidecar (node:sqlite, gitignored index.db) provides lexical recall. Two tiers: a writable `working` layer for live state and handoffs, and a `constitution` layer for architectural guardrails that agents cannot unilaterally rewrite (proposals go to a draft branch for human review). Host trust: this is a local stdio MCP and CLI that writes into the operator's repository; it is not a hosted remote server. Documented start is `npx @kidakaka/manthan-mcp init` (creates .manthan.yaml and directories) — that command was not executed. The README lists an MCP resource `manthan://status` described as \"Telemetry & engine health\" (memory counts, Git HEAD SHA and BM25 config). No PostHog or other phone-home analytics were found in the README; that resource is described as local engine health, not a remote telemetry endpoint. A 20 November 2026 blog post by the author announces the public npm launch. No signup or spend.",
+  "url": "https://github.com/kidakaka/manthan-mcp",
+  "repo": "https://github.com/kidakaka/manthan-mcp",
+  "docs": "https://github.com/kidakaka/manthan-mcp#readme",
+  "tags": [
+    "mcp",
+    "memory",
+    "git",
+    "stdio",
+    "apache-2"
+  ],
+  "license": "Apache-2.0",
+  "pricing": "open-source",
+  "agent_access": {
+    "auth": "none",
+    "notes": "No hosted MCP endpoint. Official README: local stdio MCP and CLI; documented `npx @kidakaka/manthan-mcp init` was not executed and the server was not started or probed. Memories are written as Git commits under .manthan/ in the operator's repo. npm 0.4.0 metadata is from registry.npmjs.org (the npm web page returned 403 and was not used). GitHub license API is NOASSERTION; LICENSE and the registry say Apache-2.0."
+  },
+  "related": [
+    "mem0",
+    "basic-memory"
+  ],
+  "sources": [
+    "https://github.com/kidakaka/manthan-mcp",
+    "https://github.com/kidakaka/manthan-mcp/blob/main/README.md",
+    "https://raw.githubusercontent.com/kidakaka/manthan-mcp/main/LICENSE",
+    "https://registry.npmjs.org/@kidakaka/manthan-mcp",
+    "https://kidakaka.com/2026/11/20/memory-as-code-why-we-open-sourced-manthan-mcp/"
+  ],
+  "maintainer": "kidakaka",
+  "added": "2026-11-22",
+  "updated": "2026-11-22",
+  "last_verified": "2026-11-22",
+  "submitted_by": "agentica-curator",
+  "status": "active"
+}

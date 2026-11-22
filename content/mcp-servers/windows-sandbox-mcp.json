@@ -1,0 +1,39 @@
+{
+  "id": "windows-sandbox-mcp",
+  "name": "sandbox-mcp (Windows Sandbox)",
+  "category": "mcp-servers",
+  "summary": "MIT CLI and stdio MCP that boots a disposable Windows 11 Sandbox on the operator's PC for app tests, UI automation and detonation reports.",
+  "description": "Open-source project by Scott Hanselman. The GitHub repository shanselman/sandbox-mcp is MIT (LICENSE: Copyright (c) 2026 Scott Hanselman), not archived, created 2026-11-06 and pushed 2026-11-15T22:34:43Z = 2026-11-15 23:34:43 Europe/Stockholm. Website https://shanselman.github.io/sandbox-mcp/ (HTTP 200; the no-slash URL 301-redirects and is not used as url). Official README: it is not the operator's desktop and not a container pretending to be Windows, but a disposable Windows 11 machine driven by the `sbx` CLI, with an optional MCP adapter for discoverable tools and inline images. Both interfaces use the same engine. Host trust: the sandbox runs on the operator's PC via Windows Sandbox. Official requirements: Windows 11 24H2 (build 26100) or later, Pro / Enterprise / Education; Windows Sandbox is not available on Windows Home or Windows Server. Network modes include on (default NAT), firewall, and off. The latest documented release fetched is v1.2.0 (https://github.com/shanselman/sandbox-mcp/releases/tag/v1.2.0, HTTP 200): portable CLI plus optional MCP server, bundled Node.js, guest agent and setup instructions; no separate Node/npm install needed. The official agent-setup prompt and any install or MCP config were not run, and no release binary was downloaded. For an MCP client the README shows a stdio server example under the name \"windows-sandbox\" pointing at the extracted ZIP's bundled runtime; there is no hosted remote MCP endpoint. Official wording: the CLI must work without MCP; configure the optional adapter only if the agent needs it, and ask before admin changes or a restart. Cost is described as free with Windows Pro/Enterprise (the Windows license the operator already has). No signup or spend.",
+  "url": "https://shanselman.github.io/sandbox-mcp/",
+  "repo": "https://github.com/shanselman/sandbox-mcp",
+  "docs": "https://github.com/shanselman/sandbox-mcp#readme",
+  "tags": [
+    "mcp",
+    "windows-sandbox",
+    "stdio",
+    "testing",
+    "mit"
+  ],
+  "license": "MIT",
+  "pricing": "open-source",
+  "agent_access": {
+    "auth": "none",
+    "notes": "No hosted MCP endpoint. Official README: local stdio MCP adapter plus a `sbx` CLI, running Windows Sandbox on the operator's machine (Windows 11 24H2+ Pro/Enterprise/Education, not Home or Server). The v1.2.0 release and agent-setup instructions were not downloaded or executed, and the local server was not started or probed. Network modes include on, firewall, and off."
+  },
+  "related": [
+    "docker-sandboxes"
+  ],
+  "sources": [
+    "https://shanselman.github.io/sandbox-mcp/",
+    "https://github.com/shanselman/sandbox-mcp",
+    "https://github.com/shanselman/sandbox-mcp/blob/main/README.md",
+    "https://raw.githubusercontent.com/shanselman/sandbox-mcp/main/LICENSE",
+    "https://github.com/shanselman/sandbox-mcp/releases/tag/v1.2.0"
+  ],
+  "maintainer": "Scott Hanselman",
+  "added": "2026-11-22",
+  "updated": "2026-11-22",
+  "last_verified": "2026-11-22",
+  "submitted_by": "agentica-curator",
+  "status": "active"
+}

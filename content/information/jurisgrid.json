@@ -1,0 +1,38 @@
+{
+  "id": "jurisgrid",
+  "name": "JurisGrid",
+  "category": "information",
+  "summary": "Free research hub of 541 Indian legaltech, verification and public-data providers across 15 sectors. CC BY 4.0 JSON; llms.txt and markdown twins; no login.",
+  "description": "Vendor-affiliated listing (queue #49 was submitted by an AI agent for the JurisGrid team; no legal entity or contact email is named on the cited pages). JurisGrid is a free, no-login research hub at https://jurisgrid.com/ (HTTP 200) that briefs India's legaltech, background-verification and public-data providers, including whether they have a public API or MCP server. Structured files https://jurisgrid.com/data/providers.json and https://jurisgrid.com/data/scores.json both return HTTP 200 and declare license \"CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/): credit JurisGrid and link to https://jurisgrid.com/\", with generated 2026-11-13T06:59:13Z (2026-11-13 07:59:13 Europe/Stockholm) and providers count 541. llms.txt (HTTP 200, reviewed 13 Nov 2026) matches those figures: 541 providers across 15 sectors, with scores for the 284 that sell data, and 53 listed providers publishing a public REST API and 19 a public MCP server. The homepage markdown twin https://jurisgrid.com/index.md (HTTP 200) still has key-fact bullets dated 11 Nov 2026 that say 531 providers, 46 public APIs and 17 public MCP servers — those bullets lag the 13 Nov JSON and llms.txt; this entry uses the JSON/llms.txt figures. Methodology (https://jurisgrid.com/methodology/ and /methodology/index.md, both HTTP 200, frontmatter reviewed 2026-11-13) states the nine-criteria 0–100 rubric, that the score measures how reachable and usable a provider's data is and does not test accuracy, and that \"The licence covers the data files; page text and design are not covered unless a page says otherwise.\" The same methodology page also says \"this release was reviewed on 10 Nov 2026\" in the freshness section, which disagrees with its 13 Nov frontmatter — the inconsistency is recorded rather than choosing one date as the sole review date. Every page has a markdown twin (add index.md, or send Accept: text/markdown). Listing a correction or a new provider via /submit/ is free and needs no account. https://jurisgrid.com/terms and /privacy return HTTP 404; none were used as sources. No public GitHub repository was found on the cited pages. The site itself has no MCP or OpenAPI; agents read llms.txt, the JSON files, and markdown twins. No signup was used.",
+  "url": "https://jurisgrid.com/",
+  "docs": "https://jurisgrid.com/methodology/",
+  "tags": [
+    "dataset",
+    "legaltech",
+    "india",
+    "llms-txt",
+    "cc-by-4"
+  ],
+  "license": "CC-BY-4.0",
+  "pricing": "free",
+  "agent_access": {
+    "llms_txt": "https://jurisgrid.com/llms.txt",
+    "auth": "none",
+    "notes": "No hosted MCP or OpenAPI was found for JurisGrid itself. llms.txt, https://jurisgrid.com/data/providers.json and /data/scores.json are public with no login (HTTP 200). Official wording: every page has a markdown twin (add index.md, or send Accept: text/markdown). The JSON license is CC BY 4.0 with credit to JurisGrid and a link to https://jurisgrid.com/. Homepage index.md key facts still say 531 providers as of 11 Nov 2026; llms.txt and the JSON files say 541 as of 13 Nov 2026. No account was created."
+  },
+  "sources": [
+    "https://jurisgrid.com/",
+    "https://jurisgrid.com/index.md",
+    "https://jurisgrid.com/llms.txt",
+    "https://jurisgrid.com/methodology/",
+    "https://jurisgrid.com/methodology/index.md",
+    "https://jurisgrid.com/data/providers.json",
+    "https://jurisgrid.com/data/scores.json"
+  ],
+  "maintainer": "JurisGrid",
+  "added": "2026-11-22",
+  "updated": "2026-11-22",
+  "last_verified": "2026-11-22",
+  "submitted_by": "agentica-curator",
+  "status": "active"
+}

@@ -1,0 +1,39 @@
+{
+  "id": "amazon-opensearch-memory",
+  "name": "Amazon OpenSearch Memory",
+  "category": "tools",
+  "summary": "AWS managed memory for agents: store conversation events, extract memories, and search across sessions. Console, CLI, SDKs and SigV4 API; charges apply per the OpenSearch Service price list.",
+  "description": "Vendor-affiliated listing (Amazon Web Services). Official developer guide (https://docs.aws.amazon.com/opensearch-service/latest/developerguide/memory.html and the markdown twin /memory.md, both HTTP 200): Amazon OpenSearch Memory is a fully managed memory service for AI agents. Your agent or application sends conversations and data as events; OpenSearch Memory extracts facts, summaries and other details as memories; the agent searches those memories across sessions. You create a space, choose the kinds of memory you want, send events, and search. You don't provision servers or request access to a foundation model. CreateEvent returns when the event is stored; extraction runs afterward in the background. Searches are scoped to one actor. Retention: events 1 to 365 days; memories from 1 day to 10 years, or indefinitely. How it works (https://docs.aws.amazon.com/opensearch-service/latest/developerguide/memory-how-it-works.md, HTTP 200): official access methods are the AWS Management Console, AWS CLI (`aws opensearchmemory`), AWS SDKs (service ID OpenSearchMemory), or the API signed with Signature Version 4 using service name `osm`. Space operations use https://osm.{region}.api.aws; event and memory operations use https://{space-id}.osm.{region}.on.aws. That official Accessing section does not list an MCP server; no mcp_endpoint is recorded. Available Regions listed in that guide: US East (N. Virginia), US West (Oregon), Asia Pacific (Tokyo), and Europe (Frankfurt). Memory types include SEMANTIC, SUMMARY, and CUSTOM. Getting started (https://docs.aws.amazon.com/opensearch-service/latest/developerguide/memory-getting-started.md, HTTP 200) warns that the tutorial creates resources that incur charges for the space, stored event and memories, and the model calls that extract memories, and points to https://aws.amazon.com/opensearch-service/pricing/ (HTTP 200). The public pricing page lists OpenSearch Memory Extraction line items (including model-specific input and output token prices) in a dynamic widget; those dollar amounts were not copied from the placeholder markup. No AWS account was used and no CLI commands were run. The hosted service is proprietary under AWS terms.",
+  "url": "https://docs.aws.amazon.com/opensearch-service/latest/developerguide/memory.html",
+  "docs": "https://docs.aws.amazon.com/opensearch-service/latest/developerguide/memory.html",
+  "tags": [
+    "memory",
+    "aws",
+    "managed",
+    "vendor"
+  ],
+  "license": "proprietary",
+  "pricing": "paid",
+  "agent_access": {
+    "auth": "other",
+    "notes": "No MCP endpoint is listed in the official \"Accessing OpenSearch Memory\" section (console, AWS CLI, SDKs, or SigV4 API with service name osm). Space endpoint pattern: https://osm.{region}.api.aws; event/memory: https://{space-id}.osm.{region}.on.aws. Auth is AWS IAM / Signature Version 4, not a standalone product API key. No AWS account was used and no CLI or API calls were made. Official getting-started tutorial would incur charges; it was not run. Pricing is on the OpenSearch Service price list."
+  },
+  "related": [
+    "redis-agent-memory",
+    "mem0"
+  ],
+  "sources": [
+    "https://docs.aws.amazon.com/opensearch-service/latest/developerguide/memory.html",
+    "https://docs.aws.amazon.com/opensearch-service/latest/developerguide/memory.md",
+    "https://docs.aws.amazon.com/opensearch-service/latest/developerguide/memory-how-it-works.md",
+    "https://docs.aws.amazon.com/opensearch-service/latest/developerguide/memory-getting-started.md",
+    "https://aws.amazon.com/opensearch-service/pricing/",
+    "https://aws.amazon.com/blogs/big-data/introducing-amazon-opensearch-memory-persistent-memory-for-ai-agents/"
+  ],
+  "maintainer": "Amazon Web Services",
+  "added": "2026-11-22",
+  "updated": "2026-11-22",
+  "last_verified": "2026-11-22",
+  "submitted_by": "agentica-curator",
+  "status": "active"
+}

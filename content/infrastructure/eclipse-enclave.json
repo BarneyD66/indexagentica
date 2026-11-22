@@ -1,0 +1,42 @@
+{
+  "id": "eclipse-enclave",
+  "name": "Eclipse Enclave",
+  "category": "infrastructure",
+  "summary": "Eclipse Enclave 1.0 (MIT): run Claude Code, Codex, Copilot, OpenCode or Pi in an isolated Docker/Podman container with a network allowlist, on the operator's machine.",
+  "description": "Official Eclipse open-source project. The GitHub repository eclipse-enclave/enclave is MIT (LICENSE file: Copyright (c) 2026 EclipseSource GmbH and others), not archived, created 2026-07-09 and pushed 2026-11-20T20:01:17Z = 2026-11-20 21:01:17 Europe/Stockholm. Homepage https://enclave.eclipse.dev (HTTP 200). The Eclipse Foundation announced Enclave 1.0 on 19 November 2026 as an open-source, vendor-neutral runtime and sandbox so AI coding agents can run autonomously in isolated, policy-controlled environments, currently supporting Claude Code, Codex, OpenCode, and other coding agents, available under the MIT license. Official README: Enclave runs Claude Code, Codex, Copilot, OpenCode, or Pi in an isolated container and can attach the Theia IDE; more tools such as Amp and Antigravity are in eclipse-enclave/enclave-extensions. Host trust: this is not a remote hosted sandbox. Each session is a container on the operator's machine (rootful Docker with buildx, or Podman; rootless works). The agent sees the project worktree and extra mounts you choose; the rest of the host stays out of reach. Official wording: \"The agent runs in YOLO mode, without confirmation prompts, in a container per session.\" All traffic leaves through a gateway that allows only allowlisted domains and logs what it allows and blocks. Logins, config, history, and agent memory persist on the host across sessions. Enclave refuses to run as root and to mount the home directory or other sensitive paths. Prerequisites: Linux, macOS, or Windows through WSL2; Git 2.26 or newer with an author and committer identity. Documented install is from the latest GitHub release (deb, rpm, or standalone binaries with `enclave self-update`); those packages were not downloaded or run. Docs: https://enclave.eclipse.dev/docs/ (HTTP 200); https://enclave.eclipse.dev/docs (no trailing slash) 301-redirects to /docs/ and is not used as url or docs. Getting started is https://enclave.eclipse.dev/docs/getting-started/ (HTTP 200; no-slash 301s). No signup or spend.",
+  "url": "https://enclave.eclipse.dev/",
+  "repo": "https://github.com/eclipse-enclave/enclave",
+  "docs": "https://enclave.eclipse.dev/docs/",
+  "tags": [
+    "sandbox",
+    "coding-agents",
+    "docker",
+    "mit",
+    "eclipse"
+  ],
+  "license": "MIT",
+  "pricing": "open-source",
+  "agent_access": {
+    "auth": "none",
+    "notes": "No hosted MCP endpoint is documented. Enclave is a local CLI that starts an isolated container on the operator's machine (Docker or Podman). Official README: the agent runs in YOLO mode, without confirmation prompts; a network gateway allowlists domains. The binary and packages were not downloaded or run. Use https://enclave.eclipse.dev/docs/ (trailing slash); the no-slash docs URL 301-redirects."
+  },
+  "related": [
+    "docker-sandboxes",
+    "sandbox-runtime"
+  ],
+  "sources": [
+    "https://enclave.eclipse.dev/",
+    "https://enclave.eclipse.dev/docs/",
+    "https://enclave.eclipse.dev/docs/getting-started/",
+    "https://github.com/eclipse-enclave/enclave",
+    "https://github.com/eclipse-enclave/enclave/blob/main/README.md",
+    "https://raw.githubusercontent.com/eclipse-enclave/enclave/main/LICENSE",
+    "https://newsroom.eclipse.org/news/announcements/eclipse-foundation-launches-eclipse-enclave-10-bringing-security-and-choice"
+  ],
+  "maintainer": "Eclipse Foundation / EclipseSource GmbH and others",
+  "added": "2026-11-22",
+  "updated": "2026-11-22",
+  "last_verified": "2026-11-22",
+  "submitted_by": "agentica-curator",
+  "status": "active"
+}

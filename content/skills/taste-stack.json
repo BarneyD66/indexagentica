@@ -1,0 +1,40 @@
+{
+  "id": "taste-stack",
+  "name": "Taste Stack",
+  "category": "skills",
+  "summary": "Installable design skills for Claude Code, Codex and Cursor. Four free tastes need an account; paid single tastes and Pro. Operated by Mini Motion AI LLC.",
+  "description": "Vendor-affiliated listing (queue #46 was submitted by the Taste Stack team). Taste Stack at https://tastestack.dev/ (HTTP 200) sells installable design skills — official llms.txt wording: \"a complete visual identity — tokens, components, layouts and motion\" — for Claude Code, Codex and Cursor. llms.txt (HTTP 200) says \"Free starters need an account; bring your own compatible agent and model access.\" No account was created and no skill was installed or paid for. Taste Stack is operated by Mini Motion AI LLC (Terms, last updated October 10, 2026, HTTP 200 at https://tastestack.dev/terms). You sign in with Google, GitHub or a one-time email link. Pricing (https://tastestack.dev/pricing, HTTP 200, amounts in USD): Free is $0 forever, with catalog previews and four free tastes — Swiss, Midnight, Soft Depth and House Blend — plus install guides. A single taste is a one-time $3.99 payment (future versions included). The pricing page, with the Yearly toggle selected when fetched, shows Pro Everything as \"$6.99 / month, billed $83.88 a year\" and \"Save 46 %\". The Terms state \"Taste Stack Pro is a subscription of $12.99 a month or $83.88 a year that renews until you cancel it; cancelling keeps access until the end of the paid period.\" Both official figures are recorded; $83.88 a year is the yearly price on both pages. Payments are processed by Stripe; official wording: they never see card details. You may buy a single taste signed out, and the purchase attaches to the account that signs in with the email given at checkout. Refund policy (https://tastestack.dev/refunds, HTTP 200, last updated October 10, 2026): \"Skills are delivered instantly and can't be returned, so we don't offer refunds — on a single taste bought once or on Pro.\" Pricing and Terms also say all sales are final; the free tastes exist so you can try the install flow first. Terms: at checkout you ask for immediate access and acknowledge that, once the skill is available, you lose the 14-day right of withdrawal that applies to distance purchases in the EU and UK. If a skill doesn't install or doesn't work as described, email hello@tastestack.dev. Each bought or claimed skill comes with a perpetual license for personal and commercial use across unlimited projects, including client work; what the agent builds is yours, with no attribution or royalties; you may not redistribute, resell or publicly share the skill package itself. Official wording: the full license ships inside every package as LICENSE.md (that file was not fetched; no package was downloaded). The hosted catalog is proprietary under the site terms. Documented install is from a taste's page into the agent (docs at https://tastestack.dev/docs, HTTP 200, show paths such as .agents/skills/taste-editorial/SKILL.md). That install was not run.",
+  "url": "https://tastestack.dev/",
+  "docs": "https://tastestack.dev/docs",
+  "tags": [
+    "skills",
+    "design",
+    "freemium",
+    "vendor"
+  ],
+  "license": "proprietary",
+  "pricing": "freemium",
+  "agent_access": {
+    "llms_txt": "https://tastestack.dev/llms.txt",
+    "auth": "other",
+    "notes": "No hosted MCP endpoint is documented. Official llms.txt and Terms: free tastes require an account (Google, GitHub, or a one-time email link); no account was created and no skill was installed or purchased. https://tastestack.dev/llms.txt, /terms, /pricing, /refunds and /docs all returned HTTP 200 with no redirect. /legal 308-redirects to /refunds and was not used as a source."
+  },
+  "related": [
+    "skills-cli"
+  ],
+  "sources": [
+    "https://tastestack.dev/",
+    "https://tastestack.dev/llms.txt",
+    "https://tastestack.dev/docs",
+    "https://tastestack.dev/pricing",
+    "https://tastestack.dev/terms",
+    "https://tastestack.dev/refunds",
+    "https://tastestack.dev/privacy"
+  ],
+  "maintainer": "Mini Motion AI LLC",
+  "added": "2026-11-22",
+  "updated": "2026-11-22",
+  "last_verified": "2026-11-22",
+  "submitted_by": "agentica-curator",
+  "status": "active"
+}

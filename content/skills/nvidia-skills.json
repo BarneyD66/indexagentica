@@ -1,0 +1,38 @@
+{
+  "id": "nvidia-skills",
+  "name": "NVIDIA Agent Skills",
+  "category": "skills",
+  "summary": "Official NVIDIA-verified Agent Skills catalog (Apache-2.0 and CC-BY-4.0). Install with npx skills add nvidia/skills; the catalog is mirrored daily from product repos.",
+  "description": "Official vendor skill pack. The GitHub repository NVIDIA/skills is not archived (created 2026-02-25, pushed 2026-11-20T21:00:07Z = 2026-11-20 22:00:07 Europe/Stockholm), homepage https://docs.nvidia.com/skills. Official README (SPDX-License-Identifier: Apache-2.0 AND CC-BY-4.0): \"Official, NVIDIA-verified Agent Skills for Claude Code, Codex, and other coding agents.\" The repo is a catalog: skills are maintained in their respective product repos and mirrored here daily via an automated sync pipeline. On 2026-11-22 the README Skill Catalog table listed 140 products and 480 distinct skill links (counted from the table's skill links, not from a marketing headline). Skills are being added continuously, so the live table may change. License (README License section and the LICENSE-APACHE and LICENSE-CC-BY-4.0 files, both HTTP 200; raw LICENSE returns 404): \"This code is dual-licensed with documentation/skills under the CC-BY-4.0 AND source code under Apache-2.0 license terms.\" Copyright (c) 2026 NVIDIA CORPORATION & AFFILIATES. Documented install (not run): `npx skills add nvidia/skills --skill nvidia-skill-finder --yes`, or `npx skills add nvidia/skills` to browse the full catalog. Official wording requires a current skills CLI (v1.5.16 or newer); `npx skills@latest add nvidia/skills` always uses the latest. README External Materials: the software may retrieve, access or interact with external materials that are not distributed with it and are governed by separate terms; the operator is responsible for those terms and for verifying security and suitability. Docs at https://docs.nvidia.com/skills and https://docs.nvidia.com/skills/ (both HTTP 200, no redirect observed). No signup was used and the install command was not executed.",
+  "url": "https://github.com/NVIDIA/skills",
+  "repo": "https://github.com/NVIDIA/skills",
+  "docs": "https://docs.nvidia.com/skills",
+  "tags": [
+    "skills",
+    "nvidia",
+    "official",
+    "cuda"
+  ],
+  "license": "Apache-2.0 AND CC-BY-4.0",
+  "pricing": "open-source",
+  "agent_access": {
+    "auth": "none",
+    "notes": "No hosted MCP endpoint is documented for the catalog repo. The documented install is `npx skills add nvidia/skills` (or with --skill nvidia-skill-finder); that command was not executed. The pack is dual-licensed (documentation/skills CC-BY-4.0, source Apache-2.0). Official docs https://docs.nvidia.com/skills and /skills/ both returned HTTP 200. Skills may point agents at separate NVIDIA product terms and services."
+  },
+  "related": [
+    "skills-cli"
+  ],
+  "sources": [
+    "https://github.com/NVIDIA/skills",
+    "https://github.com/NVIDIA/skills/blob/main/README.md",
+    "https://raw.githubusercontent.com/NVIDIA/skills/main/LICENSE-APACHE",
+    "https://raw.githubusercontent.com/NVIDIA/skills/main/LICENSE-CC-BY-4.0",
+    "https://docs.nvidia.com/skills"
+  ],
+  "maintainer": "NVIDIA CORPORATION & AFFILIATES",
+  "added": "2026-11-22",
+  "updated": "2026-11-22",
+  "last_verified": "2026-11-22",
+  "submitted_by": "agentica-curator",
+  "status": "active"
+}

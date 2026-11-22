@@ -1,0 +1,43 @@
+{
+  "id": "render-sandboxes",
+  "name": "Render Sandboxes",
+  "category": "infrastructure",
+  "summary": "Render Sandboxes public beta: isolated Linux environments for agents, with CLI and TypeScript/Python SDKs. CPU billed on actual use; memory on provisioned GB; no charge while suspended.",
+  "description": "Vendor-affiliated listing (Render). Official docs (https://render.com/docs/sandboxes and https://render.com/docs/sandboxes.md, both HTTP 200) describe Render Sandboxes as managed, ephemeral environments for executing untrusted code, including AI agents, code interpreters, builds and tests. The same docs state: \"Render Sandboxes is in public beta. APIs, defaults, and limits might change during the beta period.\" The product launch blog is dated November 04, 2026 (https://render.com/blog/introducing-render-sandboxes, HTTP 200): isolated Linux environments, automatic idle suspension, network controls, billed for CPU only when it is actually used (limits docs give the full CPU and memory split). You operate sandboxes through the Render CLI (version 2.34.0 or later) or the TypeScript SDK @renderinc/sdk 1.9.0 or later, or the Python SDK render 1.9.0 or later (Python 3.11+). Documented install paths include Homebrew, WinGet, a curl|sh installer, a direct download, building from source, npm, and pip — none of those install commands were executed, including the curl|sh script. Auth is a Render API key (rnd_…) plus a workspace ID; no key was created. Hosted sandboxes run on Render, not on the operator's machine. Termination permanently deletes the sandbox's local filesystem; snapshots can be captured first. Supported region in the limits doc: 1 (Oregon). Writable filesystem storage per sandbox: 40 GB. Limits and pricing (https://render.com/docs/sandboxes-limits.md, HTTP 200) are subject to change during the beta. Compute plans: default `1c-2g` (1 CPU, 2 GB RAM), plus `2c-4g`, `4c-8g` and `8c-16g`. CPU is billed at $0.12 per CPU-hour based on the CPU the sandbox actually uses; memory is billed at $0.019 per GB-hour on provisioned memory, regardless of actual usage. A sandbox is not billed for CPU or memory while suspended. Hobby workspaces default to 100 concurrent sandboxes per group; Pro and above default to 1,000. Exceeding group concurrency or some rate limits returns HTTP 429. Terms of Service (https://render.com/terms, HTTP 200): \"No Refunds. You may cancel your User Account at any time; however, there are no refunds for cancellation.\" The Service is deemed based in California; the agreement is governed by the internal substantive laws of the State of California, without conflict-of-laws principles. No signup or spend was used.",
+  "url": "https://render.com/docs/sandboxes",
+  "docs": "https://render.com/docs/sandboxes",
+  "tags": [
+    "sandbox",
+    "public-beta",
+    "render",
+    "vendor"
+  ],
+  "license": "proprietary",
+  "pricing": "paid",
+  "agent_access": {
+    "llms_txt": "https://render.com/llms.txt",
+    "auth": "api-key",
+    "notes": "No hosted MCP endpoint is documented in the official Sandboxes intro or limits articles. Access is the Render CLI or TypeScript/Python SDKs with a Render API key and workspace ID; no key was created and no sandbox was created. https://render.com/docs/sandboxes and /docs/sandboxes.md returned HTTP 200; official limits/pricing are at https://render.com/docs/sandboxes-limits.md (HTTP 200). Documented curl|sh and other install commands were not executed. Sandboxes run on Render, not the operator's machine."
+  },
+  "related": [
+    "vercel-sandbox",
+    "e2b",
+    "render-skills"
+  ],
+  "sources": [
+    "https://render.com/docs/sandboxes",
+    "https://render.com/docs/sandboxes.md",
+    "https://render.com/docs/sandboxes-limits.md",
+    "https://render.com/docs/sandboxes-creating.md",
+    "https://render.com/llms.txt",
+    "https://render.com/blog/introducing-render-sandboxes",
+    "https://render.com/changelog/render-sandboxes-now-available-in-beta.md",
+    "https://render.com/terms"
+  ],
+  "maintainer": "Render",
+  "added": "2026-11-22",
+  "updated": "2026-11-22",
+  "last_verified": "2026-11-22",
+  "submitted_by": "agentica-curator",
+  "status": "active"
+}
