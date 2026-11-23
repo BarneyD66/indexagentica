@@ -1,0 +1,39 @@
+{
+  "id": "mcp-hallu",
+  "name": "MCPHallu",
+  "category": "evals-observability",
+  "summary": "Benchmark of 358 MCP-agent hallucination tasks across 36 servers. Apache-2.0 LICENSE (README still says MIT); arXiv 2611.07689.",
+  "description": "MCPHallu is a public benchmark for diagnosing hallucination-prone failures of MCP agents along reasoning, execution, and memory axes. https://github.com/J1zz/mcp_hallu is not archived, created 2026-02-27 and last pushed 2026-05-07T10:48:33Z (2026-05-07 12:48:33 Europe/Stockholm). The LICENSE file in the repository is the Apache License 2.0, and GitHub reports SPDX Apache-2.0; the README badge and license section still say MIT — this entry uses the LICENSE file and records the README mismatch. The mcp-atlas/ subdirectory retains its own original license according to the README. The accompanying paper (arXiv:2611.07689, submitted 5 November 2026 09:14:26 UTC = 2026-11-05 10:14:26 Europe/Stockholm, v1) and the README both state 358 tasks across five domains, four subtypes (Branch Collapse, Unreachable Goal, Tool Misuse, Context Forgetting), 36 production MCP servers in isolated containers, and an evaluation of fourteen frontier agents from eight vendors on 5,012 trajectories, with an average score of 0.642 and 0.458 on Unreachable Goal. README subtype counts: Confusion 84, Memory 82, Reasoning 89, Void 103. The paper authors are listed on the public arXiv abstract page. The README still carries a double-blind NeurIPS 2026 notice; the arXiv record and GitHub owner are already public. Documented Docker evaluation (including docker pull of ghcr.io/scaleapi/mcp-atlas:1.2.5) and scoring commands were not run, and no API keys were used. Open-source benchmark; no signup or spend.",
+  "url": "https://github.com/J1zz/mcp_hallu",
+  "repo": "https://github.com/J1zz/mcp_hallu",
+  "docs": "https://arxiv.org/abs/2611.07689",
+  "tags": [
+    "evals",
+    "mcp",
+    "hallucination",
+    "benchmark",
+    "apache-2"
+  ],
+  "license": "Apache-2.0",
+  "pricing": "open-source",
+  "agent_access": {
+    "auth": "none",
+    "notes": "Public GitHub repository and arXiv abstract need no login. No hosted MCP endpoint is offered as a service; the repo documents a Dockerized evaluation environment that was not started. LICENSE is Apache-2.0; the README still says MIT. Evaluation commands and container images were not run."
+  },
+  "related": [
+    "mcp-bench",
+    "mcpmark"
+  ],
+  "sources": [
+    "https://github.com/J1zz/mcp_hallu",
+    "https://raw.githubusercontent.com/J1zz/mcp_hallu/main/README.md",
+    "https://raw.githubusercontent.com/J1zz/mcp_hallu/main/LICENSE",
+    "https://arxiv.org/abs/2611.07689"
+  ],
+  "maintainer": "J1zz / MCPHallu authors",
+  "added": "2026-11-23",
+  "updated": "2026-11-23",
+  "last_verified": "2026-11-23",
+  "submitted_by": "agentica-curator",
+  "status": "active"
+}

@@ -1,0 +1,37 @@
+{
+  "id": "redis-agent-skills",
+  "name": "Redis Agent Skills",
+  "category": "skills",
+  "summary": "Official Redis agent-skills pack (core, search, Iris, and more). MIT; plugins can bundle the public redis.io/mcp docs server.",
+  "description": "Vendor-affiliated listing (Redis, Inc.). https://github.com/redis/agent-skills is MIT (Copyright (c) 2026 Redis, Inc.), not archived, created 2026-01-29 and pushed 2026-11-05T15:01:14Z (2026-11-05 16:01:14 Europe/Stockholm). The GitHub description calls it Redis' official collection of agent skills. The README lists fourteen skills: redis-core, redis-connections, redis-search, redis-semantic-cache, redis-clustering, redis-security, redis-observability, redis-docs-mcp, add-redis-iris, add-agent-memory, add-agent-playbooks, add-context-gateway, add-intent-router, and add-lens. Several Iris skills describe provisioning or product setup with an iris CLI; this pack is open-source, and any paid Redis or Iris product usage is separate and was not purchased. Documented installs were not executed: `npx skills add redis/agent-skills`; Claude Code `/plugin install redis-development@claude-plugins-official`; Cursor `/add-plugin redis`. Official README: Claude, ChatGPT/Codex, and Cursor plugins bundle the official Redis documentation MCP at https://redis.io/mcp (no credentials, no local Redis); the Agent Skills CLI path does not carry that MCP component. That docs server is already listed as redis-mcp-server; this skills entry does not set mcp_endpoint. Each docs-MCP tool call sends the agent's query text to redis.io. A learn URL at https://redis.io/learn/operate/redis-for-ai/agent-skills 308-redirected to a trailing-slash URL that returned HTTP 404 in this fetch, so it is not cited. No signup or spend.",
+  "url": "https://github.com/redis/agent-skills",
+  "repo": "https://github.com/redis/agent-skills",
+  "docs": "https://github.com/redis/agent-skills#readme",
+  "tags": [
+    "agent-skills",
+    "redis",
+    "vendor",
+    "mcp"
+  ],
+  "license": "MIT",
+  "pricing": "open-source",
+  "agent_access": {
+    "auth": "none",
+    "notes": "Public MIT skill pack. Documented `npx skills add redis/agent-skills` and marketplace plugin installs were not executed. Plugins may bundle the public Redis docs MCP at https://redis.io/mcp (HEAD was HTTP 405); that hosted docs server is catalogued separately as redis-mcp-server and is not set as this entry's mcp_endpoint. No Redis account was created."
+  },
+  "related": [
+    "redis-mcp-server",
+    "redis-agent-memory"
+  ],
+  "sources": [
+    "https://github.com/redis/agent-skills",
+    "https://raw.githubusercontent.com/redis/agent-skills/main/README.md",
+    "https://raw.githubusercontent.com/redis/agent-skills/main/LICENSE"
+  ],
+  "maintainer": "Redis, Inc.",
+  "added": "2026-11-23",
+  "updated": "2026-11-23",
+  "last_verified": "2026-11-23",
+  "submitted_by": "agentica-curator",
+  "status": "active"
+}

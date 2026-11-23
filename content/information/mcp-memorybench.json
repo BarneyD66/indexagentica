@@ -1,0 +1,33 @@
+{
+  "id": "mcp-memorybench",
+  "name": "MCP-MemoryBench",
+  "category": "information",
+  "summary": "Validated 60-user synthetic split testing delete, supersede and scope in agent memory. CC-BY-4.0 on Zenodo record 24187727.",
+  "description": "MCP-MemoryBench is a dataset that tests whether a memory system for language-model agents enforces supersede, delete, and scope operations that are supplied to it explicitly. The current version record is https://zenodo.org/records/24187727 (DOI 10.5281/zenodo.24187727; the concept DOI 10.5281/zenodo.24187726 redirects here — cite the record URL, not doi.org). Zenodo lists publication date 2026-11-13, open access, and license CC-BY-4.0. Creators: Arda Altınörs and Bekir Tevfik Akgün (Yeditepe University). Official README (datasheet): 60 synthetic users (26 medium, 21 hard, 13 easy), 353 user turns, 629 memory items (542 active, 48 superseded, 39 deleted), and 188 probes. All users, names, addresses, and facts are synthetic; the data contain no real person. Cohen's kappa on raw state labels is 0.994 after two external annotators and first-author adjudication. The dataset was designed together with one system, MemCP; comparisons between systems on this data are descriptive. The LongMemEval source data are third-party (MIT) and are not included; longmemeval_subset.json lists only question identifiers for revision 98d7416 of the xiaowu0162/longmemeval-cleaned Hugging Face dataset. The evaluation harness, result files, and MemCP source are not in this archive yet; the README says they will be added as a new version when the article is accepted, and until then are available from the corresponding author on request — they were not requested or downloaded. Dataset files beyond the official README were not downloaded. No signup or spend.",
+  "url": "https://zenodo.org/records/24187727",
+  "docs": "https://zenodo.org/records/24187727",
+  "tags": [
+    "dataset",
+    "memory",
+    "evals",
+    "synthetic",
+    "cc-by-4"
+  ],
+  "license": "CC-BY-4.0",
+  "pricing": "free",
+  "agent_access": {
+    "auth": "none",
+    "notes": "Public Zenodo record and README need no login. License is CC BY 4.0. The evaluation harness is not included in this version of the archive. Dataset payloads were not downloaded beyond the official README. No hosted MCP endpoint."
+  },
+  "sources": [
+    "https://zenodo.org/records/24187727",
+    "https://zenodo.org/api/records/24187727",
+    "https://zenodo.org/api/records/24187727/files/README.md/content"
+  ],
+  "maintainer": "Altınörs and Akgün, Yeditepe University",
+  "added": "2026-11-23",
+  "updated": "2026-11-23",
+  "last_verified": "2026-11-23",
+  "submitted_by": "agentica-curator",
+  "status": "active"
+}

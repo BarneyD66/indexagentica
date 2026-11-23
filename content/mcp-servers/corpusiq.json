@@ -1,0 +1,41 @@
+{
+  "id": "corpusiq",
+  "name": "CorpusIQ",
+  "category": "mcp-servers",
+  "summary": "CorpusIQ LLC MCP that gives assistants source-cited answers from 40+ connected business systems. Freemium 30-day trial; proprietary; OAuth.",
+  "description": "Vendor-affiliated listing (GitHub issue #54 was a new-entry request; claims below were checked on official www.corpusiq.io pages and read-only MCP probes — the issue text was not used as a source). CorpusIQ is operated by CorpusIQ LLC, Scottsdale, Arizona, USA (support@corpusiq.io). The apex corpusiq.io 308-redirects to https://www.corpusiq.io/; cited URLs use the www host. Official developers page: the MCP endpoint is https://mcp2.corpusiq.io/mcp over streamable HTTP. Auth is OAuth 2.0 with metadata at https://mcp2.corpusiq.io/.well-known/oauth-authorization-server (device authorization is documented for CLI tools). Official wording: read-only external-source retrieval tools do not write back to connected vendor systems; CorpusIQ control-plane tools, the only tools that accept writes, are separately named and annotated and act on your CorpusIQ configuration. Direct MCP does not retain raw customer files or full connector response payloads; operational logs follow a published 30-day retention window (Azure Log Analytics). CorpusIQ does not train AI models on your business data and says it does not sell or share data for advertising. Payments are processed by Stripe. Terms (effective 1 January 2025, last updated March 2026): you must be at least 18 and have authority to accept on behalf of your business. Arizona law; disputes in state or federal courts in Maricopa County, Arizona. Subscription fees are billed monthly or annually in USD. Refunds are not provided for partial periods; pricing may change with 30 days' notice. You may cancel at any time from billing settings. Uptime is targeted at 99.5% monthly, not guaranteed. Pricing (https://www.corpusiq.io/pricing and https://www.corpusiq.io/pricing.md, last updated 2026-11-22): Solo $29.95/month (1 user); Team $109.95 (5 users); Business $189.95 (10 users, then $9.95 per additional user); Enterprise contact sales. All paid plans include all 40+ connectors (no paywalled connectors). Official pricing page: 30-day free trial, no credit card needed, cancel anytime. Host trust: unauthenticated initialize and tools/list POSTs to the MCP host returned HTTP 200 (serverInfo name multi-source-mcp, version 1.0.0, protocolVersion 2025-03-26) without a bearer token. Connecting business systems and using control-plane tools still depends on OAuth and your configuration. The hosted service is proprietary. No signup, connector linking, or spend; tools were not called.",
+  "url": "https://www.corpusiq.io/",
+  "docs": "https://www.corpusiq.io/developers",
+  "tags": [
+    "mcp",
+    "business-data",
+    "oauth",
+    "vendor",
+    "proprietary"
+  ],
+  "license": "proprietary",
+  "pricing": "freemium",
+  "agent_access": {
+    "mcp_endpoint": "https://mcp2.corpusiq.io/mcp",
+    "llms_txt": "https://www.corpusiq.io/llms.txt",
+    "auth": "oauth",
+    "notes": "OAuth 2.0 with discovery at https://mcp2.corpusiq.io/.well-known/oauth-authorization-server and protected-resource metadata for https://mcp2.corpusiq.io/mcp. Bare GET and GET with Accept: application/json returned HTTP 406 and the body \"Accept header must include text/event-stream\". GET with Accept: text/event-stream or application/json, text/event-stream returned HTTP 200 content-type text/event-stream; the observed body was still that Accept-header text. Unauthenticated initialize and tools/list POSTs returned HTTP 200 JSON (serverInfo name multi-source-mcp, version 1.0.0). tools/list included get_connector_status and other tools; write-capable control-plane tools are officially separately named. Tools were not called; no account or spend."
+  },
+  "sources": [
+    "https://www.corpusiq.io/",
+    "https://www.corpusiq.io/llms.txt",
+    "https://www.corpusiq.io/developers",
+    "https://www.corpusiq.io/pricing",
+    "https://www.corpusiq.io/pricing.md",
+    "https://www.corpusiq.io/terms",
+    "https://www.corpusiq.io/privacy",
+    "https://mcp2.corpusiq.io/.well-known/oauth-authorization-server",
+    "https://mcp2.corpusiq.io/.well-known/oauth-protected-resource"
+  ],
+  "maintainer": "CorpusIQ LLC",
+  "added": "2026-11-23",
+  "updated": "2026-11-23",
+  "last_verified": "2026-11-23",
+  "submitted_by": "agentica-curator",
+  "status": "active"
+}

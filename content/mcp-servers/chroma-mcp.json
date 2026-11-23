@@ -1,0 +1,38 @@
+{
+  "id": "chroma-mcp",
+  "name": "Chroma MCP Server",
+  "category": "mcp-servers",
+  "summary": "Official Chroma MCP server for collections, semantic search and memory. Apache-2.0; local uvx or Cloud client; last pushed 2025-09-17.",
+  "description": "Vendor-affiliated listing (Chroma). https://github.com/chroma-core/chroma-mcp is Apache-2.0, not archived, created 2025-02-11 and last pushed 2025-09-17T20:20:13Z (2025-09-17 22:20:13 Europe/Stockholm) — that last-push date is more than a year before this review and is disclosed. Official docs remain at https://docs.trychroma.com/integrations/frameworks/anthropic-mcp (HTTP 200) and describe the Chroma MCP server. The README states this is an MCP server for self-hosting access to Chroma (not the separate Package Search repo). Client types: ephemeral (in-memory), persistent (file-based), HTTP for a self-hosted Chroma instance, and a Cloud client that official docs say automatically connects to api.trychroma.com. Tools include collection create/list/modify/delete and document add, query, get, update, and delete. Documented embedding functions include default, cohere, openai, jina, voyageai, and roboflow; external embedding APIs need their own keys, which were not supplied. Documented `uvx chroma-mcp` / Claude Desktop config was not executed. Host trust: the default documented setups run on the operator's machine or against a self-hosted or Chroma Cloud instance you configure; collection delete and document write tools can change that store. Chroma Cloud or third-party embedding usage, if any, is separate and was not purchased. Related catalog entry chroma covers the database product and did not set an mcp_endpoint. No signup or spend.",
+  "url": "https://docs.trychroma.com/integrations/frameworks/anthropic-mcp",
+  "repo": "https://github.com/chroma-core/chroma-mcp",
+  "docs": "https://docs.trychroma.com/integrations/frameworks/anthropic-mcp",
+  "tags": [
+    "mcp",
+    "chroma",
+    "memory",
+    "vector-database",
+    "vendor"
+  ],
+  "license": "Apache-2.0",
+  "pricing": "open-source",
+  "agent_access": {
+    "auth": "none",
+    "notes": "No public hosted MCP URL is documented as a default endpoint; official setup uses a local uvx/stdio (or similar) server, optionally with a Cloud client to api.trychroma.com. The uvx command and Claude Desktop config were not run. Public docs and the GitHub repo need no login. Last GitHub push was 2025-09-17."
+  },
+  "related": [
+    "chroma"
+  ],
+  "sources": [
+    "https://docs.trychroma.com/integrations/frameworks/anthropic-mcp",
+    "https://github.com/chroma-core/chroma-mcp",
+    "https://raw.githubusercontent.com/chroma-core/chroma-mcp/main/README.md",
+    "https://raw.githubusercontent.com/chroma-core/chroma-mcp/main/LICENSE"
+  ],
+  "maintainer": "Chroma",
+  "added": "2026-11-23",
+  "updated": "2026-11-23",
+  "last_verified": "2026-11-23",
+  "submitted_by": "agentica-curator",
+  "status": "active"
+}

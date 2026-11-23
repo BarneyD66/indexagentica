@@ -1,0 +1,39 @@
+{
+  "id": "mongodb-agent-skills",
+  "name": "MongoDB Agent Skills",
+  "category": "skills",
+  "summary": "Official MongoDB agent skills and plugins (Atlas OAuth MCP or self-managed). Apache-2.0 pack; hosted Atlas usage is separate.",
+  "description": "Vendor-affiliated listing (MongoDB). https://github.com/mongodb/agent-skills is Apache-2.0 (SPDX from the LICENSE file and GitHub; the LICENSE text is the standard Apache 2.0 template), not archived, created 2026-02-26 and pushed 2026-11-20T17:23:06Z (2026-11-20 18:23:06 Europe/Stockholm). Official docs are at https://www.mongodb.com/docs/agent-skills/ (use the trailing slash; the URL without it 301-redirects). Official README: the mongodb-atlas plugin connects to the MongoDB-hosted Atlas MCP server over HTTP using OAuth and bundles skills for queries, schemas, optimization, Atlas Search, and Vector Search. A separate mongodb plugin runs the MongoDB MCP server locally for Community or Enterprise Advanced (see README.community.md). The pack is available for Claude, Cursor, Codex, GitHub Copilot (CLI and VS Code), and Grok. Official docs also list Gemini CLI and the MongoDB VS Code extension, and name skills including MongoDB MCP Setup, MongoDB Connection, Schema Design, Atlas Stream Processing, Natural Language Querying, Query Optimizer, Queryable Encryption Size Estimation, and Search and AI Recommendations. Documented installs were not executed, including marketplace plugin installs, `npx skills add mongodb/agent-skills`, `npx mongodb-mcp-server@latest setup`, and `npx mongodb-mcp-server@1 setup`. Official wording: official plugins bundle the MongoDB MCP Server and the skills; some skills work without MCP. The hosted Atlas MCP is already related to mongodb-mcp-server; this skills entry does not set mcp_endpoint. Hosted Atlas or other paid MongoDB usage is separate and was not purchased. No signup or spend.",
+  "url": "https://www.mongodb.com/docs/agent-skills/",
+  "repo": "https://github.com/mongodb/agent-skills",
+  "docs": "https://www.mongodb.com/docs/agent-skills/",
+  "tags": [
+    "agent-skills",
+    "mongodb",
+    "atlas",
+    "vendor",
+    "oauth"
+  ],
+  "license": "Apache-2.0",
+  "pricing": "open-source",
+  "agent_access": {
+    "auth": "none",
+    "notes": "Public Apache-2.0 skill pack and official docs need no login. The mongodb-atlas plugin is documented to use OAuth against the hosted Atlas MCP; the mongodb plugin runs a local MCP server. Those MCP paths are catalogued as mongodb-mcp-server and are not set as this entry's mcp_endpoint. Documented plugin, `npx skills add`, and MCP setup commands were not executed. No Atlas account was created."
+  },
+  "related": [
+    "mongodb-mcp-server"
+  ],
+  "sources": [
+    "https://www.mongodb.com/docs/agent-skills/",
+    "https://www.mongodb.com/docs/agent-skills.md",
+    "https://github.com/mongodb/agent-skills",
+    "https://raw.githubusercontent.com/mongodb/agent-skills/main/README.md",
+    "https://raw.githubusercontent.com/mongodb/agent-skills/main/LICENSE"
+  ],
+  "maintainer": "MongoDB",
+  "added": "2026-11-23",
+  "updated": "2026-11-23",
+  "last_verified": "2026-11-23",
+  "submitted_by": "agentica-curator",
+  "status": "active"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "openshorts-io-mcp",
+  "name": "OpenShorts.io MCP",
+  "category": "mcp-servers",
+  "summary": "Independent hosted OpenShorts deployment that turns long videos into captioned Shorts via MCP and REST. Freemium minutes; MIT code; Germany-based operator.",
+  "description": "Vendor-affiliated listing (a public GitHub pull request proposed the hosted MCP; claims below were checked on official pages and read-only probes). OpenShorts.io is an independent deployment of the MIT-licensed OpenShorts project, operated by Wang Xiaochun, an individual based in Germany (Warschauer Straße 33, 10243 Berlin-Friedrichshain; support@openshorts.io or w.xchun1982@gmail.com). Official pages state it is not operated by openshorts.app or the upstream repository's authors. You need an account, and you must be at least 16. Terms are governed by the law of the Federal Republic of Germany; Berlin courts have exclusive jurisdiction for merchants, while consumers keep mandatory protections where they live. Official Terms: only submit videos you own or have permission to use, and only publish the clips where that permission allows; you keep the rights to your videos and clips and grant permission to process them only as needed to run the service; do not submit content that is illegal, infringes someone else's rights, or sexualises minors. The Terms do not use the word \"deepfake\". Clips, titles, and captions are produced automatically and can contain mistakes; you are responsible for what you publish. YouTube and TikTok posting, when connected, are subject to those platforms' terms; TikTok posting is available for clips made on a paid plan because free-plan clips carry a watermark. Pricing (official llms.txt checked 2026-11-19 and the pricing page): Free is $0, 15 minutes of source video a month, account required, no card; free minutes are only from high-income countries (World Bank list minus Russia and Belarus); elsewhere one short trial video then paid. Paid plans in USD: Starter $11.90/120 min, Plus $29.90/350, Pro $49.90/750, Ultra $99.90/1800; yearly costs ten months. Minute packs are one-time and expire 12 months after purchase. Monthly minutes do not roll over. Minutes are of source processed; minutes from jobs that fail on their side are returned. Stripe or PayPal; automatic renewal until cancelled; at least 30 days' notice of a price change. Refunds (https://openshorts.io/refund and Terms): cancel any time and keep the plan until the end of the paid period. Once any minutes from a billing period or pack have been used, that payment is not refundable, subject to EU/UK statutory withdrawal rights. If no minutes have been used, a full refund is available within 14 days of the charge, then the plan or pack ends. Failed-on-their-side minutes are returned automatically; duplicate or post-cancel charges are refunded in full. Self-host remains MIT (Docker; a Gemini key is documented — not used here). Hosted MCP is https://openshorts.io/api/mcp (streamable HTTP) with REST on https://openshorts.io/api. Upstream code: https://github.com/mutonby/openshorts; operator fork https://github.com/xspring1982/openshorts.io. The hosted service is under these Terms; the open-source code is MIT. No account, key, or spend; tools were not called.",
+  "url": "https://openshorts.io/",
+  "repo": "https://github.com/xspring1982/openshorts.io",
+  "docs": "https://openshorts.io/api",
+  "tags": [
+    "mcp",
+    "video",
+    "clipping",
+    "vendor",
+    "germany"
+  ],
+  "license": "MIT",
+  "pricing": "freemium",
+  "agent_access": {
+    "mcp_endpoint": "https://openshorts.io/api/mcp",
+    "llms_txt": "https://openshorts.io/llms.txt",
+    "auth": "other",
+    "notes": "Official pages document a hosted MCP plus REST with a personal API key. Bare GET and GET with Accept: application/json or text/event-stream returned HTTP 405 application/json {\"jsonrpc\":\"2.0\",\"id\":null,\"error\":{\"code\":-32000,\"message\":\"Use POST\"}} with Allow: POST. Unauthenticated initialize returned HTTP 200, serverInfo name openshorts, title OpenShorts.io, version 1.0.0, protocolVersion 2025-03-26. Unauthenticated tools/list returned HTTP 200; listed tools include clip_video (uses the account's minutes of source length and returns a job id). Tools were not called; no account, API key, or spend. Host trust: unauthenticated initialize and tool listing succeeded; paid clipping still depends on account minutes."
+  },
+  "sources": [
+    "https://openshorts.io/",
+    "https://openshorts.io/api",
+    "https://openshorts.io/pricing",
+    "https://openshorts.io/llms.txt",
+    "https://openshorts.io/terms",
+    "https://openshorts.io/privacy",
+    "https://openshorts.io/refund",
+    "https://github.com/xspring1982/openshorts.io",
+    "https://github.com/mutonby/openshorts"
+  ],
+  "maintainer": "Wang Xiaochun",
+  "added": "2026-11-23",
+  "updated": "2026-11-23",
+  "last_verified": "2026-11-23",
+  "submitted_by": "agentica-curator",
+  "status": "active"
+}

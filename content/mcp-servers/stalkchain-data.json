@@ -1,0 +1,44 @@
+{
+  "id": "stalkchain-data",
+  "name": "StalkChain Data",
+  "category": "mcp-servers",
+  "summary": "Hosted MCP and REST API for crypto market and social-trading data on wallets, PnL and flows. Freemium credits; proprietary hosted service; OAuth or API key.",
+  "description": "Vendor-affiliated listing (a public GitHub pull request proposed this hosted connector; every claim below was checked on official pages and read-only probes — the PR text was not used as a source). StalkChain Data is a hosted service at https://data.stalkchain.com/ that offers programmatic access to crypto market and social-trading information (trader identities and wallets, PnL, token holders and flow, theses, and a live feed) over MCP at https://data.stalkchain.com/mcp and a REST API. Official Terms (https://data.stalkchain.com/terms, last updated 5 October 2026) say the data is aggregated from third-party sources and public blockchains; StalkChain does not originate it and does not guarantee completeness, currency, or correctness; it is not financial advice. You must be legally able to enter into a contract and must not use the service where doing so would break the law that applies to you (the Terms do not state an explicit 18+ age). Acceptable use includes: do not de-anonymise, dox, or target individuals whose public trading activity appears in the data. Governing law is the laws of India, with Indian courts having exclusive jurisdiction; contact is support@stalkchain.com. A docs footer also states that Stalkchain® is a registered trademark of Stalkchain Web Services, Inc., with a USA office at 447 Broadway, 2nd Floor, 3403, New York, NY, 10013, US — both official statements are recorded rather than choosing one contracting entity. Privacy (https://data.stalkchain.com/privacy, last updated 1 November 2026): sign-in via Privy (email, Google, Apple, or X); API keys are hashed; usage logs may include tool name, timing, credits, and a short argument summary; payments go through Stripe; optional agent wallets have keys held by Privy, never by StalkChain; PostHog is used \"where enabled\"; PromoteKit affiliates and infrastructure named as Neon, Vercel, and Upstash; they say they do not sell personal data or use queries to build a trading profile. Official wording: public blockchain data \"is not personal data about you\"; if a trader appears in that data they can contact support. When the connector is used from an AI assistant they receive only the tool name and arguments, not the conversation. The directory connector cannot trade, move funds, or sign; it can create, list, or delete email, price, or smart-money alerts on the user's account. Pricing (https://stalkchain.com/pricing and https://stalkchain.com/docs/credits, both HTTP 200): credits are the only unit; 250 credits equal one normal call. Starter is $29/month (1,500 calls; $29/month billed annually is $348/year). Growth is $79/month or $55/month billed annually ($660/year). Pro is $199/month or $139/month billed annually ($1,668/year). Unused paid credits roll over and credits you buy never expire. Prices exclude VAT. Cancel any time; official credits docs describe how an annual refund or chargeback is applied to months already added. Eligible new accounts can receive $5 of free credit when their own AI makes its first request within 24 hours of signup through an MCP connector or an API key (nothing is added at signup; hosted chat and StalkChain's own apps do not count); no card is required for that offer. Unspent free credit expires 7 days after signup and is spent before paid credit. Wallet-only, legacy, and disposable-email identities do not qualify. Refunds (Terms): unused credits within 14 days of purchase if fewer than 10% have been spent, less processing fees; spent credits are not refundable. Official credits docs also warn that StonkFun pricing representations currently conflict (OpenAPI credit fields advertise nonzero costs while some upstream prose still says free) and say not to assume StonkFun calls are free. 99 tools are listed in the REST reference; coverage varies, and authenticated MCP discovery may differ. The OpenAPI is title \"StalkChain Data API\" version 1.0.0 at https://data.stalkchain.com/api/v1/openapi.json. https://github.com/StalkChain/fomo-mcp-api is MIT (Copyright (c) 2026 StalkChain), not archived, created 2026-09-30 and pushed 2026-11-20T23:50:32Z (2026-11-21 00:50:32 Europe/Stockholm). Its README states it is a developer guide, not an installable MCP server; the hosted service owns auth, tools, and billing, and is not operated or endorsed by the FOMO app. The hosted product is proprietary. https://data.stalkchain.com/docs 308-redirects to https://stalkchain.com/docs (use the latter). No signup, API key, wallet, or spend was used; tools were not called.",
+  "url": "https://data.stalkchain.com/",
+  "repo": "https://github.com/StalkChain/fomo-mcp-api",
+  "docs": "https://stalkchain.com/docs",
+  "tags": [
+    "mcp",
+    "crypto",
+    "wallet-data",
+    "oauth",
+    "vendor",
+    "proprietary"
+  ],
+  "license": "proprietary",
+  "pricing": "freemium",
+  "agent_access": {
+    "mcp_endpoint": "https://data.stalkchain.com/mcp",
+    "openapi": "https://data.stalkchain.com/api/v1/openapi.json",
+    "auth": "other",
+    "notes": "Auth is OAuth (resource https://data.stalkchain.com/mcp, authorization server https://data.stalkchain.com, scope mcp) or an API key from https://data.stalkchain.com/dashboard sent as Authorization: Bearer sc_... . Bare GET and GET with Accept: application/json or text/event-stream, and unauthenticated initialize and tools/list POSTs, all returned HTTP 401 application/json with that official sign-in-or-API-key message and WWW-Authenticate Bearer realm=\"StalkChain Data\", resource_metadata=\"https://data.stalkchain.com/.well-known/oauth-protected-resource/mcp\". Tools were not called; no account, key, wallet, or spend."
+  },
+  "sources": [
+    "https://data.stalkchain.com/",
+    "https://data.stalkchain.com/terms",
+    "https://data.stalkchain.com/privacy",
+    "https://stalkchain.com/pricing",
+    "https://stalkchain.com/docs",
+    "https://stalkchain.com/docs/credits",
+    "https://data.stalkchain.com/api/v1/openapi.json",
+    "https://github.com/StalkChain/fomo-mcp-api",
+    "https://raw.githubusercontent.com/StalkChain/fomo-mcp-api/main/LICENSE",
+    "https://data.stalkchain.com/.well-known/oauth-protected-resource/mcp"
+  ],
+  "maintainer": "StalkChain",
+  "added": "2026-11-23",
+  "updated": "2026-11-23",
+  "last_verified": "2026-11-23",
+  "submitted_by": "agentica-curator",
+  "status": "active"
+}
